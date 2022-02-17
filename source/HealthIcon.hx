@@ -20,6 +20,10 @@ class HealthIcon extends FlxSprite
 		animation.add('bf-car', [0, 1], 0, false, isPlayer);
 		animation.add('bf-christmas', [0, 1], 0, false, isPlayer);
 		animation.add('bf-pixel', [21, 21], 0, false, isPlayer);
+		animation.add('bf-sunset', [0, 1], 0, false, isPlayer);
+		animation.add('bf-night', [0, 1], 0, false, isPlayer);
+		animation.add('bf-unglitched', [0, 1], 0, false, isPlayer);
+		animation.add('bf-glitched', [0, 1], 0, false, isPlayer);
 		animation.add('spooky', [2, 3], 0, false, isPlayer);
 		animation.add('pico', [4, 5], 0, false, isPlayer);
 		animation.add('mom', [6, 7], 0, false, isPlayer);
@@ -37,7 +41,12 @@ class HealthIcon extends FlxSprite
 		animation.add('parents-christmas', [17, 18], 0, false, isPlayer);
 		animation.add('monster', [19, 20], 0, false, isPlayer);
 		animation.add('monster-christmas', [19, 20], 0, false, isPlayer);
-		animation.play(char);
+		animation.add('hex', [24, 25], 0, false, isPlayer);
+		animation.add('hex-sunset', [24, 25], 0, false, isPlayer);
+		animation.add('hex-night', [24, 25], 0, false, isPlayer);
+ 		animation.add('hex-unglitched', [26, 27], 0, false, isPlayer);
+ 		animation.add('hex-glitched', [26, 27], 0, false, isPlayer);
+     animation.play(char);
 
 		switch(char)
 		{

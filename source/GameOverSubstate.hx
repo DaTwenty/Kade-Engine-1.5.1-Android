@@ -21,10 +21,18 @@ class GameOverSubstate extends MusicBeatSubstate
 		switch (PlayState.SONG.player1)
 		{
 			case 'bf-pixel':
-				stageSuffix = '-pixel';
-				daBf = 'bf-pixel-dead';
+				  stageSuffix = '-pixel';
+				  daBf = 'bf-pixel-dead';
+      case 'bf-sunset':
+          daBf = 'bf-sunset';
+      case 'bf-night':
+          daBf = 'bf-night';
+		  case 'bf-unglitched':
+		      daBf = 'bf-unglitched';
+		  case 'bf-glitched':
+		      daBf = 'bf-glitched';
 			default:
-				daBf = 'bf';
+				  daBf = 'bf';
 		}
 
 		super();
