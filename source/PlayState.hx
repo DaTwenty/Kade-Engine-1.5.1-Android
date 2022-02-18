@@ -810,31 +810,31 @@ class PlayState extends MusicBeatState
           hexBack.antialiasing = true;
           hexBack.scrollFactor.set(0.9, 0.9);
           hexBack.setGraphicSize(Std.int(hexBack.width * 1.5));
-          add(hexBack);
+          // add(hexBack);
 
 					hexFront = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/weekend/hexFront', 'shared'));
 					hexFront.antialiasing = true;
 					hexFront.scrollFactor.set(0.9, 0.9);
 					hexFront.setGraphicSize(Std.int(hexFront.width * 1.5));
-          add(hexFront);
+          // add(hexFront);
 
 					topOverlay = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/weekend/topOverlay', 'shared'));
 					topOverlay.antialiasing = true;
 					topOverlay.scrollFactor.set(0.9, 0.9);
 					topOverlay.setGraphicSize(Std.int(topOverlay.width * 1.5));
-           add(topOverlay);
+          // add(topOverlay);
 
 					var crowd:FlxSprite = new FlxSprite(42, -14);
 					crowd.frames = Paths.getSparrowAtlas('hex/weekend/crowd', "shared");
 					crowd.antialiasing = true;
 					crowd.scrollFactor.set(0.9, 0.9);
 					crowd.setGraphicSize(Std.int(crowd.width * 1.5));
-					crowd.animation.addByPrefix('bop', 'Symbol 1', 24, false);
+					// crowd.animation.addByPrefix('bop', 'Symbol 1', 24, false);
           crowd.animation.play('bop');
-          add(crowd);
+         // add(crowd);
 
           hexSpotlights = new FlxTypedGroup<FlxSprite>();
-          add(hexSpotlights);
+         // add(hexSpotlights);
 
 					for (i in 0...4)
 					{
@@ -1089,14 +1089,12 @@ class PlayState extends MusicBeatState
       add(glitchedBoyfriend);
 */
 
-/*
     if (curStage == 'hexStageWeekend')
       add(hexBack);
       add(hexFront);
       add(boyfriend);
       add(dad);
       add(hexSpotlights); 
-*/
 
 		add(dad);
 		add(boyfriend);
