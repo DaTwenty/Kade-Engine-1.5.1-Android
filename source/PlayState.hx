@@ -1080,14 +1080,13 @@ class PlayState extends MusicBeatState
 		if (curStage == 'limo')
 			add(limo);
 
-/*
     if (curStage == 'hexStageGlitcher')
       add(gf);
       add(dad);
       add(boyfriend);
       add(glitchedHex);
       add(glitchedBoyfriend);
-*/
+
 
 /*
     if (curStage == 'hexStageWeekend')
@@ -1146,9 +1145,9 @@ class PlayState extends MusicBeatState
 		camFollow = new FlxObject(0, 0, 1, 1);
 
 		if (curStage == 'hexStageWeekend')
-            camFollow.setPosition(camPos.x, camPos.y + 160);
-            else
-        camFollow.setPosition(camPos.x, camPos.y);
+      camFollow.setPosition(camPos.x, camPos.y + 160);
+       else
+      camFollow.setPosition(camPos.x, camPos.y);
 
 		if (prevCamFollow != null)
 		{
