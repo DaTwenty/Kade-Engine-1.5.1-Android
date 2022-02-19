@@ -3902,6 +3902,7 @@ class PlayState extends MusicBeatState
 				dad.playAnim('cheer', true);
 			}
 
+/*
     if (curSong == 'Glitcher' && curBeat == 144 || curBeat == 207 || curBeat == 272 || curBeat == 333)
   {
 		glitched = !glitched;
@@ -3923,59 +3924,6 @@ class PlayState extends MusicBeatState
     FlxTween.tween(glitchedBoyfriend, {alpha: 0}, 0.15, {ease: FlxEase.linear});
      }
    }
-
-/*
-    if (curSong == 'Glitcher')
-    {
-    switch (curBeat)
-   {
-    case 144:
-// primer cambio a personajes glitched
-    boyfriend.alpha = 0;
-    glitchedBoyfriend.alpha = 1;
-    dad.alpha = 0;
-    glitchedHex.alpha = 1;
-    gf.alpha = 0;
- 
-    case 207:
-      
-// volvemos a la normalidad :carasexo:
-    FlxTween.tween(dad, {alpha: 1}, 0.15, {ease: FlxEase.linear});
-    FlxTween.tween(boyfriend, {alpha: 1}, 0.15, {ease: FlxEase.linear});
-    FlxTween.tween(gf, {alpha: 1}, 0.15, {ease: FlxEase.linear});
-// a tu casa gorda sucia
-    FlxTween.tween(glitchedHex, {alpha: 0}, 0.15, {ease: FlxEase.linear});
-    FlxTween.tween(glitchedBoyfriend, {alpha: 0}, 0.15, {ease: FlxEase.linear});
- 
-    case 272:
-   FlxTween.tween(dad, {alpha: 0}, 0.15, {ease: FlxEase.linear});
-   FlxTween.tween(boyfriend, {alpha: 0}, 0.15, {ease: FlxEase.linear});
-   FlxTween.tween(gf, {alpha: 0}, 0.15, {ease: FlxEase.linear});
- // haganle un corrupted xdxdxd
-   FlxTween.tween(glitchedHex, {alpha: 1}, 0.15, {ease: FlxEase.linear});
-   FlxTween.tween(glitchedBoyfriend, {alpha: 1}, 0.15, {ease: FlxEase.linear});
-
-    case 333:
-    FlxTween.tween(dad, {alpha: 1}, 0.15, {ease: FlxEase.linear});
-    FlxTween.tween(boyfriend, {alpha: 1}, 0.15, {ease: FlxEase.linear});
-    FlxTween.tween(gf, {alpha: 1}, 0.15, {ease: FlxEase.linear});
-// ultimo cambio
-    FlxTween.tween(glitchedHex, {alpha: 0}, 0.15, {ease: FlxEase.linear});
-    FlxTween.tween(glitchedBoyfriend, {alpha: 0}, 0.15, {ease: FlxEase.linear});
-      }
-   }
-
-//144 207, 272 333 <-- beats
-*/
-/*
-		if (curBeat == 144 && curSong == 'Glitcher')
-    {
-    boyfriend.alpha = 0;
-    glitchedBoyfriend.alpha = 1;
-    dad.alpha = 0;
-    glitchedHex.alpha = 1;
-    gf.alpha = 0;
-    }
 */
 
 		switch (curStage)
@@ -4006,20 +3954,42 @@ class PlayState extends MusicBeatState
 							fastCarDrive();
 				}
 
-/*
-				case "hexStageGlitcher":
-				if (curBeat == 144 || curBeat == 272)
-        {
-        FlxTween.tween(glitcherStage, {alpha: 1}, 0.15, {ease: FlxEase.linear});
-					FlxTween.tween(unGlitchedBG, {alpha: 0}, 0.15, {ease: FlxEase.linear});
-		    }
-		   else if (curBeat == 207 || curBeat == 333)
-        {
-         FlxTween.tween(glitcherStage, {alpha: 0}, 0.15, {ease: FlxEase.linear});
-					FlxTween.tween(unGlitchedBG, {alpha: 1}, 0.15, {ease: FlxEase.linear});
-        }
-*/
+      case "hexStageGlitcher":
+      if (curBeat == 144 || curBeat == 207 || curBeat == 272 || curBeat == 333)
+  {
+		glitched = !glitched;
+		if (glitched)
+		{
+// personajes normales //
+   FlxTween.tween(dad, {alpha: 0}, 0.15, {ease: FlxEase.linear});
+   FlxTween.tween(boyfriend, {alpha: 0}, 0.15, {ease: FlxEase.linear});
+   FlxTween.tween(gf, {alpha: 0}, 0.15, {ease: FlxEase.linear});
 
+// personajes glitched //
+   FlxTween.tween(glitchedHex, {alpha: 1}, 0.15, {ease: FlxEase.linear});
+   FlxTween.tween(glitchedBoyfriend, {alpha: 1}, 0.15, {ease: FlxEase.linear});
+
+// stage //
+   FlxTween.tween(glitcherStage, {alpha: 1}, 0.15, {ease: FlxEase.linear});
+	 FlxTween.tween(unGlitchedBG, {alpha: 0}, 0.15, {ease: FlxEase.linear});
+		}
+		else
+    {
+// personajes normales //
+    FlxTween.tween(dad, {alpha: 1}, 0.15, {ease: FlxEase.linear});
+    FlxTween.tween(boyfriend, {alpha: 1}, 0.15, {ease: FlxEase.linear});
+    FlxTween.tween(gf, {alpha: 1}, 0.15, {ease: FlxEase.linear});
+
+// personajes glitched //
+    FlxTween.tween(glitchedHex, {alpha: 0}, 0.15, {ease: FlxEase.linear});
+    FlxTween.tween(glitchedBoyfriend, {alpha: 0}, 0.15, {ease: FlxEase.linear});
+// stage //
+    FlxTween.tween(glitcherStage, {alpha: 0}, 0.15, {ease: FlxEase.linear});
+		FlxTween.tween(unGlitchedBG, {alpha: 1}, 0.15, {ease: FlxEase.linear});
+     }
+   }
+
+/*
 				case "hexStageGlitcher":
 				if (curSong == 'Glitcher')
 		{
@@ -4039,13 +4009,8 @@ class PlayState extends MusicBeatState
 					FlxTween.tween(unGlitchedBG, {alpha: 1}, 0.15, {ease: FlxEase.linear});
         }
 		} 
-/*
-      case "hexStageWeekend":
-      if (curBeat == 0)
-		{
-		 crowd.animation.play("bop");
-		}
 */
+
 			case "philly":
 				if(FlxG.save.data.distractions){
 					if (!trainMoving)
