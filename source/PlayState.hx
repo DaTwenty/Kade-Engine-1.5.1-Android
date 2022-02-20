@@ -194,7 +194,7 @@ class PlayState extends MusicBeatState
 // week 2: //
   public static var boyfriendCoolingDark:Character;
   public static var hexCoolingDark:Character;
-
+	public var dadWidth:Float = 0;
 /*
   var hexDarkBack:FlxSprite;
   var hexDarkFront:FlxSprite;
@@ -989,8 +989,6 @@ class PlayState extends MusicBeatState
     }
 
 		dad = new Character(100, 100, SONG.player2);
-
-	  public var dadWidth:Float = 0;
 
     if (curStage == 'hexStageWeekend')
     {
