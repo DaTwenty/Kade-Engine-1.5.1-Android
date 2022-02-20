@@ -999,6 +999,7 @@ class PlayState extends MusicBeatState
 	  dad.setGraphicSize(Std.int(dad.width * 0.75));
 		dadWidth = dad.width;
     }
+    }
 
 		var camPos:FlxPoint = new FlxPoint(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
 
