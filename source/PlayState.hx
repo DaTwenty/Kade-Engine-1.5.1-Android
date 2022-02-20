@@ -194,7 +194,7 @@ class PlayState extends MusicBeatState
 // week 2: //
   public static var boyfriendCoolingDark:Character;
   public static var hexCoolingDark:Character;
-	public var dadWidth:Float = 0;
+	// public var dadWidth:Float = 0;
 /*
   var hexDarkBack:FlxSprite;
   var hexDarkFront:FlxSprite;
@@ -983,21 +983,21 @@ class PlayState extends MusicBeatState
 		gf = new Character(400, 130, gfVersion);
 		gf.scrollFactor.set(0.95, 0.95);
  
+ /*
     if (curStage == 'hexStageWeekend')
     {
     gf.setGraphicSize(Std.int(gf.width * 0.75));
     }
+*/
 
 		dad = new Character(100, 100, SONG.player2);
 
+/*
     if (curStage == 'hexStageWeekend')
     {
-    if (dadWidth != dadWidth)
-    {
 	  dad.setGraphicSize(Std.int(dad.width * 0.75));
-		dadWidth = dad.width;
     }
-    }
+*/
 
 		var camPos:FlxPoint = new FlxPoint(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
 
@@ -1049,10 +1049,12 @@ class PlayState extends MusicBeatState
 		
 		boyfriend = new Boyfriend(770, 450, SONG.player1);
 
+/*
     if (curStage == 'hexStageWeekend')
     {
     boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
     }
+*/
 
 		// REPOSITIONING PER STAGE
 		switch (curStage)
@@ -1106,13 +1108,13 @@ class PlayState extends MusicBeatState
       add(glitchedHex);
       add(glitchedBoyfriend);
 
-/*
     if (curStage == 'hexStageWeekend')
     {
     gf.setGraphicSize(Std.int(gf.width * 0.75));
-		gf.scrollFactor.set(0.95, 0.95);
+    boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
+	  dad.setGraphicSize(Std.int(dad.width * 0.75));
     }
-*/
+
 /*
     if (curStage == 'hexStageWeekend')
       add(hexBack);
@@ -1121,6 +1123,7 @@ class PlayState extends MusicBeatState
       add(dad);
       add(hexSpotlights); 
 */
+
 		add(dad);
 		add(boyfriend);
 		if (loadRep)
