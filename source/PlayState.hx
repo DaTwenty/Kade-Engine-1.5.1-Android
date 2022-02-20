@@ -1220,7 +1220,7 @@ class PlayState extends MusicBeatState
 		healthBar.createFilledBar(0xFFFF0000, 0xFF66FF33);
     switch(dad.curCharacter)
     {
-    case 'hex' | 'hex-sunset' | 'hex-night':
+    case 'hex' | 'hex-sunset' | 'hex-night' | 'hex-cooling':
     healthBar.createFilledBar(0xFF51FFFF, 0xFF3078FF);
     case 'hex-unglitched' | 'hex-glitched':
     healthBar.createFilledBar(0xFFFF1D19, 0xFF3078FF);
