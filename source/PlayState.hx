@@ -982,6 +982,11 @@ class PlayState extends MusicBeatState
 
 		gf = new Character(400, 130, gfVersion);
 		gf.scrollFactor.set(0.95, 0.95);
+ 
+    if (curStage == 'hexStageWeekend')
+    {
+    gf.setGraphicSize(Std.int(gf.width * 0.75));
+    }
 
 		dad = new Character(100, 100, SONG.player2);
 
@@ -1087,7 +1092,13 @@ class PlayState extends MusicBeatState
       add(glitchedHex);
       add(glitchedBoyfriend);
 
-
+/*
+    if (curStage == 'hexStageWeekend')
+    {
+    gf.setGraphicSize(Std.int(gf.width * 0.75));
+		gf.scrollFactor.set(0.95, 0.95);
+    }
+*/
 /*
     if (curStage == 'hexStageWeekend')
       add(hexBack);
