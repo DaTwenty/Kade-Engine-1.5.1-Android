@@ -1045,6 +1045,8 @@ class PlayState extends MusicBeatState
 			glitchedHex.x -= 10;
 		}
 
+		if (dad.curCharacter.startsWith("hex"))
+			camPos.set(dad.getGraphicMidpoint().x + 145, dad.getGraphicMidpoint().y - 145);
 
 		
 		boyfriend = new Boyfriend(770, 450, SONG.player1);
