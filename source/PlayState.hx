@@ -810,13 +810,13 @@ class PlayState extends MusicBeatState
           hexBack.antialiasing = true;
           hexBack.scrollFactor.set(0.9, 0.9);
           hexBack.setGraphicSize(Std.int(hexBack.width * 1.5));
-          // add(hexBack);
+          add(hexBack);
 
 					hexFront = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/weekend/hexFront', 'shared'));
 					hexFront.antialiasing = true;
 					hexFront.scrollFactor.set(0.9, 0.9);
 					hexFront.setGraphicSize(Std.int(hexFront.width * 1.5));
-          // add(hexFront);
+          add(hexFront);
 
 					topOverlay = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/weekend/topOverlay', 'shared'));
 					topOverlay.antialiasing = true;
@@ -1092,13 +1092,10 @@ class PlayState extends MusicBeatState
 
     if (curStage == 'hexStageWeekend')
     {
-    add(hexBack);
-    add(hexFront);
-    add(gf);
-    gf.setGraphicSize(Std.int(gf.width * 0.75));
     add(dad);
-    dad.setGraphicSize(Std.int(dad.width * 0.75));
     add(boyfriend);
+    gf.setGraphicSize(Std.int(gf.width * 0.75));
+    dad.setGraphicSize(Std.int(dad.width * 0.75));
     boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
     add(crowd);
     }
