@@ -988,7 +988,17 @@ class PlayState extends MusicBeatState
     gf.setGraphicSize(Std.int(gf.width * 0.75));
     }
 
+	  public var dadWidth:Float = 0;
+
 		dad = new Character(100, 100, SONG.player2);
+
+    if (curStage == 'hexStageWeekend')
+    {
+    if (dadWidth != dadWidth)
+    {
+	  dad.setGraphicSize(Std.int(dad.width * 0.75));
+		dadWidth = dad.width;
+    }
 
 		var camPos:FlxPoint = new FlxPoint(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
 
@@ -1039,6 +1049,11 @@ class PlayState extends MusicBeatState
 
 		
 		boyfriend = new Boyfriend(770, 450, SONG.player1);
+
+    if (curStage == 'hexStageWeekend')
+    {
+    boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
+    }
 
 		// REPOSITIONING PER STAGE
 		switch (curStage)
