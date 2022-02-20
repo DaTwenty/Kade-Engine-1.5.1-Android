@@ -988,9 +988,9 @@ class PlayState extends MusicBeatState
     gf.setGraphicSize(Std.int(gf.width * 0.75));
     }
 
-	  public var dadWidth:Float = 0;
-
 		dad = new Character(100, 100, SONG.player2);
+
+	  public var dadWidth:Float = 0;
 
     if (curStage == 'hexStageWeekend')
     {
