@@ -810,13 +810,13 @@ class PlayState extends MusicBeatState
           hexBack.antialiasing = true;
           hexBack.scrollFactor.set(0.9, 0.9);
           hexBack.setGraphicSize(Std.int(hexBack.width * 1.5));
-          add(hexBack);
+          // add(hexBack);
 
 					hexFront = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/weekend/hexFront', 'shared'));
 					hexFront.antialiasing = true;
 					hexFront.scrollFactor.set(0.9, 0.9);
 					hexFront.setGraphicSize(Std.int(hexFront.width * 1.5));
-          add(hexFront);
+          // add(hexFront);
 
 					topOverlay = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/weekend/topOverlay', 'shared'));
 					topOverlay.antialiasing = true;
@@ -830,8 +830,8 @@ class PlayState extends MusicBeatState
 					crowd.scrollFactor.set(0.9, 0.9);
 					crowd.setGraphicSize(Std.int(crowd.width * 1.5));
 					crowd.animation.addByPrefix('bop', 'Symbol 1', 24, false);
-          crowd.animation.play('bop');
-         add(crowd);
+          //crowd.animation.play('bop');
+         //add(crowd);
 
           hexSpotlights = new FlxTypedGroup<FlxSprite>();
          add(hexSpotlights);
@@ -976,28 +976,16 @@ class PlayState extends MusicBeatState
 				gfVersion = 'gf-night';
 			case 'gf-glitcher':
 				gfVersion = 'gf-glitcher';
+      case 'gf-cooling':
+        gfVersion = 'gf-cooling';
 			default:
 				gfVersion = 'gf';
 		}
 
 		gf = new Character(400, 130, gfVersion);
 		gf.scrollFactor.set(0.95, 0.95);
- 
- /*
-    if (curStage == 'hexStageWeekend')
-    {
-    gf.setGraphicSize(Std.int(gf.width * 0.75));
-    }
-*/
 
 		dad = new Character(100, 100, SONG.player2);
-
-/*
-    if (curStage == 'hexStageWeekend')
-    {
-	  dad.setGraphicSize(Std.int(dad.width * 0.75));
-    }
-*/
 
 		var camPos:FlxPoint = new FlxPoint(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
 
@@ -1048,15 +1036,7 @@ class PlayState extends MusicBeatState
 		if (dad.curCharacter.startsWith("hex"))
 			camPos.set(dad.getGraphicMidpoint().x + 145, dad.getGraphicMidpoint().y - 145);
 
-		
 		boyfriend = new Boyfriend(770, 450, SONG.player1);
-
-/*
-    if (curStage == 'hexStageWeekend')
-    {
-    boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
-    }
-*/
 
 		// REPOSITIONING PER STAGE
 		switch (curStage)
@@ -1112,9 +1092,15 @@ class PlayState extends MusicBeatState
 
     if (curStage == 'hexStageWeekend')
     {
+    add(hexBack);
+    add(hexFront);
+    add(gf);
     gf.setGraphicSize(Std.int(gf.width * 0.75));
+    add(dad);
+    dad.setGraphicSize(Std.int(dad.width * 0.75));
+    add(boyfriend);
     boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
-	  dad.setGraphicSize(Std.int(dad.width * 0.75));
+    add(crowd);
     }
 
 /*
