@@ -824,7 +824,7 @@ class PlayState extends MusicBeatState
 					topOverlay.setGraphicSize(Std.int(topOverlay.width * 1.5));
           add(topOverlay);
 
-					var crowd:FlxSprite = new FlxSprite(42, -14);
+					crowd = new FlxSprite(42, -14);
 					crowd.frames = Paths.getSparrowAtlas('hex/weekend/crowd', "shared");
 					crowd.antialiasing = true;
 					crowd.scrollFactor.set(0.9, 0.9);
@@ -1099,10 +1099,6 @@ class PlayState extends MusicBeatState
 // IK ITS STUPID THIS BUT ANYWAYS //
     if (curStage == 'hexStageWeekend')
     {
-      remove(crowd);
-      remove(gf);
-      remove(dad);
-      remove(boyfriend);
       add(gf);
       add(dad);
       add(boyfriend);
