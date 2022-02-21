@@ -1098,6 +1098,11 @@ class PlayState extends MusicBeatState
 
     if (curStage == 'hexStageWeekend')
     {
+      remove(crowd);
+      add(gf);
+      add(dad);
+      add(boyfriend);
+      add(crowd);
     gf.setGraphicSize(Std.int(gf.width * 0.75));
     dad.setGraphicSize(Std.int(dad.width * 0.75));
     boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
