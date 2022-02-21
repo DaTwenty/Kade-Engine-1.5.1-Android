@@ -810,19 +810,19 @@ class PlayState extends MusicBeatState
           hexBack.antialiasing = true;
           hexBack.scrollFactor.set(0.9, 0.9);
           hexBack.setGraphicSize(Std.int(hexBack.width * 1.5));
-          //add(hexBack);
+          add(hexBack);
 
 					hexFront = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/weekend/hexFront', 'shared'));
 					hexFront.antialiasing = true;
 					hexFront.scrollFactor.set(0.9, 0.9);
 					hexFront.setGraphicSize(Std.int(hexFront.width * 1.5));
-          //add(hexFront);
+          add(hexFront);
 
 					topOverlay = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/weekend/topOverlay', 'shared'));
 					topOverlay.antialiasing = true;
 					topOverlay.scrollFactor.set(0.9, 0.9);
 					topOverlay.setGraphicSize(Std.int(topOverlay.width * 1.5));
-          //add(topOverlay);
+          add(topOverlay);
 
 					var crowd:FlxSprite = new FlxSprite(42, -14);
 					crowd.frames = Paths.getSparrowAtlas('hex/weekend/crowd', "shared");
@@ -831,10 +831,10 @@ class PlayState extends MusicBeatState
 					crowd.setGraphicSize(Std.int(crowd.width * 1.5));
 					crowd.animation.addByPrefix('bop', 'Symbol 1', 24, false);
           //crowd.animation.play('bop');
-         //add(crowd);
+         add(crowd);
 
           hexSpotlights = new FlxTypedGroup<FlxSprite>();
-         //add(hexSpotlights);
+         add(hexSpotlights);
 
 					for (i in 0...4)
 					{
@@ -844,7 +844,7 @@ class PlayState extends MusicBeatState
 						spotlight.setGraphicSize(Std.int(spotlight.width * 1.5));
 						spotlight.alpha = 0;
 						spotlight.blend = BlendMode.ADD;
-           // hexSpotlights.add(spotlight);
+            hexSpotlights.add(spotlight);
 					}
 
 /*
@@ -1069,12 +1069,18 @@ class PlayState extends MusicBeatState
 				add(evilTrail);
 				// evilTrail.scrollFactor.set(1.1, 1.1);
 				}
-
 				boyfriend.x += 200;
 				boyfriend.y += 220;
 				gf.x += 180;
 				gf.y += 300;
 
+       case 'hexStageWeekend':
+       gf.x = 248;
+       gf.y = -33;
+       boyfriend.x = 753;
+       boyfriend.y = 258;
+       dad.x = 69;
+       dad.y = -58;
 		}
 
 		add(gf);
@@ -1092,17 +1098,9 @@ class PlayState extends MusicBeatState
 
     if (curStage == 'hexStageWeekend')
     {
-    add(hexBack);
-    add(hexFront);
-    add(topOverlay);
-    add(dad);
-    add(boyfriend);
     gf.setGraphicSize(Std.int(gf.width * 0.75));
     dad.setGraphicSize(Std.int(dad.width * 0.75));
     boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
-    add(crowd);
-    add(hexSpotlights);
-    hexSpotlights.add(spotlight);
     }
 
 /*
