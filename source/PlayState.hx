@@ -1096,16 +1096,20 @@ class PlayState extends MusicBeatState
       add(glitchedHex);
       add(glitchedBoyfriend);
 
+// IK ITS STUPID THIS BUT ANYWAYS //
     if (curStage == 'hexStageWeekend')
     {
       remove(crowd);
+      remove(gf);
+      remove(dad);
+      remove(boyfriend);
       add(gf);
       add(dad);
       add(boyfriend);
-      add(crowd);
     gf.setGraphicSize(Std.int(gf.width * 0.75));
     dad.setGraphicSize(Std.int(dad.width * 0.75));
     boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
+      add(crowd);
     }
 
 /*
