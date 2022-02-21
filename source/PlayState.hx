@@ -155,7 +155,7 @@ class PlayState extends MusicBeatState
 
 	public var dialogue:Array<String> = ['dad:blah blah blah', 'bf:coolswag'];
 
-// Vainilla: //
+// Vanilla: //
 // week 2: //
 	var halloweenBG:FlxSprite;
 	var isHalloween:Bool = false;
@@ -174,8 +174,8 @@ class PlayState extends MusicBeatState
 	var santa:FlxSprite;
 
 
-// vs hex // 
-// week 1: //
+// Vs Hex: Weekend Update // 
+// Week 1: //
   var unGlitchedBG:FlxSprite;
   var glitcherStage:FlxSprite;
 // week 2: //
@@ -186,20 +186,16 @@ class PlayState extends MusicBeatState
   var hexSpotlights:FlxTypedGroup<FlxSprite>;
   var spotlight:FlxSprite;
 
-// hex shit //
-// week 1: //
+// Hex shit //
+// Week 1: //
   public static var glitchedBoyfriend:Boyfriend;
   public static var glitchedHex:Character;
  public static var glitched:Bool = false;
-// week 2: //
-  public static var boyfriendCoolingDark:Character;
+// Week 2: //
+  public static var boyfriendCoolingDark:Boyfriend;
   public static var hexCoolingDark:Character;
-	// public var dadWidth:Float = 0;
-/*
-  var hexDarkBack:FlxSprite;
-  var hexDarkFront:FlxSprite;
-  var topDarkOverlay:FlxSprite;
-*/
+  public static var gfCoolingDark:Boyfriend;
+	public static var dark:Bool = false;
 
 	var fc:Bool = true;
 
@@ -847,10 +843,12 @@ class PlayState extends MusicBeatState
             hexSpotlights.add(spotlight);
 					}
 
-/*
             hexCoolingDark = new Character(69, -58, 'hex-cooling-dark');
-            boyfriendCoolingDark = new Boyfriend(753, 258, 'boyfriend-cooling-dark'
-*/
+            boyfriendCoolingDark = new Boyfriend(753, 258, 'boyfriend-cooling-dark');
+						gfCoolingDark = new Boyfriend(248, -33, 'gf-cooling-dark');
+            hexCoolingDark.alpha = 0;
+            boyfriendCoolingDark.alpha = 0;
+            gfCoolingDark.alpha = 0;
 
 /*
 					swagBacks['crowd'] = sprite;
@@ -978,6 +976,8 @@ class PlayState extends MusicBeatState
 				gfVersion = 'gf-glitcher';
       case 'gf-cooling':
         gfVersion = 'gf-cooling';
+      case 'gf-cooling-dark':
+        gfVersion = 'gf-cooling-dark';
 			default:
 				gfVersion = 'gf';
 		}

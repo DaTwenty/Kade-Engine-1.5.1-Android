@@ -246,6 +246,38 @@ class Character extends FlxSprite
 
 				playAnim('danceRight');
 
+			case 'gf-cooling-dark':
+				tex = Paths.getSparrowAtlas('hex/characters/gf_cooling_dark', 'shared');
+				frames = tex;
+				animation.addByPrefix('cheer', 'GF Cheer', 24, false);
+				animation.addByPrefix('singLEFT', 'GF left note', 24, false);
+				animation.addByPrefix('singRIGHT', 'GF Right Note', 24, false);
+				animation.addByPrefix('singUP', 'GF Up Note', 24, false);
+				animation.addByPrefix('singDOWN', 'GF Down Note', 24, false);
+				animation.addByIndices('sad', 'gf sad', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "", 24, false);
+				animation.addByIndices('danceLeft', 'GF Dancing Beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+				animation.addByIndices('danceRight', 'GF Dancing Beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+				animation.addByIndices('hairBlow', "GF Dancing Beat Hair blowing", [0, 1, 2, 3], "", 24);
+				animation.addByIndices('hairFall', "GF Dancing Beat Hair Landing", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "", 24, false);
+				animation.addByPrefix('scared', 'GF FEAR', 24);
+
+				addOffset('cheer');
+				addOffset('sad', -2, -2);
+				addOffset('danceLeft', 0, -9);
+				addOffset('danceRight', 0, -9);
+
+				addOffset("singUP", 0, 4);
+				addOffset("singRIGHT", 0, -20);
+				addOffset("singLEFT", 0, -19);
+				addOffset("singDOWN", 0, -20);
+				addOffset('hairBlow', 45, -8);
+				addOffset('hairFall', 0, -9);
+
+				addOffset('scared', -2, -17);
+
+				playAnim('danceRight');
+				flipX = true;
+
 			case 'dad':
 				// DAD ANIMATION LOADING CODE
 				tex = Paths.getSparrowAtlas('characters/DADDY_DEAREST', 'shared');
@@ -495,6 +527,24 @@ class Character extends FlxSprite
 
 				playAnim('idle');
 
+			case "hex-cooling-dark":
+				tex = Paths.getSparrowAtlas('hex/characters/hex_cooling_dark', 'shared');
+				frames = tex;
+				animation.addByPrefix('idle', 'Dad idle dance', 24, false);
+				animation.addByPrefix('singUP', 'Dad Sing Note UP', 24, false);
+				animation.addByPrefix('singRIGHT', 'Dad Sing Note RIGHT', 24, false);
+				animation.addByPrefix('singDOWN', 'Dad Sing Note DOWN', 24, false);
+				animation.addByPrefix('singLEFT', 'Dad Sing Note LEFT', 24, false);
+
+        addOffset('idle');
+        addOffset("singDOWN", 0, -36);
+        addOffset("singRIGHT", -10, 24);
+        addOffset("singUP", 27, 41);
+        addOffset("singLEFT", -4, 1);
+
+				playAnim('idle');
+
+
 			case 'bf':
 				var tex = Paths.getSparrowAtlas('characters/BOYFRIEND', 'shared');
 				frames = tex;
@@ -732,9 +782,8 @@ class Character extends FlxSprite
 
 				flipX = true;
 
-/*
 		case 'bf-cooling-dark':
-				var tex = Paths.getSparrowAtlas('characters/bf_cooling_dark', 'shared');
+		var tex = Paths.getSparrowAtlas('hex/characters/bf_cooling_dark', 'shared');
 				frames = tex;
 
 				trace(tex.frames.length);
@@ -774,7 +823,7 @@ class Character extends FlxSprite
 				playAnim('idle');
 
 				flipX = true;
-*/
+
 
 			case 'bf-christmas':
 				var tex = Paths.getSparrowAtlas('characters/bfChristmas');
@@ -1035,7 +1084,7 @@ class Character extends FlxSprite
 		{
 			switch (curCharacter)
 			{
-				case 'gf':
+				case 'gf' | 'gf-sunset' | 'gf-night' | 'gf-glitcher' | 'gf-cooling' | 'gf-cooling-dark':
 					if (!animation.curAnim.name.startsWith('hair'))
 					{
 						danced = !danced;
@@ -1046,6 +1095,7 @@ class Character extends FlxSprite
 							playAnim('danceLeft');
 					}
 
+/* guardo el codigo por las dudas 
 				case 'gf-sunset':
 					if (!animation.curAnim.name.startsWith('hair'))
 					{
@@ -1089,6 +1139,7 @@ class Character extends FlxSprite
 						else
 							playAnim('danceLeft');
 					}
+*/
 
 				case 'gf-christmas':
 					if (!animation.curAnim.name.startsWith('hair'))
