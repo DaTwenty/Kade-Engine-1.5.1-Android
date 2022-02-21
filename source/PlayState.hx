@@ -831,7 +831,7 @@ class PlayState extends MusicBeatState
 					crowd.setGraphicSize(Std.int(crowd.width * 1.5));
 					crowd.animation.addByPrefix('bop', 'Symbol 1', 24, false);
           //crowd.animation.play('bop');
-         add(crowd);
+         // add(crowd);
 
           hexSpotlights = new FlxTypedGroup<FlxSprite>();
          add(hexSpotlights);
