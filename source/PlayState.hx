@@ -191,6 +191,8 @@ class PlayState extends MusicBeatState
   var hexDarkFront:FlxSprite;
   var topDarkOverlay:FlxSprite;
   var darkCrowd:FlxSprite;
+  var hexDarkSpotlights:FlxTypedGroup<FlxSprite>;
+  var darkSpotlight:FlxSprite;
 
 // Hex shit //
 // Week 1: //
@@ -878,15 +880,17 @@ class PlayState extends MusicBeatState
 						darkCrowd.scrollFactor.set(0.9, 0.9);
 						darkCrowd.setGraphicSize(Std.int(darkCrowd.width * 1.5));
 
-
+          hexDarkSpotlights = new FlxTypedGroup<FlxSprite>();
+          add(hexDarkSpotlights);
 
 						for (i in 0...2)
 						{
-							var darkSpotlight = new FlxSprite(0, 0).loadGraphic(Paths.image('weekend/breakSpotlight', 'hex'));
+							var darkSpotlight = new FlxSprite(0, 0).loadGraphic(Paths.image('hex/weekend/breakSpotlight', 'shared'));
 							darkSpotlight.antialiasing = true;
 							darkSpotlight.scrollFactor.set(0.9, 0.9);
 							darkSpotlight.setGraphicSize(Std.int(darkSpotlight.width * 1.5));
 							darkSpotlight.blend = BlendMode.ADD;
+              hexDarkSpotlights.add(darkSpotlight);
 						}
 
             hexCoolingDark.alpha = 0;
