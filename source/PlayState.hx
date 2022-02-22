@@ -1069,9 +1069,10 @@ class PlayState extends MusicBeatState
     boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
 // pitos en mi cara ay si que rico uwuwuw //
 // hola Dani besos en la verga ojala te atropellen (con amor) //
-    gfCoolingDark.setGraphicSize(Std.int(gf.width * 0.75));
-    hexCoolingDark.setGraphicSize(Std.int(hexCoolingDark.width * 0.75));
-    boyfriendCoolingDark.setGraphicSize(Std.int(boyfriendCoolingDark * 0.75));
+     if (dark)
+     gfCoolingDark.setGraphicSize(Std.int(gfCoolingDark.width * 0.75));
+     hexCoolingDark.setGraphicSize(Std.int(hexCoolingDark.width * 0.75));
+    boyfriendCoolingDark.setGraphicSize(Std.int(boyfriendCoolingDark.width * 0.75));
       add(crowd);
       add(darkCrowd);
     }
