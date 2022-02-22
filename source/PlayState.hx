@@ -179,12 +179,18 @@ class PlayState extends MusicBeatState
   var unGlitchedBG:FlxSprite;
   var glitcherStage:FlxSprite;
 // week 2: //
+// the motherfucker //
   var hexBack:FlxSprite;
   var hexFront:FlxSprite;
   var topOverlay:FlxSprite;
   var crowd:FlxSprite;
   var hexSpotlights:FlxTypedGroup<FlxSprite>;
   var spotlight:FlxSprite;
+// el follamamis //
+  var hexDarkBack:FlxSprite;
+  var hexDarkFront:FlxSprite;
+  var topDarkOverlay:FlxSprite;
+  var darkCrowd:FlxSprite;
 
 // Hex shit //
 // Week 1: //
@@ -846,88 +852,39 @@ class PlayState extends MusicBeatState
             hexCoolingDark = new Character(69, -58, 'hex-cooling-dark');
             boyfriendCoolingDark = new Boyfriend(753, 258, 'boyfriend-cooling-dark');
 						gfCoolingDark = new Boyfriend(248, -33, 'gf-cooling-dark');
+
+						hexDarkBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/weekend/breakBack', 'shared'));
+						hexDarkBack.antialiasing = true;
+						hexDarkBack.scrollFactor.set(0.9, 0.9);
+						hexDarkBack.setGraphicSize(Std.int(hexDarkBack.width * 1.5));
+            add(hexDarkBack);
+
+					  hexDarkFront = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/weekend/breakFront', 'shared'));
+						hexDarkFront.antialiasing = true;
+						hexDarkFront.scrollFactor.set(0.9, 0.9);
+						hexDarkFront.setGraphicSize(Std.int(hexDarkFront.width * 1.5));
+            add(hexDarkFront);
+
+						topDarkOverlay = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/weekend/breakOverlay', 'shared'));
+						topDarkOverlay.antialiasing = true;
+						topDarkOverlay.scrollFactor.set(0.9, 0.9);
+						topDarkOverlay.setGraphicSize(Std.int(topDarkOverlay.width * 1.5));
+            add(topDarkOverlay);
+
+						darkCrowd = new FlxSprite(42, -14);
+						darkCrowd.frames = Paths.getSparrowAtlas('hex/weekend/crowd_dark', 'shared');
+						darkCrowd.animation.addByPrefix('bop', 'Symbol 1', 24, false);
+						darkCrowd.antialiasing = true;
+						darkCrowd.scrollFactor.set(0.9, 0.9);
+						darkCrowd.setGraphicSize(Std.int(darkCrowd.width * 1.5));
+
             hexCoolingDark.alpha = 0;
             boyfriendCoolingDark.alpha = 0;
             gfCoolingDark.alpha = 0;
-
-/*
-					swagBacks['crowd'] = sprite;
-
-					toAdd.push(swagBacks['hexBack']);
-					toAdd.push(swagBacks['hexFront']);
-
-					// spotlights
-
-					for (i in 0...4)
-					{
-						var spotlight = new FlxSprite(-24, 24).loadGraphic(Paths.image('weekend/spot' + (i + 1), 'hex'));
-						spotlight.antialiasing = true;
-						spotlight.scrollFactor.set(0.9, 0.9);
-						spotlight.setGraphicSize(Std.int(spotlight.width * 1.5));
-						spotlight.alpha = 0;
-
-						spotlight.blend = BlendMode.ADD;
-
-						swagBacks['spot' + i] = spotlight;
-						layInFront[0].push(swagBacks['spot' + i]);
-					}
-					if (PlayState.SONG.songId.toLowerCase() == "cooling")
-					{
-						PlayState.coolingDad = new Character(69, -58, 'hex-wc');
-						PlayState.coolingBF = new Boyfriend(753, 258, 'bf-wc');
-						PlayState.coolingGF = new Boyfriend(248, -33, 'gf-wc');
-
-						PlayState.coolingDad.alpha = 0;
-						PlayState.coolingBF.alpha = 0;
-						PlayState.coolingGF.alpha = 0;
-
-						swagBacks['hexDarkBack'] = new FlxSprite(-24, 24).loadGraphic(Paths.image('weekend/breakBack', 'hex'));
-						swagBacks['hexDarkBack'].antialiasing = true;
-						swagBacks['hexDarkBack'].scrollFactor.set(0.9, 0.9);
-						swagBacks['hexDarkBack'].setGraphicSize(Std.int(swagBacks['hexDarkBack'].width * 1.5));
-
-						swagBacks['hexDarkFront'] = new FlxSprite(-24, 24).loadGraphic(Paths.image('weekend/breakFront', 'hex'));
-						swagBacks['hexDarkFront'].antialiasing = true;
-						swagBacks['hexDarkFront'].scrollFactor.set(0.9, 0.9);
-						swagBacks['hexDarkFront'].setGraphicSize(Std.int(swagBacks['hexDarkFront'].width * 1.5));
-
-						swagBacks['topDarkOverlay'] = new FlxSprite(-24, 24).loadGraphic(Paths.image('weekend/breakOverlay', 'hex'));
-						swagBacks['topDarkOverlay'].antialiasing = true;
-						swagBacks['topDarkOverlay'].scrollFactor.set(0.9, 0.9);
-						swagBacks['topDarkOverlay'].setGraphicSize(Std.int(swagBacks['topDarkOverlay'].width * 1.5));
-
-						var dsprite:FlxSprite = new FlxSprite(42, -14);
-						dsprite.frames = Paths.getSparrowAtlas('weekend/crowd_dark', "hex");
-						dsprite.animation.addByPrefix('bop', 'Symbol 1', 24, false);
-						dsprite.antialiasing = true;
-						dsprite.scrollFactor.set(0.9, 0.9);
-						dsprite.setGraphicSize(Std.int(dsprite.width * 1.5));
-
-						swagBacks['darkCrowd'] = dsprite;
-
-						swagBacks['hexDarkBack'].alpha = 0;
-						swagBacks['hexDarkFront'].alpha = 0;
-						swagBacks['topDarkOverlay'].alpha = 0;
-						swagBacks['darkCrowd'].alpha = 0;
-
-						toAdd.push(swagBacks['hexDarkBack']);
-						toAdd.push(swagBacks['hexDarkFront']);
-
-						for (i in 0...2)
-						{
-							var spotlight = new FlxSprite(0, 0).loadGraphic(Paths.image('weekend/breakspotlight', 'hex'));
-							spotlight.antialiasing = true;
-							spotlight.scrollFactor.set(0.9, 0.9);
-							spotlight.setGraphicSize(Std.int(spotlight.width * 1.5));
-							spotlight.alpha = 0;
-
-							spotlight.blend = BlendMode.ADD;
-
-							swagBacks['breakSpot' + i] = spotlight;
-							layInFront[0].push(swagBacks['breakSpot' + i]);
-						}
-					}
-*/
+            hexDarkBack.alpha = 0;
+            hexDarkFront.alpha = 0;
+            topDarkOverlay.alpha = 0;
+            darkCrowd.alpha = 0;
 				}
 
 			default:
@@ -1102,20 +1059,25 @@ class PlayState extends MusicBeatState
       add(gf);
       add(dad);
       add(boyfriend);
-    gf.setGraphicSize(Std.int(gf.width * 0.75));
-    dad.setGraphicSize(Std.int(dad.width * 0.75));
+      add(gfCoolingDark);
+      add(hexCoolingDark);
+      add(boyfriendCoolingDark);
+ // tu mamita en mi camita //
+// que rico te mueves darkwolf97070 //
+     gf.setGraphicSize(Std.int(gf.width * 0.75));
+     dad.setGraphicSize(Std.int(dad.width * 0.75));
     boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
+// pitos en mi cara ay si que rico uwuwuw //
+// hola Dani besos en la verga ojala te atropellen (con amor) //
+    gfCoolingDark.setGraphicSize(Std.int(gf.width * 0.75));
+    hexCoolingDark.setGraphicSize(Std.int(hexCoolingDark.width * 0.75));
+    boyfriendCoolingDark.setGraphicSize(Std.int(boyfriendCoolingDark * 0.75));
       add(crowd);
+      add(darkCrowd);
     }
 
-/*
-    if (curStage == 'hexStageWeekend')
-      add(hexBack);
-      add(hexFront);
-      add(boyfriend);
-      add(dad);
-      add(hexSpotlights); 
-*/
+// culo //
+// manden tetas //
 
 		add(dad);
 		add(boyfriend);
@@ -1514,6 +1476,8 @@ class PlayState extends MusicBeatState
 			dad.dance();
 			gf.dance();
 			boyfriend.playAnim('idle');
+      if (dark)
+      gfCoolingDark.playAnim('idle');
 
 			var introAssets:Map<String, Array<String>> = new Map<String, Array<String>>();
 			introAssets.set('default', ['ready', "set", "go"]);
@@ -2672,7 +2636,7 @@ class PlayState extends MusicBeatState
 								altAnim = '-alt';
 						}
 	
-	//sexo gay
+            	// sexo gay //
 						switch (Math.abs(daNote.noteData))
 						{
 							case 2:
@@ -2681,11 +2645,17 @@ class PlayState extends MusicBeatState
                 if (glitched)
 								glitchedHex.playAnim('singUP' + altAnim, true);
 
+                if (dark)
+                hexCoolingDark.playAnim('singUP' + altAnim, true);
+
 							case 3:
 								dad.playAnim('singRIGHT' + altAnim, true);
 								
                 if (glitched)
 									glitchedHex.playAnim('singRIGHT' + altAnim, true);
+
+                  if (dark)
+                  hexCoolingDark.playAnim('singRIGHT' + altAnim)
 
 							case 1:
 								dad.playAnim('singDOWN' + altAnim, true);
@@ -2693,12 +2663,18 @@ class PlayState extends MusicBeatState
                 if (glitched)
 								glitchedHex.playAnim('singDOWN' + altAnim, true);
 
+                  if (dark)
+                  hexCoolingDark.playAnim('singDOWN' + altAnim)
 
 							case 0:
 								dad.playAnim('singLEFT' + altAnim, true);
 				
                 if (glitched)
 								glitchedHex.playAnim('singLEFT' + altAnim, true);
+
+                  if (dark)
+                  hexCoolingDark.playAnim('singLEFT' + altAnim)
+
 						}
 						
 						if (FlxG.save.data.cpuStrums)
@@ -3908,9 +3884,13 @@ class PlayState extends MusicBeatState
 	
 		if (glitched && !glitchedBoyfriend.animation.curAnim.name.startsWith("sing"))
 			{
-			    glitchedBoyfriend.playAnim('idle');
+		 glitchedBoyfriend.playAnim('idle');
 			}
 
+   if (dark && !boyfriendCoolingDark.animation.curAnim.name.startsWith("sing"))
+   {
+    boyfriendCoolingDark.playAnim('idle');
+   }
 
 		if (curBeat % 8 == 7 && curSong == 'Bopeebo')
 		{
@@ -3960,9 +3940,6 @@ class PlayState extends MusicBeatState
 					bottomBoppers.animation.play('bop', true);
 					santa.animation.play('idle', true);
 				}
-
-			//case 'hexStageWeekend':
-					//crowd.animation.play('bop', true);
 
 			case 'limo':
 				if(FlxG.save.data.distractions){
