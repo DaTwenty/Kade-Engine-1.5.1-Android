@@ -907,7 +907,6 @@ class PlayState extends MusicBeatState
               hexDarkSpotlights.add(darkSpotlight);
 */
 						}
-				}
 
 			default:
 			{
