@@ -2655,7 +2655,7 @@ class PlayState extends MusicBeatState
 									glitchedHex.playAnim('singRIGHT' + altAnim, true);
 
                   if (dark)
-                  hexCoolingDark.playAnim('singRIGHT' + altAnim)
+                  hexCoolingDark.playAnim('singRIGHT' + altAnim);
 
 							case 1:
 								dad.playAnim('singDOWN' + altAnim, true);
@@ -2664,7 +2664,7 @@ class PlayState extends MusicBeatState
 								glitchedHex.playAnim('singDOWN' + altAnim, true);
 
                   if (dark)
-                  hexCoolingDark.playAnim('singDOWN' + altAnim)
+                  hexCoolingDark.playAnim('singDOWN' + altAnim);
 
 							case 0:
 								dad.playAnim('singLEFT' + altAnim, true);
@@ -2673,7 +2673,7 @@ class PlayState extends MusicBeatState
 								glitchedHex.playAnim('singLEFT' + altAnim, true);
 
                   if (dark)
-                  hexCoolingDark.playAnim('singLEFT' + altAnim)
+                  hexCoolingDark.playAnim('singLEFT' + altAnim);
 
 						}
 						
@@ -2704,6 +2704,8 @@ class PlayState extends MusicBeatState
 						dad.holdTimer = 0;
             if (glitched)
 	          glitchedHex.holdTimer = 0;
+            if (dark)
+            hexCoolingDark.holdTimer = 0;
 
 						if (SONG.needsVoices)
 							vocals.volume = 1;
@@ -3465,21 +3467,29 @@ class PlayState extends MusicBeatState
 					boyfriend.playAnim('singLEFTmiss', true);
           if (glitched)
 					glitchedBoyfriend.playAnim('singLEFTmiss', true);
+          if (dark)
+          boyfriendCoolingDark.playAnim('singLEFTmiss', true);
 
 				case 1:
 					boyfriend.playAnim('singDOWNmiss', true);
           if (glitched)
 					glitchedBoyfriend.playAnim('singDOWNmiss', true);
+          if (dark)
+          boyfriendCoolingDark.playAnim('singDOWNmiss', true);
 
 				case 2:
 					boyfriend.playAnim('singUPmiss', true);
           if (glitched)
 				 glitchedBoyfriend.playAnim('singUPmiss', true);
+          if (dark)
+          boyfriendCoolingDark.playAnim('singUPmiss', true);
 
 				case 3:
 					boyfriend.playAnim('singRIGHTmiss', true);
         if (glitched)
 				glitchedBoyfriend.playAnim('singRIGHTmiss', true);
+          if (dark)
+          boyfriendCoolingDark.playAnim('singRIGHTmiss', true);
 			}
 
 			#if windows
@@ -3625,27 +3635,31 @@ class PlayState extends MusicBeatState
 					{
 						case 2:
 							boyfriend.playAnim('singUP', true);
- 
              if (glitched)
 						 glitchedBoyfriend.playAnim('singUP', true);
+             if (dark)
+             boyfriendCoolingDark.playAnim('singUP', true);
 
 						case 3:
 							boyfriend.playAnim('singRIGHT', true);
- 
               if (glitched)
 							glitchedBoyfriend.playAnim('singRIGHT', true);
+             if (dark)
+             boyfriendCoolingDark.playAnim('singRIGHT', true);
 
 						case 1:
 							boyfriend.playAnim('singDOWN', true);
- 
               if (glitched)
 						  glitchedBoyfriend.playAnim('singDOWN', true);
+             if (dark)
+             boyfriendCoolingDark.playAnim('singDOWN', true);
 
 						case 0:
 							boyfriend.playAnim('singLEFT', true);
- 
               if (glitched)
 							glitchedBoyfriend.playAnim('singLEFT', true);
+             if (dark)
+             boyfriendCoolingDark.playAnim('singLEFT', true);
 					}
 		
 					#if windows
