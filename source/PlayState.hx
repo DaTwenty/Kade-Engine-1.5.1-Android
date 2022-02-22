@@ -878,6 +878,17 @@ class PlayState extends MusicBeatState
 						darkCrowd.scrollFactor.set(0.9, 0.9);
 						darkCrowd.setGraphicSize(Std.int(darkCrowd.width * 1.5));
 
+
+
+						for (i in 0...2)
+						{
+							var darkSpotlight = new FlxSprite(0, 0).loadGraphic(Paths.image('weekend/breakSpotlight', 'hex'));
+							darkSpotlight.antialiasing = true;
+							darkSpotlight.scrollFactor.set(0.9, 0.9);
+							darkSpotlight.setGraphicSize(Std.int(darkSpotlight.width * 1.5));
+							darkSpotlight.blend = BlendMode.ADD;
+						}
+
             hexCoolingDark.alpha = 0;
             boyfriendCoolingDark.alpha = 0;
             gfCoolingDark.alpha = 0;
@@ -885,6 +896,7 @@ class PlayState extends MusicBeatState
             hexDarkFront.alpha = 0;
             topDarkOverlay.alpha = 0;
             darkCrowd.alpha = 0;
+						darkSpotlight.alpha = 0;
 				}
 
 			default:
@@ -1059,9 +1071,6 @@ class PlayState extends MusicBeatState
       add(gf);
       add(dad);
       add(boyfriend);
-      add(gfCoolingDark);
-      add(hexCoolingDark);
-      add(boyfriendCoolingDark);
  // tu mamita en mi camita //
 // que rico te mueves darkwolf97070 //
      gf.setGraphicSize(Std.int(gf.width * 0.75));
@@ -1069,10 +1078,15 @@ class PlayState extends MusicBeatState
     boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
 // pitos en mi cara ay si que rico uwuwuw //
 // hola Dani besos en la verga ojala te atropellen (con amor) //
-     if (dark)
+     // if (boyfriendCoolingDark != null || gfCoolingDark != null || hexCoolingDark != null)
+//     {
+     add(gfCoolingDark);
+     add(hexCoolingDark);
+     add(boyfriendCoolingDark);
      gfCoolingDark.setGraphicSize(Std.int(gfCoolingDark.width * 0.75));
      hexCoolingDark.setGraphicSize(Std.int(hexCoolingDark.width * 0.75));
     boyfriendCoolingDark.setGraphicSize(Std.int(boyfriendCoolingDark.width * 0.75));
+//     }
       add(crowd);
       add(darkCrowd);
     }
