@@ -202,7 +202,7 @@ class PlayState extends MusicBeatState
 // Week 2: //
   public static var boyfriendCoolingDark:Boyfriend;
   public static var hexCoolingDark:Character;
-  public static var gfCoolingDark:Boyfriend;
+  public static var gfCoolingDark:Character;
 	public static var dark:Bool = false;
 
 	var fc:Bool = true;
@@ -857,7 +857,7 @@ class PlayState extends MusicBeatState
             boyfriendCoolingDark = new Boyfriend(753, 258, 'boyfriend-cooling-dark');
             boyfriendCoolingDark.alpha = 0;
 
-						gfCoolingDark = new Boyfriend(248, -33, 'gf-cooling-dark');
+						gfCoolingDark = new Character(248, -33, 'gf-cooling-dark');
            gfCoolingDark.alpha = 0;
 
 						hexDarkBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/weekend/breakBack', 'shared'));
@@ -1075,8 +1075,6 @@ class PlayState extends MusicBeatState
      gf.setGraphicSize(Std.int(gf.width * 0.75));
      dad.setGraphicSize(Std.int(dad.width * 0.75));
     boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
-// pitos en mi cara ay si que rico uwuwuw //
-// hola Dani besos en la verga ojala te atropellen (con amor) //
      // if (boyfriendCoolingDark != null || gfCoolingDark != null || hexCoolingDark != null)
 //     {
      add(gfCoolingDark);
@@ -1090,8 +1088,6 @@ class PlayState extends MusicBeatState
       add(darkCrowd);
     }
 
-// culo //
-// manden tetas //
 
 		add(dad);
 		add(boyfriend);
@@ -2655,7 +2651,6 @@ class PlayState extends MusicBeatState
 						{
 							case 2:
 								dad.playAnim('singUP' + altAnim, true);
-								
                 if (glitched)
 								glitchedHex.playAnim('singUP' + altAnim, true);
 
