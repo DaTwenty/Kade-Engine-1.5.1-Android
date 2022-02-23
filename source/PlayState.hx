@@ -889,20 +889,13 @@ class PlayState extends MusicBeatState
 						darkCrowd.setGraphicSize(Std.int(darkCrowd.width * 1.5));
             darkCrowd.alpha = 0;
 
-/*
-          hexDarkSpotlights = new FlxTypedGroup<FlxSprite>();
-         add(hexDarkSpotlights);
-
-						for (i in 0...2)
-						{
-							var darkSpotlight = new FlxSprite(0, 0).loadGraphic(Paths.image('hex/weekend/breakSpotlight', 'shared'));
-							darkSpotlight.antialiasing = true;
-							darkSpotlight.scrollFactor.set(0.9, 0.9);
-							darkSpotlight.setGraphicSize(Std.int(darkSpotlight.width * 1.5));
-              darkSpotlight.alpha = 0;
-							darkSpotlight.blend = BlendMode.ADD;
-              hexDarkSpotlights.add(darkSpotlight);
-*/
+					 var darkSpotlight = new FlxSprite(0, 0).loadGraphic(Paths.image('hex/weekend/breakSpotlight', 'shared'));
+					darkSpotlight.antialiasing = true;
+					darkSpotlight.scrollFactor.set(0.9, 0.9);
+					darkSpotlight.setGraphicSize(Std.int(darkSpotlight.width * 1.5));
+          darkSpotlight.alpha = 0;
+				  darkSpotlight.blend = BlendMode.ADD;
+          add(darkSpotlight);
 						}
 
 			default:
@@ -4004,8 +3997,6 @@ class PlayState extends MusicBeatState
      }
    }
 
-// no me jodan ya se que es copypaste esto pero nomamen
-/*
       case "hexStageWeekend":
       if (curBeat == 10 || curBeat == 30)
      {
@@ -4045,27 +4036,6 @@ class PlayState extends MusicBeatState
 			FlxTween.tween(boyfriend, {alpha: 1});
     }
      }
-/*
-				case "hexStageGlitcher":
-				if (curSong == 'Glitcher')
-		{
-        switch (curBeat)
-        {
-        case 144:
-       FlxTween.tween(glitcherStage, {alpha: 1}, 0.15, {ease: FlxEase.linear});
-			 FlxTween.tween(unGlitchedBG, {alpha: 0}, 0.15, {ease: FlxEase.linear});
-        case 207:
-        FlxTween.tween(glitcherStage, {alpha: 0}, 0.15, {ease: FlxEase.linear});
-					FlxTween.tween(unGlitchedBG, {alpha: 1}, 0.15, {ease: FlxEase.linear});
-        case 272:
-        FlxTween.tween(glitcherStage, {alpha: 1}, 0.15, {ease: FlxEase.linear});
-					FlxTween.tween(unGlitchedBG, {alpha: 0}, 0.15, {ease: FlxEase.linear});
-       case 333:
-         FlxTween.tween(glitcherStage, {alpha: 0}, 0.15, {ease: FlxEase.linear});
-					FlxTween.tween(unGlitchedBG, {alpha: 1}, 0.15, {ease: FlxEase.linear});
-        }
-		} 
-*/
 
 			case "philly":
 				if(FlxG.save.data.distractions){
