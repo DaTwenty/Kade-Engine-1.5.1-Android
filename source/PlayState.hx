@@ -202,7 +202,7 @@ class PlayState extends MusicBeatState
 // Week 2: //
   public static var boyfriendCoolingDark:Boyfriend;
   public static var hexCoolingDark:Character;
-  public static var gfCoolingDark:Character;
+  public static var gfCoolingDark:Boyfriend;
 	public static var dark:Bool = false;
 
 	var fc:Bool = true;
@@ -853,15 +853,12 @@ class PlayState extends MusicBeatState
 
             hexCoolingDark = new Character(69, -58, 'hex-cooling-dark');
             hexCoolingDark.alpha = 0;
-            hexCoolingDark.setGraphicSize(Std.int(hexCoolingDark.width * 0.75));
 
-            boyfriendCoolingDark = new Boyfriend(753, 258, 'boyfriend-cooling-dark');
+            boyfriendCoolingDark = new Boyfriend(753, 258, 'bf-cooling-dark');
             boyfriendCoolingDark.alpha = 0;
-            boyfriendCoolingDark.setGraphicSize(Std.int(boyfriendCoolingDark.width * 0.75));
 
-						gfCoolingDark = new Character(248, -33, 'gf-cooling-dark');
+						gfCoolingDark = new Boyfriend(248, -33, 'gf-cooling-dark');
            gfCoolingDark.alpha = 0;
-            gfCoolingDark.setGraphicSize(Std.int(gfCoolingDark.width * 0.75));
 
 						hexDarkBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/weekend/breakBack', 'shared'));
 						hexDarkBack.antialiasing = true;
@@ -1085,11 +1082,9 @@ class PlayState extends MusicBeatState
      add(gfCoolingDark);
      add(hexCoolingDark);
      add(boyfriendCoolingDark);
-/*
      gfCoolingDark.setGraphicSize(Std.int(gfCoolingDark.width * 0.75));
      hexCoolingDark.setGraphicSize(Std.int(hexCoolingDark.width * 0.75));
     boyfriendCoolingDark.setGraphicSize(Std.int(boyfriendCoolingDark.width * 0.75));
-*/
       add(crowd);
       add(darkCrowd);
     }
@@ -1493,7 +1488,7 @@ class PlayState extends MusicBeatState
 			gf.dance();
 			boyfriend.playAnim('idle');
       if (dark)
-      gfCoolingDark.playAnim('idle');
+      gfCoolingDark.dance();
 
 			var introAssets:Map<String, Array<String>> = new Map<String, Array<String>>();
 			introAssets.set('default', ['ready', "set", "go"]);
@@ -4010,6 +4005,7 @@ class PlayState extends MusicBeatState
    }
 
 // no me jodan ya se que es copypaste esto pero nomamen
+/*
       case "hexStageWeekend":
       if (curBeat == 10 || curBeat == 30)
      {
