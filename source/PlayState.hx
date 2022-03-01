@@ -3500,6 +3500,7 @@ class PlayState extends MusicBeatState
           {
 						boyfriendCoolingDark.playAnim('idle');
           }
+				}
 
 				playerStrums.forEach(function(spr:FlxSprite)
 				{
