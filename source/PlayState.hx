@@ -1108,8 +1108,8 @@ class PlayState extends MusicBeatState
        case 'hexStageDetected':
        gf.x = 248;
        gf.y = -33;
-       bf.x = 753;
-       bf.y = 238;
+       boyfriend.x = 753;
+       boyfriend.y = 238;
        dad.x = 125;
        dad.y = -75;
 
