@@ -3915,7 +3915,6 @@ class PlayState extends MusicBeatState
 			FlxTween.tween(boyfriend, {alpha: 1});
 			}
 		}
-	}
 
 	override function stepHit()
 	{
