@@ -4124,6 +4124,7 @@ class PlayState extends MusicBeatState
      }
    }
 
+/*
       case "hexStageWeekend":
       if (curBeat == 194)
       {
@@ -4134,7 +4135,7 @@ class PlayState extends MusicBeatState
         {
 				hexLightsOff(false);
         }
-
+*/
 
 			case "philly":
 				if(FlxG.save.data.distractions){
