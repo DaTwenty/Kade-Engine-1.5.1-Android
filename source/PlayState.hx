@@ -3875,10 +3875,10 @@ class PlayState extends MusicBeatState
 
 	var danced:Bool = false;
 
-	function hexLightsOff(on:Bool = true)
+	function hexLightsOff(go:Bool = true)
 	{
-		dark = on;
-		if (on)
+		dark = go;
+		if (go)
 		{
 			FlxTween.tween(hexBack, {alpha: 0}, 0.3);
 			FlxTween.tween(hexFront, {alpha: 0}, 0.3);
@@ -3894,7 +3894,7 @@ class PlayState extends MusicBeatState
 			FlxTween.tween(dad, {alpha: 0});
 			FlxTween.tween(gf, {alpha: 0});
 			FlxTween.tween(boyfriend, {alpha: 0});
-    }
+		}
 		else
 		{
 			FlxTween.tween(hexBack, {alpha: 1}, 0.3);
@@ -3911,8 +3911,8 @@ class PlayState extends MusicBeatState
 			FlxTween.tween(dad, {alpha: 1});
 			FlxTween.tween(gf, {alpha: 1});
 			FlxTween.tween(boyfriend, {alpha: 1});
-			}
 		}
+	}
 
 	override function stepHit()
 	{
