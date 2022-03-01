@@ -1109,7 +1109,7 @@ class PlayState extends MusicBeatState
        gf.x = 248;
        gf.y = -33;
        boyfriend.x = 753;
-       boyfriend.y = 238;
+       bf.y = 238;
        dad.x = 125;
        dad.y = -75;
 
@@ -4125,16 +4125,17 @@ class PlayState extends MusicBeatState
    }
 
       case "hexStageWeekend":
-      if(curSong == 'Cooling')
-    {
-      switch(curBeat)
+      if (curBeat == 194)
       {
-      case 194:
 				hexLightsOff();
-      case 256:
-				hexLightsOff(false);
       }
-    }
+
+      if (curBeat == 256)
+        {
+				hexLightsOff(false);
+        }
+
+
 			case "philly":
 				if(FlxG.save.data.distractions){
 					if (!trainMoving)
