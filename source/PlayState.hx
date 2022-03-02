@@ -1145,11 +1145,9 @@ class PlayState extends MusicBeatState
      add(gf);
      add(dad);
      add(boyfriend);
-
      gf.setGraphicSize(Std.int(gf.width * 0.75));
      dad.setGraphicSize(Std.int(dad.width * 0.75));
      boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
-
      add(crowd);
 
 
@@ -3876,10 +3874,11 @@ class PlayState extends MusicBeatState
 
 	var danced:Bool = false;
 
-	function hexLightsOff(go:Bool = true)
+/*
+	function hexLightsOff()
 	{
-		dark = go;
-		if (go)
+		dark = true;
+		if (dark)
 		{
 			FlxTween.tween(hexBack, {alpha: 0}, 0.3);
 			FlxTween.tween(hexFront, {alpha: 0}, 0.3);
@@ -3914,6 +3913,7 @@ class PlayState extends MusicBeatState
 			FlxTween.tween(boyfriend, {alpha: 1});
 		}
 	}
+*/
 
 	override function stepHit()
 	{
@@ -4133,7 +4133,7 @@ class PlayState extends MusicBeatState
 
       if (curBeat == 256)
         {
-				hexLightsOff(false);
+				dark = false;
         }
 */
 
