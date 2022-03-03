@@ -3419,9 +3419,11 @@ class PlayState extends MusicBeatState
           {
 						glitchedBoyfriend.playAnim('idle');
           }
+/*
 					if (dark && boyfriendCoolingDark.animation.curAnim.name.startsWith('sing') && !boyfriendCoolingDark.animation.curAnim.name.endsWith('miss'))
           {
 						boyfriendCoolingDark.playAnim('idle');
+*/
           }
        }
 
@@ -3923,6 +3925,46 @@ class PlayState extends MusicBeatState
 				boyfriend.playAnim('hey', true);
 				dad.playAnim('cheer', true);
 			}
+
+   if (curSong == 'Cooling')
+    {
+    switch (curBeat)
+     {
+      case 194:
+      dark = true;
+			FlxTween.tween(hexBack, {alpha: 0}, 0.3);
+			FlxTween.tween(hexFront, {alpha: 0}, 0.3);
+			FlxTween.tween(topOverlay, {alpha: 0}, 0.3);
+			FlxTween.tween(crowd, {alpha: 0}, 0.3);
+			FlxTween.tween(hexDarkBack, {alpha: 1}, 0.3);
+			FlxTween.tween(hexDarkFront, {alpha: 1}, 0.3);
+			FlxTween.tween(topDarkOverlay, {alpha: 1}, 0.3);
+			FlxTween.tween(darkCrowd, {alpha: 1}, 0.3);
+			FlxTween.tween(hexCoolingDark, {alpha: 1});
+			FlxTween.tween(gfCoolingDark, {alpha: 1});
+			FlxTween.tween(boyfriendCoolingDark, {alpha: 1});
+			FlxTween.tween(dad, {alpha: 0});
+			FlxTween.tween(gf, {alpha: 0});
+			FlxTween.tween(boyfriend, {alpha: 0});
+
+      case 256:
+      dark = false;
+			FlxTween.tween(hexBack, {alpha: 1}, 0.3);
+			FlxTween.tween(hexFront, {alpha: 1}, 0.3);
+			FlxTween.tween(topOverlay, {alpha: 1}, 0.3);
+			FlxTween.tween(crowd, {alpha: 1}, 0.3);
+			FlxTween.tween(hexDarkBack, {alpha: 0}, 0.3);
+			FlxTween.tween(hexDarkFront, {alpha: 0}, 0.3);
+			FlxTween.tween(topDarkOverlay, {alpha: 0}, 0.3);
+			FlxTween.tween(darkCrowd, {alpha: 0}, 0.3);
+			FlxTween.tween(hexCoolingDark, {alpha: 0});
+			FlxTween.tween(gfCoolingDark, {alpha: 0});
+			FlxTween.tween(boyfriendCoolingDark, {alpha: 0});
+			FlxTween.tween(dad, {alpha: 1});
+			FlxTween.tween(gf, {alpha: 1});
+			FlxTween.tween(boyfriend, {alpha: 1});
+     }
+   }
 
 /*
     if (curSong == 'Glitcher' && curBeat == 144 || curBeat == 207 || curBeat == 272 || curBeat == 333)
