@@ -3423,8 +3423,8 @@ class PlayState extends MusicBeatState
 					if (dark && boyfriendCoolingDark.animation.curAnim.name.startsWith('sing') && !boyfriendCoolingDark.animation.curAnim.name.endsWith('miss'))
           {
 						boyfriendCoolingDark.playAnim('idle');
-*/
           }
+*/
        }
 
 				playerStrums.forEach(function(spr:FlxSprite)
