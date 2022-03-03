@@ -3801,6 +3801,45 @@ class PlayState extends MusicBeatState
 
 	var danced:Bool = false;
 
+	function hexLightsOff(nigga:Bool = true)
+	{
+		dark = nigga;
+		if (nigga)
+		{
+			FlxTween.tween(hexBack, {alpha: 0}, 0.3);
+			FlxTween.tween(hexFront, {alpha: 0}, 0.3);
+			FlxTween.tween(topOverlay, {alpha: 0}, 0.3);
+			FlxTween.tween(crowd, {alpha: 0}, 0.3);
+			FlxTween.tween(hexDarkBack, {alpha: 1}, 0.3);
+			FlxTween.tween(hexDarkFront, {alpha: 1}, 0.3);
+			FlxTween.tween(topDarkOverlay, {alpha: 1}, 0.3);
+			FlxTween.tween(darkCrowd, {alpha: 1}, 0.3);
+			FlxTween.tween(hexCoolingDark, {alpha: 1});
+			FlxTween.tween(gfCoolingDark, {alpha: 1});
+			FlxTween.tween(boyfriendCoolingDark, {alpha: 1});
+			FlxTween.tween(dad, {alpha: 0});
+			FlxTween.tween(gf, {alpha: 0});
+			FlxTween.tween(boyfriend, {alpha: 0});
+		}
+		else
+		{
+			FlxTween.tween(hexBack, {alpha: 1}, 0.3);
+			FlxTween.tween(hexFront, {alpha: 1}, 0.3);
+			FlxTween.tween(topOverlay, {alpha: 1}, 0.3);
+			FlxTween.tween(crowd, {alpha: 1}, 0.3);
+			FlxTween.tween(hexDarkBack, {alpha: 0}, 0.3);
+			FlxTween.tween(hexDarkFront, {alpha: 0}, 0.3);
+			FlxTween.tween(topDarkOverlay, {alpha: 0}, 0.3);
+			FlxTween.tween(darkCrowd, {alpha: 0}, 0.3);
+			FlxTween.tween(hexCoolingDark, {alpha: 0});
+			FlxTween.tween(gfCoolingDark, {alpha: 0});
+			FlxTween.tween(boyfriendCoolingDark, {alpha: 0});
+			FlxTween.tween(dad, {alpha: 1});
+			FlxTween.tween(gf, {alpha: 1});
+			FlxTween.tween(boyfriend, {alpha: 1});
+		}
+	}
+
 	override function stepHit()
 	{
 		super.stepHit();
@@ -3926,44 +3965,14 @@ class PlayState extends MusicBeatState
 				dad.playAnim('cheer', true);
 			}
 
-   if (curSong == 'Cooling')
+    if (curSong == 'Cooling' && curBeat == 194)
     {
-    switch (curBeat)
-     {
-      case 194:
-      dark = true;
-			FlxTween.tween(hexBack, {alpha: 0}, 0.3);
-			FlxTween.tween(hexFront, {alpha: 0}, 0.3);
-			FlxTween.tween(topOverlay, {alpha: 0}, 0.3);
-			FlxTween.tween(crowd, {alpha: 0}, 0.3);
-			FlxTween.tween(hexDarkBack, {alpha: 1}, 0.3);
-			FlxTween.tween(hexDarkFront, {alpha: 1}, 0.3);
-			FlxTween.tween(topDarkOverlay, {alpha: 1}, 0.3);
-			FlxTween.tween(darkCrowd, {alpha: 1}, 0.3);
-			FlxTween.tween(hexCoolingDark, {alpha: 1});
-			FlxTween.tween(gfCoolingDark, {alpha: 1});
-			FlxTween.tween(boyfriendCoolingDark, {alpha: 1});
-			FlxTween.tween(dad, {alpha: 0});
-			FlxTween.tween(gf, {alpha: 0});
-			FlxTween.tween(boyfriend, {alpha: 0});
+      hexLightsOff();
+    }
 
-      case 256:
-      dark = false;
-			FlxTween.tween(hexBack, {alpha: 1}, 0.3);
-			FlxTween.tween(hexFront, {alpha: 1}, 0.3);
-			FlxTween.tween(topOverlay, {alpha: 1}, 0.3);
-			FlxTween.tween(crowd, {alpha: 1}, 0.3);
-			FlxTween.tween(hexDarkBack, {alpha: 0}, 0.3);
-			FlxTween.tween(hexDarkFront, {alpha: 0}, 0.3);
-			FlxTween.tween(topDarkOverlay, {alpha: 0}, 0.3);
-			FlxTween.tween(darkCrowd, {alpha: 0}, 0.3);
-			FlxTween.tween(hexCoolingDark, {alpha: 0});
-			FlxTween.tween(gfCoolingDark, {alpha: 0});
-			FlxTween.tween(boyfriendCoolingDark, {alpha: 0});
-			FlxTween.tween(dad, {alpha: 1});
-			FlxTween.tween(gf, {alpha: 1});
-			FlxTween.tween(boyfriend, {alpha: 1});
-     }
+   if (curSong == 'Cooling' && curBeat == 256)
+   {
+     hexLightsOff(false);
    }
 
 /*
