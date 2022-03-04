@@ -4058,7 +4058,7 @@ class PlayState extends MusicBeatState
      }
    }
 
-     case "hexStageWeekend"
+     case "hexStageWeekend":
     {
         
         if (curBeat == 194)
