@@ -2663,21 +2663,21 @@ class PlayState extends MusicBeatState
                 if (glitched)
 									glitchedHex.playAnim('singRIGHT' + altAnim, true);
                   if (dark)
-                  hexCoolingDark.playAnim('singRIGHT' + altAnim);
+                  hexCoolingDark.playAnim('singRIGHT' + altAnim, true);
 
 							case 1:
 								dad.playAnim('singDOWN' + altAnim, true);
                 if (glitched)
 								glitchedHex.playAnim('singDOWN' + altAnim, true);
                   if (dark)
-                  hexCoolingDark.playAnim('singDOWN' + altAnim);
+                  hexCoolingDark.playAnim('singDOWN' + altAnim, true);
 
 							case 0:
 								dad.playAnim('singLEFT' + altAnim, true);
                 if (glitched)
 								glitchedHex.playAnim('singLEFT' + altAnim, true);
                   if (dark)
-                  hexCoolingDark.playAnim('singLEFT' + altAnim);
+                  hexCoolingDark.playAnim('singLEFT' + altAnim, true);
 						}
 						
 						if (FlxG.save.data.cpuStrums)
