@@ -202,7 +202,7 @@ class PlayState extends MusicBeatState
 // Week 2: //
   public static var boyfriendCoolingDark:Boyfriend;
   public static var hexCoolingDark:Character;
-  public static var gfCoolingDark:Boyfriend;
+  public static var gfCoolingDark:Character;
 	public static var dark:Bool = false;
 
 	var fc:Bool = true;
@@ -806,6 +806,8 @@ class PlayState extends MusicBeatState
 
 //  week 2: //
 
+
+
   			case 'hexStageWeekend':
 				{
 					defaultCamZoom = 0.9;
@@ -857,8 +859,8 @@ class PlayState extends MusicBeatState
             boyfriendCoolingDark = new Boyfriend(753, 258, 'bf-cooling-dark');
             boyfriendCoolingDark.alpha = 0;
 
-						gfCoolingDark = new Boyfriend(248, -33, 'gf-cooling-dark');
-           gfCoolingDark.alpha = 0;
+						gfCoolingDark = new Character(248, -33, 'gf-cooling-dark');
+            gfCoolingDark.alpha = 0;
 
 						hexDarkBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/weekend/breakBack', 'shared'));
 						hexDarkBack.antialiasing = true;
@@ -3811,6 +3813,7 @@ class PlayState extends MusicBeatState
 			FlxTween.tween(hexFront, {alpha: 0}, 0.3);
 			FlxTween.tween(topOverlay, {alpha: 0}, 0.3);
 			FlxTween.tween(crowd, {alpha: 0}, 0.3);
+
 			FlxTween.tween(hexDarkBack, {alpha: 1}, 0.3);
 			FlxTween.tween(hexDarkFront, {alpha: 1}, 0.3);
 			FlxTween.tween(topDarkOverlay, {alpha: 1}, 0.3);
@@ -3818,6 +3821,7 @@ class PlayState extends MusicBeatState
 			FlxTween.tween(hexCoolingDark, {alpha: 1});
 			FlxTween.tween(gfCoolingDark, {alpha: 1});
 			FlxTween.tween(boyfriendCoolingDark, {alpha: 1});
+
 			FlxTween.tween(dad, {alpha: 0});
 			FlxTween.tween(gf, {alpha: 0});
 			FlxTween.tween(boyfriend, {alpha: 0});
@@ -4060,7 +4064,6 @@ class PlayState extends MusicBeatState
 
      case "hexStageWeekend":
     {
-        
         if (curBeat == 194)
       {
         hexLightsOff();
