@@ -3803,6 +3803,7 @@ class PlayState extends MusicBeatState
 
 	function hexLightsOff(nigga:Bool = true)
 	{
+    trace("FUCKING NIGGERS I HATE NIGGERS");
 		dark = nigga;
 		if (nigga)
 		{
@@ -3965,6 +3966,7 @@ class PlayState extends MusicBeatState
 				dad.playAnim('cheer', true);
 			}
 
+/*
     if (curSong == 'Cooling' && curBeat == 194)
     {
       hexLightsOff();
@@ -4034,11 +4036,9 @@ class PlayState extends MusicBeatState
    FlxTween.tween(dad, {alpha: 0}, 0.15, {ease: FlxEase.linear});
    FlxTween.tween(boyfriend, {alpha: 0}, 0.15, {ease: FlxEase.linear});
    FlxTween.tween(gf, {alpha: 0}, 0.15, {ease: FlxEase.linear});
-
 // personajes glitched //
    FlxTween.tween(glitchedHex, {alpha: 1}, 0.15, {ease: FlxEase.linear});
    FlxTween.tween(glitchedBoyfriend, {alpha: 1}, 0.15, {ease: FlxEase.linear});
-
 // stage //
    FlxTween.tween(glitcherStage, {alpha: 1}, 0.15, {ease: FlxEase.linear});
 	 FlxTween.tween(unGlitchedBG, {alpha: 0}, 0.15, {ease: FlxEase.linear});
@@ -4049,7 +4049,6 @@ class PlayState extends MusicBeatState
     FlxTween.tween(dad, {alpha: 1}, 0.15, {ease: FlxEase.linear});
     FlxTween.tween(boyfriend, {alpha: 1}, 0.15, {ease: FlxEase.linear});
     FlxTween.tween(gf, {alpha: 1}, 0.15, {ease: FlxEase.linear});
-
 // personajes glitched //
     FlxTween.tween(glitchedHex, {alpha: 0}, 0.15, {ease: FlxEase.linear});
     FlxTween.tween(glitchedBoyfriend, {alpha: 0}, 0.15, {ease: FlxEase.linear});
@@ -4059,68 +4058,18 @@ class PlayState extends MusicBeatState
      }
    }
 
-// no me jodan ya se que es copypaste de lo de arrib pero nomamen
-/*
-      case "hexStageWeekend":
-      if (curBeat == 10 || curBeat == 30)
-     {
-       dark = !dark;
-		   if (dark)
+     case "hexStageWeekend"
+    {
+        
+        if (curBeat == 194)
       {
-			FlxTween.tween(hexBack, {alpha: 0}, 0.3);
-			FlxTween.tween(hexFront, {alpha: 0}, 0.3);
-			FlxTween.tween(topOverlay, {alpha: 0}, 0.3);
-			FlxTween.tween(crowd, {alpha: 0}, 0.3);
-			FlxTween.tween(hexDarkBack, {alpha: 1}, 0.3);
-			FlxTween.tween(hexDarkFront, {alpha: 1}, 0.3);
-			FlxTween.tween(topDarkOverlay, {alpha: 1}, 0.3);
-			FlxTween.tween(darkCrowd, {alpha: 1}, 0.3);
-			FlxTween.tween(hexCoolingDark, {alpha: 1});
-			FlxTween.tween(gfCoolingDark, {alpha: 1});
-			FlxTween.tween(boyfriendCoolingDark, {alpha: 1});
-			FlxTween.tween(dad, {alpha: 0});
-			FlxTween.tween(gf, {alpha: 0});
-			FlxTween.tween(boyfriend, {alpha: 0});
+        hexLightsOff();
+      }
+       if (curBeat == 256)
+      {
+       hexLightsOff(false);
+      }
     }
-		else
-		{
-			FlxTween.tween(hexBack, {alpha: 1}, 0.3);
-			FlxTween.tween(hexFront, {alpha: 1}, 0.3);
-			FlxTween.tween(topOverlay, {alpha: 1}, 0.3);
-			FlxTween.tween(crowd, {alpha: 1}, 0.3);
-			FlxTween.tween(hexDarkBack, {alpha: 0}, 0.3);
-			FlxTween.tween(hexDarkFront, {alpha: 0}, 0.3);
-			FlxTween.tween(topDarkOverlay, {alpha: 0}, 0.3);
-			FlxTween.tween(darkCrowd, {alpha: 0}, 0.3);
-			FlxTween.tween(hexCoolingDark, {alpha: 0});
-			FlxTween.tween(gfCoolingDark, {alpha: 0});
-			FlxTween.tween(boyfriendCoolingDark, {alpha: 0});
-			FlxTween.tween(dad, {alpha: 1});
-			FlxTween.tween(gf, {alpha: 1});
-			FlxTween.tween(boyfriend, {alpha: 1});
-    }
-     }
-/*
-				case "hexStageGlitcher":
-				if (curSong == 'Glitcher')
-		{
-        switch (curBeat)
-        {
-        case 144:
-       FlxTween.tween(glitcherStage, {alpha: 1}, 0.15, {ease: FlxEase.linear});
-			 FlxTween.tween(unGlitchedBG, {alpha: 0}, 0.15, {ease: FlxEase.linear});
-        case 207:
-        FlxTween.tween(glitcherStage, {alpha: 0}, 0.15, {ease: FlxEase.linear});
-					FlxTween.tween(unGlitchedBG, {alpha: 1}, 0.15, {ease: FlxEase.linear});
-        case 272:
-        FlxTween.tween(glitcherStage, {alpha: 1}, 0.15, {ease: FlxEase.linear});
-					FlxTween.tween(unGlitchedBG, {alpha: 0}, 0.15, {ease: FlxEase.linear});
-       case 333:
-         FlxTween.tween(glitcherStage, {alpha: 0}, 0.15, {ease: FlxEase.linear});
-					FlxTween.tween(unGlitchedBG, {alpha: 1}, 0.15, {ease: FlxEase.linear});
-        }
-		} 
-*/
 
 			case "philly":
 				if(FlxG.save.data.distractions){
