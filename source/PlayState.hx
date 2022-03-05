@@ -4061,12 +4061,12 @@ class PlayState extends MusicBeatState
 
      case "hexStageWeekend":
     {
-        if (curBeat == 194)
+        if (curBeat == 30)
       {
         hexLightsOff();
       }
  
-       if (curBeat == 256)
+       if (curBeat == 70)
       {
        hexLightsOff(false);
       }
