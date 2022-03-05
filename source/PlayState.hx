@@ -3803,11 +3803,11 @@ class PlayState extends MusicBeatState
 
 	var danced:Bool = false;
 
-	function hexLightsOff(nigga:Bool = true)
+	function hexLightsOff()
 	{
     trace("FUCKING NIGGERS I HATE NIGGERS");
-		dark = nigga;
-		if (nigga)
+		dark = true;
+		if (dark)
 		{
 			FlxTween.tween(hexBack, {alpha: 0}, 0.3);
 			FlxTween.tween(hexFront, {alpha: 0}, 0.3);
@@ -4068,10 +4068,12 @@ class PlayState extends MusicBeatState
       {
         hexLightsOff();
       }
+/*
        if (curBeat == 256)
       {
        hexLightsOff(false);
       }
+*/
     }
 
 			case "philly":
