@@ -805,14 +805,11 @@ class PlayState extends MusicBeatState
         }
 
 //  week 2: //
-
-
-
   			case 'hexStageWeekend':
 				{
 					defaultCamZoom = 0.9;
 					curStage = 'hexStageWeekend';
-					var hexBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/weekend/hexBack', 'shared'));
+					hexBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/weekend/hexBack', 'shared'));
           hexBack.antialiasing = true;
           hexBack.scrollFactor.set(0.9, 0.9);
           hexBack.setGraphicSize(Std.int(hexBack.width * 1.5));
@@ -1086,9 +1083,9 @@ class PlayState extends MusicBeatState
      add(boyfriendCoolingDark);
      gfCoolingDark.setGraphicSize(Std.int(gfCoolingDark.width * 0.75));
      hexCoolingDark.setGraphicSize(Std.int(hexCoolingDark.width * 0.75));
-    boyfriendCoolingDark.setGraphicSize(Std.int(boyfriendCoolingDark.width * 0.75));
-      add(crowd);
-      add(darkCrowd);
+     boyfriendCoolingDark.setGraphicSize(Std.int(boyfriendCoolingDark.width * 0.75));
+     add(crowd);
+     add(darkCrowd);
     }
 
 
@@ -3803,11 +3800,11 @@ class PlayState extends MusicBeatState
 
 	var danced:Bool = false;
 
-	function hexLightsOff()
+	function hexLightsOff(nigga:Bool = true)
 	{
     trace("FUCKING NIGGERS I HATE NIGGERS");
-		dark = true;
-		if (dark)
+		dark = nigga;
+		if (nigga)
 		{
 			FlxTween.tween(hexBack, {alpha: 0}, 0.3);
 			FlxTween.tween(hexFront, {alpha: 0}, 0.3);
@@ -4068,13 +4065,12 @@ class PlayState extends MusicBeatState
       {
         hexLightsOff();
       }
-/*
+ 
        if (curBeat == 256)
       {
        hexLightsOff(false);
       }
-*/
-    }
+   }
 
 			case "philly":
 				if(FlxG.save.data.distractions){
