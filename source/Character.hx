@@ -276,6 +276,7 @@ class Character extends FlxSprite
 				addOffset('scared', -2, -17);
 
 				playAnim('danceRight');
+        // porque alv
 				flipX = true;
 
 			case 'dad':
