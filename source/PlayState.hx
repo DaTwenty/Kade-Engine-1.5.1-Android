@@ -202,7 +202,7 @@ class PlayState extends MusicBeatState
 // Week 2: //
   public static var boyfriendCoolingDark:Boyfriend;
   public static var hexCoolingDark:Character;
-  public static var gfCoolingDark:Boyfriend;
+  public static var gfCoolingDark:Character;
 	public static var dark:Bool = false;
 
 	var fc:Bool = true;
