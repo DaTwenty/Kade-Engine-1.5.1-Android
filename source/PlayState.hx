@@ -202,7 +202,7 @@ class PlayState extends MusicBeatState
 // Week 2: //
   public static var boyfriendCoolingDark:Boyfriend;
   public static var hexCoolingDark:Character;
-  public static var gfCoolingDark:Character;
+  public static var gfCoolingDark:Boyfriend;
 	public static var dark:Bool = false;
 
 	var fc:Bool = true;
@@ -856,7 +856,7 @@ class PlayState extends MusicBeatState
             boyfriendCoolingDark = new Boyfriend(753, 258, 'bf-cooling-dark');
             boyfriendCoolingDark.alpha = 0;
 
-						gfCoolingDark = new Character(248, -33, 'gf-cooling-dark');
+						gfCoolingDark = new Boyfriend(248, -33, 'gf-cooling-dark');
             gfCoolingDark.alpha = 0;
 
 						hexDarkBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/weekend/breakBack', 'shared'));
@@ -3452,6 +3452,8 @@ class PlayState extends MusicBeatState
 			if (combo > 5 && gf.animOffsets.exists('sad'))
 			{
 				gf.playAnim('sad');
+        if (dark)
+        gfCoolingDark.playAnim('sad');
 			}
 			combo = 0;
 			misses++;
@@ -3941,6 +3943,11 @@ class PlayState extends MusicBeatState
 			gf.dance();
 		}
 
+   if (dark && curBeat % gfSpeed == 0)
+   {
+      gfCoolingDark.dance();
+   }
+
 		if (!boyfriend.animation.curAnim.name.startsWith("sing"))
 		{
 			boyfriend.playAnim('idle');
@@ -3966,41 +3973,6 @@ class PlayState extends MusicBeatState
 				boyfriend.playAnim('hey', true);
 				dad.playAnim('cheer', true);
 			}
-
-/*
-    if (curSong == 'Cooling' && curBeat == 194)
-    {
-      hexLightsOff();
-    }
-
-   if (curSong == 'Cooling' && curBeat == 256)
-   {
-     hexLightsOff(false);
-   }
-
-/*
-    if (curSong == 'Glitcher' && curBeat == 144 || curBeat == 207 || curBeat == 272 || curBeat == 333)
-  {
-		glitched = !glitched;
-		if (glitched)
-		{
-   FlxTween.tween(dad, {alpha: 0}, 0.15, {ease: FlxEase.linear});
-   FlxTween.tween(boyfriend, {alpha: 0}, 0.15, {ease: FlxEase.linear});
-   FlxTween.tween(gf, {alpha: 0}, 0.15, {ease: FlxEase.linear});
-
-   FlxTween.tween(glitchedHex, {alpha: 1}, 0.15, {ease: FlxEase.linear});
-   FlxTween.tween(glitchedBoyfriend, {alpha: 1}, 0.15, {ease: FlxEase.linear});
-		}
-		else
-    {
-    FlxTween.tween(dad, {alpha: 1}, 0.15, {ease: FlxEase.linear});
-    FlxTween.tween(boyfriend, {alpha: 1}, 0.15, {ease: FlxEase.linear});
-    FlxTween.tween(gf, {alpha: 1}, 0.15, {ease: FlxEase.linear});
-    FlxTween.tween(glitchedHex, {alpha: 0}, 0.15, {ease: FlxEase.linear});
-    FlxTween.tween(glitchedBoyfriend, {alpha: 0}, 0.15, {ease: FlxEase.linear});
-     }
-   }
-*/
 
 		switch (curStage)
 		{
@@ -4061,12 +4033,16 @@ class PlayState extends MusicBeatState
 
      case "hexStageWeekend":
     {
+        crowd.animation.play('bop', true);
+        if (dark)
+        darkCrowd.animation.play('bop', true);
+
         if (curBeat == 30)
       {
         hexLightsOff();
       }
  
-       if (curBeat == 70)
+       if (curBeat == 40)
       {
        hexLightsOff(false);
       }
