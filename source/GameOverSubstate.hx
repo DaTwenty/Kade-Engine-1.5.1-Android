@@ -35,6 +35,8 @@ class GameOverSubstate extends MusicBeatSubstate
 		      daBf = 'bf-cooling';
 		  case 'bf-cooling-dark':
 		      daBf = 'bf-cooling-dark';
+		  case 'bf-detected':
+		      daBf = 'bf-detected';
 			default:
 				  daBf = 'bf';
 		}
