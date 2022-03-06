@@ -585,13 +585,22 @@ class Character extends FlxSprite
 				animation.addByPrefix('singDOWN', 'jefheziuoghz instance 1', 24, false);
 				animation.addByPrefix('singLEFT', 'LEFT instance 1', 24, false);
 
+        addOffset('idle', 18, 19);
+        addOffset("singDOWN", 57, -132);
+        addOffset("singRIGHT", 50, -135);
+        addOffset("singUP", 110, 80);
+        addOffset("singLEFT", 340, -67);
+
+				playAnim('idle');
+
+/*
+old offsets
         addOffset('idle', 15, 21);
         addOffset("singDOWN", 38, -132);
         addOffset("singRIGHT", 25, -134);
         addOffset("singUP", 297, -65);
         addOffset("singLEFT", 73, 73);
-
-				playAnim('idle');
+*/
 
 			case 'bf':
 				var tex = Paths.getSparrowAtlas('characters/BOYFRIEND', 'shared');
