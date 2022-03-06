@@ -904,6 +904,33 @@ class PlayState extends MusicBeatState
 */
 						}
 
+			case 'hexStageDetected':
+				{
+					defaultCamZoom = 0.9;
+					curStage = 'hexStageDetected';
+					hexBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/detected/hexBack', 'shared'));
+					hexBack.antialiasing = true;
+					hexBack.scrollFactor.set(0.9, 0.9);
+					hexBack.setGraphicSize(Std.int(hexBack.width * 1.5));
+
+					hexFront = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/detected/hexFront', 'shared'));
+					hexFront.antialiasing = true;
+					hexFront.scrollFactor.set(0.9, 0.9);
+					hexFront.setGraphicSize(Std.int(hexFront.width * 1.5));
+
+					topOverlay = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/detected/topOverlay', 'shared'));
+					topOverlay.antialiasing = true;
+					topOverlay.scrollFactor.set(0.9, 0.9);
+					topOverlay.setGraphicSize(Std.int(topOverlay.width * 1.5));
+
+					crowd = new FlxSprite(42, -14);
+					crowd.frames = Paths.getSparrowAtlas('hex/detected/crowd', 'shared');
+					crowd.animation.addByPrefix('bop', 'Symbol 1', 24, false);
+					crowd.antialiasing = true;
+					crowd.scrollFactor.set(0.9, 0.9);
+					crowd.setGraphicSize(Std.int(crowd.width * 1.5));
+				}
+
 			default:
 			{
 					defaultCamZoom = 0.9;
@@ -1048,13 +1075,21 @@ class PlayState extends MusicBeatState
 				gf.x += 180;
 				gf.y += 300;
 
-       case 'hexStageWeekend':
-       gf.x = 248;
-       gf.y = -33;
-       boyfriend.x = 753;
-       boyfriend.y = 258;
-       dad.x = 69;
-       dad.y = -58;
+        case 'hexStageWeekend':
+        gf.x = 248;
+        gf.y = -33;
+        boyfriend.x = 753;
+        boyfriend.y = 258;
+        dad.x = 69;
+        dad.y = -58;
+
+        case 'hexStageDetected':
+        gf.x = 248;
+        gf.y = -33;
+        boyfriend.x = 753;
+        boyfriend.y = 238;
+        dad.x = 125;
+        dad.y = -75;
 		}
 
 		add(gf);
@@ -1075,19 +1110,30 @@ class PlayState extends MusicBeatState
       add(gf);
       add(dad);
       add(boyfriend);
-     gf.setGraphicSize(Std.int(gf.width * 0.75));
+
+      gf.setGraphicSize(Std.int(gf.width * 0.75));
      dad.setGraphicSize(Std.int(dad.width * 0.75));
-    boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
+     boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
+
      add(gfCoolingDark);
      add(hexCoolingDark);
      add(boyfriendCoolingDark);
+
      gfCoolingDark.setGraphicSize(Std.int(gfCoolingDark.width * 0.75));
      hexCoolingDark.setGraphicSize(Std.int(hexCoolingDark.width * 0.75));
      boyfriendCoolingDark.setGraphicSize(Std.int(boyfriendCoolingDark.width * 0.75));
+ 
      add(crowd);
      add(darkCrowd);
     }
 
+    if (curStage == 'hexStageDetected')
+    {
+     add(gf);
+     add(dad);
+     add(boyfriend);
+     add(crowd);
+    }
 
 		add(dad);
 		add(boyfriend);
