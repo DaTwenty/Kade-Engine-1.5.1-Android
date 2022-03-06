@@ -280,7 +280,7 @@ class Character extends FlxSprite
 				flipX = true;
 
 			case 'gf-detected':
-				tex = Paths.getSparrowAtlas('hex/characters/gf_detected', 'shared');
+				tex = Paths.getSparrowAtlas('hex/characters/gf_weekend_detected', 'shared');
 				frames = tex;
 				animation.addByPrefix('cheer', 'GF Cheer', 24, false);
 				animation.addByPrefix('singLEFT', 'GF left note', 24, false);
