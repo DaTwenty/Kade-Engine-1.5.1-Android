@@ -205,7 +205,7 @@ class PlayState extends MusicBeatState
   public static var gfCoolingDark:Character;
 	public static var dark:Bool = false;
   public static var hexCurWeek:String = '';
-  public static var curMod:String = '';
+  // public static var curMod:String = '';
 
 	var fc:Bool = true;
 
@@ -752,7 +752,7 @@ class PlayState extends MusicBeatState
 				{
             defaultCamZoom = 0.9;
             curStage = 'hexStage';
-            curMod = 'hex';
+            // curMod = 'hex';
             var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('hex/stageback', 'shared'));
             bg.antialiasing = true;
             bg.scrollFactor.set(0.9, 0.9);
@@ -764,7 +764,7 @@ class PlayState extends MusicBeatState
         {
             defaultCamZoom = 0.9;
             curStage = 'hexStageSunset';
-            curMod = 'hex';
+            // curMod = 'hex';
             var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('hex/sunset/stageback', 'shared'));
             bg.antialiasing = true;
             bg.scrollFactor.set(0.9, 0.9);
@@ -776,7 +776,7 @@ class PlayState extends MusicBeatState
         {
             defaultCamZoom = 0.9;
             curStage = 'hexStageNight';
-            curMod = 'hex';
+            // curMod = 'hex';
             var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('hex/night/stageback', 'shared'));
             bg.antialiasing = true;
             bg.scrollFactor.set(0.9, 0.9);
@@ -788,7 +788,7 @@ class PlayState extends MusicBeatState
         {
             defaultCamZoom = 0.9;
             curStage = 'hexStageGlitcher';
-            curMod = 'hex';
+            // curMod = 'hex';
             unGlitchedBG = new FlxSprite(-600, -200).loadGraphic(Paths.image('hex/glitcher/stageback', 'shared'));
             unGlitchedBG.antialiasing = true;
             unGlitchedBG.scrollFactor.set(0.9, 0.9);
@@ -815,7 +815,7 @@ class PlayState extends MusicBeatState
 				{
 					defaultCamZoom = 0.9;
 					curStage = 'hexStageWeekend';
-          curMod = 'hex';
+          // curMod = 'hex';
           hexCurWeek = 'weekend';
 					hexBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/weekend/hexBack', 'shared'));
           hexBack.antialiasing = true;
@@ -917,7 +917,7 @@ class PlayState extends MusicBeatState
 					defaultCamZoom = 0.9;
 					curStage = 'hexStageDetected';
           hexCurWeek = 'weekend';
-          curMod = 'hex';
+          // curMod = 'hex';
 					hexBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/detected/hexBack', 'shared'));
 					hexBack.antialiasing = true;
 					hexBack.scrollFactor.set(0.9, 0.9);
@@ -1248,13 +1248,16 @@ class PlayState extends MusicBeatState
 			}
 
 		healthBarBG = new FlxSprite(0, FlxG.height * 0.9).loadGraphic(Paths.image('healthBar'));
-    if (curMod == 'hex')
-    healthBarBG.loadGraphic(Paths.image('healthBarHex'));
 		if (FlxG.save.data.downscroll)
 			healthBarBG.y = 50;
 		healthBarBG.screenCenter(X);
 		healthBarBG.scrollFactor.set();
 		add(healthBarBG);
+
+/*
+    if (curMod == 'hex')
+    healthBarBG.loadGraphic(Paths.image('healthBarHex'));
+*/
 
 		// healthBar
 		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
