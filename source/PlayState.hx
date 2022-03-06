@@ -985,7 +985,9 @@ class PlayState extends MusicBeatState
         gfVersion = 'gf-cooling';
       case 'gf-cooling-dark':
         gfVersion = 'gf-cooling-dark';
-			default:
+      case 'gf-detected':
+        gfVersion = 'gf-detected';
+      default:
 				gfVersion = 'gf';
 		}
 
@@ -2271,7 +2273,6 @@ class PlayState extends MusicBeatState
 		/* if (FlxG.keys.justPressed.NINE)
 			FlxG.switchState(new Charting()); */
 
-		#if debug
 		if (FlxG.keys.justPressed.EIGHT)
 		{
 			FlxG.switchState(new AnimationDebug(SONG.player2));
@@ -2295,8 +2296,6 @@ class PlayState extends MusicBeatState
 			}
 			#end
 		}
-
-		#end
 
 		if (startingSong)
 		{
