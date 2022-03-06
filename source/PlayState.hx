@@ -912,16 +912,19 @@ class PlayState extends MusicBeatState
 					hexBack.antialiasing = true;
 					hexBack.scrollFactor.set(0.9, 0.9);
 					hexBack.setGraphicSize(Std.int(hexBack.width * 1.5));
+          add(hexBack);
 
 					hexFront = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/detected/hexFront', 'shared'));
 					hexFront.antialiasing = true;
 					hexFront.scrollFactor.set(0.9, 0.9);
 					hexFront.setGraphicSize(Std.int(hexFront.width * 1.5));
+          add(hexFront);
 
 					topOverlay = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/detected/topOverlay', 'shared'));
 					topOverlay.antialiasing = true;
 					topOverlay.scrollFactor.set(0.9, 0.9);
 					topOverlay.setGraphicSize(Std.int(topOverlay.width * 1.5));
+          add(topOverlay);
 
 					crowd = new FlxSprite(42, -14);
 					crowd.frames = Paths.getSparrowAtlas('hex/detected/crowd', 'shared');
@@ -4093,6 +4096,11 @@ class PlayState extends MusicBeatState
        hexLightsOff(false);
       }
    }
+
+      case "hexStageDetected":
+      {
+      crowd.animation.play('bop', true);
+      }
 
 			case "philly":
 				if(FlxG.save.data.distractions){
