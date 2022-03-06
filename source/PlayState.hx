@@ -204,6 +204,7 @@ class PlayState extends MusicBeatState
   public static var hexCoolingDark:Character;
   public static var gfCoolingDark:Character;
 	public static var dark:Bool = false;
+  public static var hexCurWeek:String = '';
 
 	var fc:Bool = true;
 
@@ -809,6 +810,7 @@ class PlayState extends MusicBeatState
 				{
 					defaultCamZoom = 0.9;
 					curStage = 'hexStageWeekend';
+          hexCurWeek = 'weekend';
 					hexBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/weekend/hexBack', 'shared'));
           hexBack.antialiasing = true;
           hexBack.scrollFactor.set(0.9, 0.9);
@@ -908,6 +910,7 @@ class PlayState extends MusicBeatState
 				{
 					defaultCamZoom = 0.9;
 					curStage = 'hexStageDetected';
+          hexCurWeek = 'weekend';
 					hexBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/detected/hexBack', 'shared'));
 					hexBack.antialiasing = true;
 					hexBack.scrollFactor.set(0.9, 0.9);
@@ -1097,6 +1100,13 @@ class PlayState extends MusicBeatState
 
 		add(gf);
 
+   if (hexCurWeek == 'weekend')
+   {
+      gf.setGraphicSize(Std.int(gf.width * 0.75));
+     dad.setGraphicSize(Std.int(dad.width * 0.75));
+     boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
+   }
+
 		// Shitty layering but whatev it works LOL
 		if (curStage == 'limo')
 			add(limo);
@@ -1113,10 +1123,6 @@ class PlayState extends MusicBeatState
       add(gf);
       add(dad);
       add(boyfriend);
-
-      gf.setGraphicSize(Std.int(gf.width * 0.75));
-     dad.setGraphicSize(Std.int(dad.width * 0.75));
-     boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
 
      add(gfCoolingDark);
      add(hexCoolingDark);
