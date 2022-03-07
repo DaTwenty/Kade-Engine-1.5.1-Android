@@ -194,24 +194,18 @@ class PlayState extends MusicBeatState
   var darkSpotlight:FlxSprite;
   // var hexDarkSpotlights:FlxTypedGroup<FlxSprite>;
   var hexGlitchedBack:FlxSprite;
-  var hexGlitchedFront:FlxSprite;
+  var hexGlitchedFront:FlxSprite!  
 
 // Hex shit //
 // Week 1: //
   public static var glitchedBoyfriend:Boyfriend;
   public static var glitchedHex:Character;
-  public static var glitched:Bool = false;
+ public static var glitched:Bool = false;
 // Week 2: //
-// Cooling: //
   public static var boyfriendCoolingDark:Boyfriend;
   public static var hexCoolingDark:Character;
   public static var gfCoolingDark:Character;
 	public static var dark:Bool = false;
-// Glitcher Remix //
-  public static var hexGlitchedRemix:Character;
-  public static var boyfriendGlitchedRemix:Boyfriend;
-  // public static var glitcherRemix:Bool = false;
-
   public static var hexCurWeek:String = '';
   public static var curMod:String = '';
 	public var doMoveArrows = false;
@@ -968,7 +962,6 @@ class PlayState extends MusicBeatState
 					defaultCamZoom = 0.9;
 					curStage = 'hexStageGlitcherRemix';
           hexCurWeek = 'weekend';
-          // glitcherRemix = true;
 					hexBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('weekend/hexBack', 'shared'));
 					hexBack.antialiasing = true;
 					hexBack.scrollFactor.set(0.9, 0.9);
@@ -1000,12 +993,6 @@ class PlayState extends MusicBeatState
 					hexGlitchedBack.setGraphicSize(Std.int(hexGlitchedBack.width * 1.5));
 					hexGlitchedBack.alpha = 0;
           add(hexGlitchedBack);
-
-          hexGlitchedRemix = new Character(125, -75, 'hex-glitched-remix');
-          hexGlitchedRemix.alpha = 0;
-
-          boyfriendGlitchedRemix = new Boyfriend(753, 238, 'boyfriend-glitched-remix');
-          boyfriendGlitchedRemix.alpha = 0;
 
 					hexGlitchedFront = new FlxSprite(-24, 24).loadGraphic(Paths.image('glitcherWeekend/au_wire_front', 'shared'));
 					hexGlitchedFront.antialiasing = true;
@@ -1194,14 +1181,12 @@ class PlayState extends MusicBeatState
      dad.setGraphicSize(Std.int(dad.width * 0.75));
      boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
    }
-/*
    else
    {
      gf.setGraphicSize(Std.int(gf.width * 1.00));
      dad.setGraphicSize(Std.int(dad.width * 1.00));
      boyfriend.setGraphicSize(Std.int(boyfriend.width * 1.00));
    }
-*/
 
 		// Shitty layering but whatev it works LOL
 		if (curStage == 'limo')
@@ -1246,12 +1231,6 @@ class PlayState extends MusicBeatState
      add(gf);
      add(dad);
      add(boyfriend);
-
-     add(hexGlitchedRemix);
-     add(boyfriendGlitchedRemix);
-
-     hexGlitchedRemix.setGraphicSize(Std.int(hexGlitchedRemix.width * 0.75));
-     boyfriendGlitchedRemix.setGraphicSize(Std.int(boyfriendGlitchedRemix.width * 0.75));
 
      add(crowd):
     }
@@ -3653,12 +3632,11 @@ class PlayState extends MusicBeatState
           {
 						glitchedBoyfriend.playAnim('idle');
           }
-/*
+
 					if (dark && boyfriendCoolingDark.animation.curAnim.name.startsWith('sing') && !boyfriendCoolingDark.animation.curAnim.name.endsWith('miss'))
           {
 						boyfriendCoolingDark.playAnim('idle');
           }
-*/
        }
 
 				playerStrums.forEach(function(spr:FlxSprite)
@@ -3884,35 +3862,27 @@ class PlayState extends MusicBeatState
 						 glitchedBoyfriend.playAnim('singUP', true);
              if (dark)
              boyfriendCoolingDark.playAnim('singUP', true);
-              if (boyfriendGlitchedRemix != null)
-              boyfriendGlitchedRemix.playAnim('singUP', true);
 
 						case 3:
 							boyfriend.playAnim('singRIGHT', true);
               if (glitched)
 							glitchedBoyfriend.playAnim('singRIGHT', true);
-              if (dark)
+             if (dark)
              boyfriendCoolingDark.playAnim('singRIGHT', true);
-              if (boyfriendGlitchedRemix != null)
-              boyfriendGlitchedRemix.playAnim('singRIGHT', true);
 
 						case 1:
 							boyfriend.playAnim('singDOWN', true);
               if (glitched)
 						  glitchedBoyfriend.playAnim('singDOWN', true);
-              if (dark)
+             if (dark)
              boyfriendCoolingDark.playAnim('singDOWN', true);
-              if (boyfriendGlitchedRemix != null)
-              boyfriendGlitchedRemix.playAnim('singDOWN', true);
 
 						case 0:
 							boyfriend.playAnim('singLEFT', true);
               if (glitched)
 							glitchedBoyfriend.playAnim('singLEFT', true);
-              if (dark)
+             if (dark)
              boyfriendCoolingDark.playAnim('singLEFT', true);
-              if (boyfriendGlitchedRemix != null)
-              boyfriendGlitchedRemix.playAnim('singLEFT', true);
 					}
 
 
