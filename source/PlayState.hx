@@ -193,8 +193,6 @@ class PlayState extends MusicBeatState
   var darkCrowd:FlxSprite;
   var darkSpotlight:FlxSprite;
   // var hexDarkSpotlights:FlxTypedGroup<FlxSprite>;
-  var hexGlitchedBack:FlxSprite;
-  var hexGlitchedFront:FlxSprite!  
 
 // Hex shit //
 // Week 1: //
@@ -955,51 +953,6 @@ class PlayState extends MusicBeatState
 					crowd.antialiasing = true;
 					crowd.scrollFactor.set(0.9, 0.9);
 					crowd.setGraphicSize(Std.int(crowd.width * 1.5));
-				}
-
-			case "hexStageGlitcherRemix":
-				{
-					defaultCamZoom = 0.9;
-					curStage = 'hexStageGlitcherRemix';
-          hexCurWeek = 'weekend';
-					hexBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('weekend/hexBack', 'shared'));
-					hexBack.antialiasing = true;
-					hexBack.scrollFactor.set(0.9, 0.9);
-					hexBack.setGraphicSize(Std.int(hexBack.width * 1.5));
-          add(hexBack);
-
-					hexFront = new FlxSprite(-24, 24).loadGraphic(Paths.image('weekend/hexFront', 'shared'));
-					hexFront.antialiasing = true;
-					hexFront.scrollFactor.set(0.9, 0.9);
-					hexFront.setGraphicSize(Std.int(hexFront.width * 1.5));
-          add(hexFront);
-
-					topOverlay = new FlxSprite(-24, 24).loadGraphic(Paths.image('weekend/topOverlay', 'shared'));
-					topOverlay.antialiasing = true;
-					topOverlay.scrollFactor.set(0.9, 0.9);
-					topOverlay.setGraphicSize(Std.int(topOverlay.width * 1.5));
-          add(topOverlay);
-
-					crowd = new FlxSprite(42, -14);
-					crowd.frames = Paths.getSparrowAtlas('glitcherWeekend/remixCrowd', 'shared');
-					crowd.animation.addByPrefix('bop', 'Symbol 1', 24, false);
-					crowd.antialiasing = true;
-					crowd.scrollFactor.set(0.9, 0.9);
-					crowd.setGraphicSize(Std.int(crowd.width * 1.5));
-
-					hexGlitchedBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('glitcherWeekend/au_wire_back', 'shared'));
-					hexGlitchedBack.antialiasing = true;
-					hexGlitchedBack.scrollFactor.set(0.9, 0.9);
-					hexGlitchedBack.setGraphicSize(Std.int(hexGlitchedBack.width * 1.5));
-					hexGlitchedBack.alpha = 0;
-          add(hexGlitchedBack);
-
-					hexGlitchedFront = new FlxSprite(-24, 24).loadGraphic(Paths.image('glitcherWeekend/au_wire_front', 'shared'));
-					hexGlitchedFront.antialiasing = true;
-					hexGlitchedFront.scrollFactor.set(0.9, 0.9);
-					hexGlitchedFront.setGraphicSize(Std.int(hexGlitchedFront.width * 1.5));
-					hexGlitchedFront.alpha = 0;
-					add(hexGlitchedFront);
 				}
 
 			default:
