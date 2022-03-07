@@ -210,6 +210,7 @@ class PlayState extends MusicBeatState
 // Glitcher Remix //
   public static var hexGlitchedRemix:Character;
   public static var boyfriendGlitchedRemix:Boyfriend;
+  public static var glitcherRemix:Bool = false;
 
   public static var hexCurWeek:String = '';
   public static var curMod:String = '';
@@ -967,6 +968,7 @@ class PlayState extends MusicBeatState
 					defaultCamZoom = 0.9;
 					curStage = 'hexStageGlitcherRemix';
           hexCurWeek = 'weekend';
+          glitcherRemix = true;
 					hexBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('weekend/hexBack', 'shared'));
 					hexBack.antialiasing = true;
 					hexBack.scrollFactor.set(0.9, 0.9);
@@ -3879,7 +3881,7 @@ class PlayState extends MusicBeatState
 						 glitchedBoyfriend.playAnim('singUP', true);
              if (dark)
              boyfriendCoolingDark.playAnim('singUP', true);
-              if (curStage == 'hexStageGlitcher')
+              if (glitcherRemix)
               boyfriendGlitchedRemix.playAnim('singUP', true);
 
 						case 3:
@@ -3888,7 +3890,7 @@ class PlayState extends MusicBeatState
 							glitchedBoyfriend.playAnim('singRIGHT', true);
               if (dark)
              boyfriendCoolingDark.playAnim('singRIGHT', true);
-              if (curStage == 'hexStageGlitcher')
+              if (glitcherRemix)
               boyfriendGlitchedRemix.playAnim('singRIGHT', true);
 
 						case 1:
@@ -3897,7 +3899,7 @@ class PlayState extends MusicBeatState
 						  glitchedBoyfriend.playAnim('singDOWN', true);
               if (dark)
              boyfriendCoolingDark.playAnim('singDOWN', true);
-              if (curStage == 'hexStageGlitcher')
+              if (glitcherRemix)
               boyfriendGlitchedRemix.playAnim('singDOWN', true);
 
 						case 0:
@@ -3906,7 +3908,7 @@ class PlayState extends MusicBeatState
 							glitchedBoyfriend.playAnim('singLEFT', true);
               if (dark)
              boyfriendCoolingDark.playAnim('singLEFT', true);
-              if (curStage == 'hexStageGlitcher')
+               if (glitcherRemix)
               boyfriendGlitchedRemix.playAnim('singLEFT', true);
 					}
 
