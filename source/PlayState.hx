@@ -1116,14 +1116,6 @@ class PlayState extends MusicBeatState
         boyfriend.y = 238;
         dad.x = 125;
         dad.y = -75;
-
-        case 'hexStageGlitcherRemix':
-        gf.x = 248;
-        gf.y = -33;
-        boyfriend.x = 753;
-        boyfriend.y = 238;
-        dad.x = 125;
-        dad.y = -75;
 		}
 
 		add(gf);
@@ -1178,16 +1170,6 @@ class PlayState extends MusicBeatState
 
      add(crowd);
     }
-
-    if (curStage == 'hexStageGlitcherRemix')
-    {
-     add(gf);
-     add(dad);
-     add(boyfriend);
-
-     add(crowd):
-    }
-
 
 		add(dad);
 		add(boyfriend);
