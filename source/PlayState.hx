@@ -194,7 +194,7 @@ class PlayState extends MusicBeatState
   var darkSpotlight:FlxSprite;
   // var hexDarkSpotlights:FlxTypedGroup<FlxSprite>;
   var hexGlitchedBack:FlxSprite;
-  var hexGlitchedFront:FlxSprite!  
+  var hexGlitchedFront:FlxSprite;
 
 // Hex shit //
 // Week 1: //
