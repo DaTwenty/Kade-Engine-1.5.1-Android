@@ -2487,9 +2487,9 @@ class PlayState extends MusicBeatState
        }
        else if (curStage == 'hexStageWeekend')
        {
-       	if (spot.alpha != 0)
+       	if (darkSpotlight.alpha != 0)
        {
-        FlxTween.tween(spot, {alpha: 0}, 0.45);
+        FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45);
        }
      }
 
