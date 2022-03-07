@@ -191,8 +191,8 @@ class PlayState extends MusicBeatState
   var hexDarkFront:FlxSprite;
   var topDarkOverlay:FlxSprite;
   var darkCrowd:FlxSprite;
-  var hexDarkSpotlights:FlxTypedGroup<FlxSprite>;
   var darkSpotlight:FlxSprite;
+  // var hexDarkSpotlights:FlxTypedGroup<FlxSprite>;
 
 // Hex shit //
 // Week 1: //
@@ -207,6 +207,7 @@ class PlayState extends MusicBeatState
   public static var hexCurWeek:String = '';
   public static var curMod:String = '';
 	public var doMoveArrows = false;
+	public var bopOn:Int = 2;
 
 	var fc:Bool = true;
 
@@ -897,6 +898,14 @@ class PlayState extends MusicBeatState
 						darkCrowd.setGraphicSize(Std.int(darkCrowd.width * 1.5));
             darkCrowd.alpha = 0;
 
+						darkSpotlight = new FlxSprite(0, 0).loadGraphic(Paths.image('hex/weekend/breakSpotlight', 'shared'));
+							darkSpotlight.antialiasing = true;
+							darkSpotlight.scrollFactor.set(0.9, 0.9);
+							darkSpotlight.setGraphicSize(Std.int(darkSpotlight.width * 1.5));
+              darkSpotlight.alpha = 0;
+							darkSpotlight.blend = BlendMode.ADD;
+              add(darkSpotlight);
+
 /*
           hexDarkSpotlights = new FlxTypedGroup<FlxSprite>();
          add(hexDarkSpotlights);
@@ -1257,7 +1266,6 @@ class PlayState extends MusicBeatState
 			healthBarBG.y = 50;
 		healthBarBG.screenCenter(X);
 		healthBarBG.scrollFactor.set();
-		add(healthBarBG);
 
 		// healthBar
 		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
@@ -1273,7 +1281,9 @@ class PlayState extends MusicBeatState
     case 'hex-detected':
     healthBar.createFilledBar(0xFFFF1F1D, 0xFF3078FF);
     }
+
 		add(healthBar);
+		add(healthBarBG);
 
 		// Add Kade Engine watermark
 		kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " " + (storyDifficulty == 2 ? "Hard" : storyDifficulty == 1 ? "Normal" : "Easy") + (Main.watermarks ? " - KE " + MainMenuState.kadeEngineVer : ""), 16);
@@ -2462,6 +2472,27 @@ class PlayState extends MusicBeatState
 					offsetY = luaModchart.getVar("followYOffset", "float");
 				}
 				#end
+
+       if (hexCurWeek == 'weekend')
+       {
+				offsetY = -25;
+				offsetX = 0;
+       }
+
+       if (dark && curStage == 'hexStageWeekend')
+       {
+        darkSpotlight.x = dad.x - 25;
+				darkSpotlight.y = -dad.y - 160;
+				FlxTween.tween(darkSpotlight, {alpha: 1}, 0.45);
+       }
+       else if (curStage == 'hexStageWeekend')
+       {
+       	if (spot.alpha != 0)
+       {
+        FlxTween.tween(spot, {alpha: 0}, 0.45);
+       }
+     }
+
 				camFollow.setPosition(dad.getMidpoint().x + 150 + offsetX, dad.getMidpoint().y - 100 + offsetY);
 				#if windows
 				if (luaModchart != null)
@@ -2496,6 +2527,27 @@ class PlayState extends MusicBeatState
 					offsetY = luaModchart.getVar("followYOffset", "float");
 				}
 				#end
+
+       if (hexCurWeek == 'weekend')
+       {
+				offsetY = 20;
+				offsetX = 68;
+       }
+
+       if (dark && curStage == 'hexStageWeekend')
+       {
+        darkSpotlight.x = boyfriend.x - 24;
+				darkSpotlight.y = -boyfriend.y + 140;
+				FlxTween.tween(darkSpotlight, {alpha: 1}, 0.45);
+       }
+       else if (curStage == 'hexStageWeekend')
+       {
+       	if (spot.alpha != 0)
+       {
+        FlxTween.tween(spot, {alpha: 0}, 0.45);
+       }
+     }
+
 				camFollow.setPosition(boyfriend.getMidpoint().x - 100 + offsetX, boyfriend.getMidpoint().y - 100 + offsetY);
 
 				#if windows
@@ -3591,26 +3643,6 @@ class PlayState extends MusicBeatState
           boyfriendCoolingDark.playAnim('singRIGHTmiss', true);
 			}
 
-        if (curStage == 'hexStageWeekend' && doMoveArrows)
-     {
-				var cameraOffsetX = 0;
-				var cameraOffsetY = 0;
-
-        switch (daNote.noteData)
-        {
-        case 2:
-        cameraOffsetY = -24;
-        case 3:
-        cameraOffsetX = 24;
-        case 1:
-        cameraOffsetY = 24;
-        case 0:
-        cameraOffsetX = -24;
-        }
-
-				camFollow.setPosition((boyfriend.getMidpoint().x - 192) + cameraOffsetX, (boyfriend.getMidpoint().y - 100) + cameraOffsetY);
-     }
-
 			#if windows
 			if (luaModchart != null)
 				luaModchart.executeState('playerOneMiss', [direction, Conductor.songPosition]);
@@ -3780,7 +3812,28 @@ class PlayState extends MusicBeatState
              if (dark)
              boyfriendCoolingDark.playAnim('singLEFT', true);
 					}
-		
+
+
+        if (curStage == 'hexStageWeekend' && doMoveArrows)
+     {
+				var cameraOffsetX = 0;
+				var cameraOffsetY = 0;
+
+        switch (note.noteData)
+        {
+        case 2:
+        cameraOffsetY = -24;
+        case 3:
+        cameraOffsetX = 24;
+        case 1:
+        cameraOffsetY = 24;
+        case 0:
+        cameraOffsetX = -24;
+        }
+
+				camFollow.setPosition((boyfriend.getMidpoint().x - 192) + cameraOffsetX, (boyfriend.getMidpoint().y - 100) + cameraOffsetY);
+     }
+	
 					#if windows
 					if (luaModchart != null)
 						luaModchart.executeState('playerOneSing', [note.noteData, Conductor.songPosition]);
@@ -3950,6 +4003,11 @@ class PlayState extends MusicBeatState
 			FlxTween.tween(dad, {alpha: 1});
 			FlxTween.tween(gf, {alpha: 1});
 			FlxTween.tween(boyfriend, {alpha: 1});
+
+			if (darkSpotlight.alpha != 0)
+			{
+				FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45);
+			}
 		}
 	}
 
@@ -4108,8 +4166,8 @@ class PlayState extends MusicBeatState
 							fastCarDrive();
 				}
 
-      case "hexStageGlitcher":
-      if (curBeat == 144 || curBeat == 207 || curBeat == 272 || curBeat == 333)
+   case "hexStageGlitcher":
+  if (curBeat == 144 || curBeat == 207 || curBeat == 272 || curBeat == 333)
   {
 		glitched = !glitched;
 		if (glitched)
@@ -4142,27 +4200,71 @@ class PlayState extends MusicBeatState
 
      case "hexStageWeekend":
     {
+        if (curBeat % bopOn == 0)
         crowd.animation.play('bop', true);
         if (dark)
         darkCrowd.animation.play('bop', true);
 
-        if (curBeat == 30)
+       if (curBeat == 68)
+			 bopOn = 4;
+
+       if (curBeat == 100)
+       bopOn = 2;
+
+       if (curBeat == 132)
+       {
+       bopOn = 1;
+       doMoveArrows = true;
+       }
+
+       if (curBeat == 192)
+       {
+       bopOn = 100;
+       doMoveArrows = false;
+       }
+
+       if (curBeat == 196)
       {
+        bopOn = 4;
         hexLightsOff();
-        
       }
  
-       if (curBeat == 40)
+       if (curBeat == 228)
+        bopOn = 2;
+ 
+       if (curBeat == 256)
       {
+       bopOn = 100;
        hexLightsOff(false);
       }
 
-      if (curBeat == 60)
-      {
-       doMoveArrows = true;
-      }
-   }
+       if (curBeat == 260)
+      bopOn = 4;
+ 
+       if (curBeat == 324)
+      bopOn = 2;
 
+       if (curBeat == 352)
+      bopOn = 100;
+
+       if (curBeat == 356)
+     {
+      bopOn = 1;
+      doMoveArrows = true;
+     }
+
+       if (curBeat == 416)
+     {
+      bopOn = 100;
+      doMoveArrows = false;
+     }
+
+      if (curBeat == 420)
+     {
+      bopOn = 4;
+     }
+   }
+  
       case "hexStageDetected":
       {
       crowd.animation.play('bop', true);
