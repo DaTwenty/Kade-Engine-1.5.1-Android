@@ -1194,12 +1194,14 @@ class PlayState extends MusicBeatState
      dad.setGraphicSize(Std.int(dad.width * 0.75));
      boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
    }
+/*
    else
    {
      gf.setGraphicSize(Std.int(gf.width * 1.00));
      dad.setGraphicSize(Std.int(dad.width * 1.00));
      boyfriend.setGraphicSize(Std.int(boyfriend.width * 1.00));
    }
+*/
 
 		// Shitty layering but whatev it works LOL
 		if (curStage == 'limo')
@@ -3908,7 +3910,7 @@ class PlayState extends MusicBeatState
 							glitchedBoyfriend.playAnim('singLEFT', true);
               if (dark)
              boyfriendCoolingDark.playAnim('singLEFT', true);
-               if (glitcherRemix)
+              if (glitcherRemix)
               boyfriendGlitchedRemix.playAnim('singLEFT', true);
 					}
 
