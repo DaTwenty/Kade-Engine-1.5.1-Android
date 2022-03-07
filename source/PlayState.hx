@@ -193,21 +193,29 @@ class PlayState extends MusicBeatState
   var darkCrowd:FlxSprite;
   var darkSpotlight:FlxSprite;
   // var hexDarkSpotlights:FlxTypedGroup<FlxSprite>;
+  var hexGlitchedBack:FlxSprite;
+  var hexGlitchedFront:FlxSprite!  
 
 // Hex shit //
 // Week 1: //
   public static var glitchedBoyfriend:Boyfriend;
   public static var glitchedHex:Character;
- public static var glitched:Bool = false;
+  public static var glitched:Bool = false;
 // Week 2: //
+// Cooling: //
   public static var boyfriendCoolingDark:Boyfriend;
   public static var hexCoolingDark:Character;
   public static var gfCoolingDark:Character;
 	public static var dark:Bool = false;
+// Glitcher Remix //
+  public static var hexGlitchedRemix:Character;
+  public static var boyfriendGlitchedRemix:Boyfriend;
+
   public static var hexCurWeek:String = '';
   public static var curMod:String = '';
 	public var doMoveArrows = false;
 	public var bopOn:Int = 2;
+ 
 
 	var fc:Bool = true;
 
@@ -954,6 +962,57 @@ class PlayState extends MusicBeatState
 					crowd.setGraphicSize(Std.int(crowd.width * 1.5));
 				}
 
+			case "hexStageGlitcherRemix":
+				{
+					defaultCamZoom = 0.9;
+					curStage = 'hexStageGlitcherRemix';
+          hexCurWeek = 'weekend';
+					hexBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('weekend/hexBack', 'shared'));
+					hexBack.antialiasing = true;
+					hexBack.scrollFactor.set(0.9, 0.9);
+					hexBack.setGraphicSize(Std.int(hexBack.width * 1.5));
+          add(hexBack);
+
+					hexFront = new FlxSprite(-24, 24).loadGraphic(Paths.image('weekend/hexFront', 'shared'));
+					hexFront.antialiasing = true;
+					hexFront.scrollFactor.set(0.9, 0.9);
+					hexFront.setGraphicSize(Std.int(hexFront.width * 1.5));
+          add(hexFront);
+
+					topOverlay = new FlxSprite(-24, 24).loadGraphic(Paths.image('weekend/topOverlay', 'shared'));
+					topOverlay.antialiasing = true;
+					topOverlay.scrollFactor.set(0.9, 0.9);
+					topOverlay.setGraphicSize(Std.int(topOverlay.width * 1.5));
+          add(topOverlay);
+
+					crowd = new FlxSprite(42, -14);
+					crowd.frames = Paths.getSparrowAtlas('glitcherWeekend/remixCrowd', 'shared');
+					crowd.animation.addByPrefix('bop', 'Symbol 1', 24, false);
+					crowd.antialiasing = true;
+					crowd.scrollFactor.set(0.9, 0.9);
+					crowd.setGraphicSize(Std.int(crowd.width * 1.5));
+
+					hexGlitchedBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('glitcherWeekend/au_wire_back', 'shared'));
+					hexGlitchedBack.antialiasing = true;
+					hexGlitchedBack.scrollFactor.set(0.9, 0.9);
+					hexGlitchedBack.setGraphicSize(Std.int(hexGlitchedBack.width * 1.5));
+					hexGlitchedBack.alpha = 0;
+          add(hexGlitchedBack);
+
+          hexGlitchedRemix = new Character(125, -75, 'hex-glitched-remix');
+          hexGlitchedRemix.alpha = 0;
+
+          boyfriendGlitchedRemix = new Boyfriend(753, 238, 'boyfriend-glitched-remix');
+          boyfriendGlitchedRemix.alpha = 0;
+
+					hexGlitchedFront = new FlxSprite(-24, 24).loadGraphic(Paths.image('glitcherWeekend/au_wire_front', 'shared'));
+					hexGlitchedFront.antialiasing = true;
+					hexGlitchedFront.scrollFactor.set(0.9, 0.9);
+					hexGlitchedFront.setGraphicSize(Std.int(hexGlitchedFront.width * 1.5));
+					hexGlitchedFront.alpha = 0;
+					add(hexGlitchedFront);
+				}
+
 			default:
 			{
 					defaultCamZoom = 0.9;
@@ -1115,6 +1174,14 @@ class PlayState extends MusicBeatState
         boyfriend.y = 238;
         dad.x = 125;
         dad.y = -75;
+
+        case 'hexStageGlitcherRemix':
+        gf.x = 248;
+        gf.y = -33;
+        boyfriend.x = 753;
+        boyfriend.y = 238;
+        dad.x = 125;
+        dad.y = -75;
 		}
 
 		add(gf);
@@ -1124,6 +1191,12 @@ class PlayState extends MusicBeatState
       gf.setGraphicSize(Std.int(gf.width * 0.75));
      dad.setGraphicSize(Std.int(dad.width * 0.75));
      boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
+   }
+   else
+   {
+     gf.setGraphicSize(Std.int(gf.width * 1.00));
+     dad.setGraphicSize(Std.int(dad.width * 1.00));
+     boyfriend.setGraphicSize(Std.int(boyfriend.width * 1.00));
    }
 
 		// Shitty layering but whatev it works LOL
@@ -1160,8 +1233,25 @@ class PlayState extends MusicBeatState
      add(gf);
      add(dad);
      add(boyfriend);
+
      add(crowd);
     }
+
+    if (curStage == 'hexStageGlitcherRemix')
+    {
+     add(gf);
+     add(dad);
+     add(boyfriend);
+
+     add(hexGlitchedRemix);
+     add(boyfriendGlitchedRemix);
+
+     hexGlitchedRemix.setGraphicSize(Std.int(hexGlitchedRemix.width * 0.75));
+     boyfriendGlitchedRemix.setGraphicSize(Std.int(boyfriendGlitchedRemix.width * 0.75));
+
+     add(crowd):
+    }
+
 
 		add(dad);
 		add(boyfriend);
@@ -3789,27 +3879,35 @@ class PlayState extends MusicBeatState
 						 glitchedBoyfriend.playAnim('singUP', true);
              if (dark)
              boyfriendCoolingDark.playAnim('singUP', true);
+              if (curStage == 'hexStageGlitcher')
+              boyfriendGlitchedRemix.playAnim('singUP', true);
 
 						case 3:
 							boyfriend.playAnim('singRIGHT', true);
               if (glitched)
 							glitchedBoyfriend.playAnim('singRIGHT', true);
-             if (dark)
+              if (dark)
              boyfriendCoolingDark.playAnim('singRIGHT', true);
+              if (curStage == 'hexStageGlitcher')
+              boyfriendGlitchedRemix.playAnim('singRIGHT', true);
 
 						case 1:
 							boyfriend.playAnim('singDOWN', true);
               if (glitched)
 						  glitchedBoyfriend.playAnim('singDOWN', true);
-             if (dark)
+              if (dark)
              boyfriendCoolingDark.playAnim('singDOWN', true);
+              if (curStage == 'hexStageGlitcher')
+              boyfriendGlitchedRemix.playAnim('singDOWN', true);
 
 						case 0:
 							boyfriend.playAnim('singLEFT', true);
               if (glitched)
 							glitchedBoyfriend.playAnim('singLEFT', true);
-             if (dark)
+              if (dark)
              boyfriendCoolingDark.playAnim('singLEFT', true);
+              if (curStage == 'hexStageGlitcher')
+              boyfriendGlitchedRemix.playAnim('singLEFT', true);
 					}
 
 
