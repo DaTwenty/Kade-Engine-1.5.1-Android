@@ -960,7 +960,7 @@ class PlayState extends MusicBeatState
 					curStage = 'hexStageJava';
           curMod = 'hex';
           hexCurWeek = 'weekend';
-					hexBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/weekend/hexBack', 'shared'));
+					hexBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/weekend/hexBack_noVis', 'shared'));
           hexBack.antialiasing = true;
           hexBack.scrollFactor.set(0.9, 0.9);
           hexBack.setGraphicSize(Std.int(hexBack.width * 1.5));
