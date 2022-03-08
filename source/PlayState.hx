@@ -3788,7 +3788,7 @@ class PlayState extends MusicBeatState
           if (dark)
           boyfriendCoolingDark.playAnim('singRIGHTmiss', true);
           if (remixBoyfriend != null)
-          remixBoyfriend.playAnim('singRIGHTmiss', true)
+          remixBoyfriend.playAnim('singRIGHTmiss', true);
 			}
 
 			#if windows
@@ -4426,7 +4426,7 @@ class PlayState extends MusicBeatState
      }
    }
   
-      case "hexStageDetected" | "hexStageWeekendGlitcher" | "hexStageJava":
+      case "hexStageDetected" | "hexStageWeekendGlitcher" | "hexStageJava:
       {
       crowd.animation.play('bop', true);
       }
