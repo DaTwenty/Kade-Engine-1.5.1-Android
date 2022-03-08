@@ -2899,6 +2899,8 @@ class PlayState extends MusicBeatState
 								glitchedHex.playAnim('singUP' + altAnim, true);
                 if (dark)
                 hexCoolingDark.playAnim('singUP' + altAnim, true);
+                if (remixHex != null)
+                remixHex.playAnim('singUP' + altAnim, true);
 
 							case 3:
 								dad.playAnim('singRIGHT' + altAnim, true);
@@ -2907,6 +2909,8 @@ class PlayState extends MusicBeatState
 									glitchedHex.playAnim('singRIGHT' + altAnim, true);
                   if (dark)
                   hexCoolingDark.playAnim('singRIGHT' + altAnim, true);
+                if (remixHex != null)
+                remixHex.playAnim('singRIGHT' + altAnim, true);
 
 							case 1:
 								dad.playAnim('singDOWN' + altAnim, true);
@@ -2914,6 +2918,8 @@ class PlayState extends MusicBeatState
 								glitchedHex.playAnim('singDOWN' + altAnim, true);
                   if (dark)
                   hexCoolingDark.playAnim('singDOWN' + altAnim, true);
+                if (remixHex != null)
+                remixHex.playAnim('singDOWN' + altAnim, true);
 
 							case 0:
 								dad.playAnim('singLEFT' + altAnim, true);
@@ -2921,6 +2927,8 @@ class PlayState extends MusicBeatState
 								glitchedHex.playAnim('singLEFT' + altAnim, true);
                   if (dark)
                   hexCoolingDark.playAnim('singLEFT' + altAnim, true);
+                if (remixHex != null)
+                remixHex.playAnim('singLEFT' + altAnim, true);
 						}
 
         if (curStage == 'hexStageWeekend' && doMoveArrows)
