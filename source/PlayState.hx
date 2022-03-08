@@ -207,6 +207,10 @@ class PlayState extends MusicBeatState
   public static var hexCoolingDark:Character;
   public static var gfCoolingDark:Character;
 	public static var dark:Bool = false;
+
+  public static var remixHex:Character;
+  public static var remixBoyfriend:Character;
+
   public static var hexCurWeek:String = '';
   public static var curMod:String = '';
 	public var doMoveArrows = false;
@@ -1022,6 +1026,11 @@ class PlayState extends MusicBeatState
 					crowd.scrollFactor.set(0.9, 0.9);
 					crowd.setGraphicSize(Std.int(crowd.width * 1.5));
 
+          remixHex = new Character(125, -75, 'hex-glitched-remix');
+
+          remixBoyfriend = new Boyfriend(753, 238, 'bf-glitched-remix');
+          remixBoyfriend.alpha = 0;
+
 					hexRemixBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('glitcherRemix/au_wire_back', 'shared'));
 					hexRemixBack.antialiasing = true;
 					hexRemixBack.scrollFactor.set(0.9, 0.9);
@@ -1267,6 +1276,12 @@ class PlayState extends MusicBeatState
      add(gf);
      add(dad);
      add(boyfriend);
+
+     add(remixHex);
+     add(remixBoyfriend);
+
+     remixHex.setGraphicSize(Std.int(remixHex.width * 0.75));
+     remixBoyfriend.setGraphicSize(Std.int(remixBoyfriend.width * 0.75));
 
      add(crowd);
     }
