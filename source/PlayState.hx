@@ -905,7 +905,6 @@ class PlayState extends MusicBeatState
 							darkSpotlight.setGraphicSize(Std.int(darkSpotlight.width * 1.5));
               darkSpotlight.alpha = 0;
 							darkSpotlight.blend = BlendMode.ADD;
-              add(darkSpotlight);
 
 /*
           hexDarkSpotlights = new FlxTypedGroup<FlxSprite>();
@@ -953,6 +952,41 @@ class PlayState extends MusicBeatState
 					crowd.antialiasing = true;
 					crowd.scrollFactor.set(0.9, 0.9);
 					crowd.setGraphicSize(Std.int(crowd.width * 1.5));
+				}
+
+ 			case 'hexStageJava':
+				{
+					defaultCamZoom = 0.9;
+					curStage = 'hexStageJava';
+          curMod = 'hex';
+          hexCurWeek = 'weekend';
+					hexBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/weekend/hexBack', 'shared'));
+          hexBack.antialiasing = true;
+          hexBack.scrollFactor.set(0.9, 0.9);
+          hexBack.setGraphicSize(Std.int(hexBack.width * 1.5));
+          add(hexBack);
+
+					hexFront = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/weekend/hexFront', 'shared'));
+					hexFront.antialiasing = true;
+					hexFront.scrollFactor.set(0.9, 0.9);
+					hexFront.setGraphicSize(Std.int(hexFront.width * 1.5));
+          add(hexFront);
+
+					topOverlay = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/weekend/topOverlay', 'shared'));
+					topOverlay.antialiasing = true;
+					topOverlay.scrollFactor.set(0.9, 0.9);
+					topOverlay.setGraphicSize(Std.int(topOverlay.width * 1.5));
+          add(topOverlay);
+
+					crowd = new FlxSprite(42, -14);
+					crowd.frames = Paths.getSparrowAtlas('hex/weekend/crowd', "shared");
+					crowd.antialiasing = true;
+					crowd.scrollFactor.set(0.9, 0.9);
+					crowd.setGraphicSize(Std.int(crowd.width * 1.5));
+					crowd.animation.addByPrefix('bop', 'Symbol 1', 24, false);
+          //crowd.animation.play('bop');
+         // add(crowd);
+
 				}
 
 			default:
@@ -1122,7 +1156,7 @@ class PlayState extends MusicBeatState
 
    if (hexCurWeek == 'weekend')
    {
-      gf.setGraphicSize(Std.int(gf.width * 0.75));
+     gf.setGraphicSize(Std.int(gf.width * 0.75));
      dad.setGraphicSize(Std.int(dad.width * 0.75));
      boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
    }
@@ -1157,7 +1191,8 @@ class PlayState extends MusicBeatState
      gfCoolingDark.setGraphicSize(Std.int(gfCoolingDark.width * 0.75));
      hexCoolingDark.setGraphicSize(Std.int(hexCoolingDark.width * 0.75));
      boyfriendCoolingDark.setGraphicSize(Std.int(boyfriendCoolingDark.width * 0.75));
- 
+
+     add(darkSpotlight);
      add(crowd);
      add(darkCrowd);
     }
