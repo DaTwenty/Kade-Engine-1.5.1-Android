@@ -996,7 +996,7 @@ class PlayState extends MusicBeatState
 				{
 					defaultCamZoom = 0.9;
 					curStage = 'hexStageWeekendGlitcher';
-          hexCurWeek == 'weekend';
+          hexCurWeek = 'weekend';
 					hexBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('detected/hexBack', 'shared'));
 					hexBack.antialiasing = true;
 					hexBack.scrollFactor.set(0.9, 0.9);
