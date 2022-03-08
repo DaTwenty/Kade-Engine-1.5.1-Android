@@ -1262,6 +1262,16 @@ class PlayState extends MusicBeatState
      add(crowd);
     }
 
+    if (curStage == 'hexStageWeekendGlitcher')
+    {
+     add(gf);
+     add(dad);
+     add(boyfriend);
+
+     add(crowd);
+    }
+
+
 		add(dad);
 		add(boyfriend);
 		if (loadRep)
