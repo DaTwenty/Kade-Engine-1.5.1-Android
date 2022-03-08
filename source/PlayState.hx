@@ -1135,7 +1135,7 @@ class PlayState extends MusicBeatState
 				gf.x += 180;
 				gf.y += 300;
 
-        case 'hexStageWeekend':
+        case 'hexStageWeekend' | 'hexStageJava':
         gf.x = 248;
         gf.y = -33;
         boyfriend.x = 753;
@@ -1195,6 +1195,14 @@ class PlayState extends MusicBeatState
      add(darkSpotlight);
      add(crowd);
      add(darkCrowd);
+    }
+
+    if (curStage == 'hexStageJava')
+    {
+      add(gf);
+      add(dad);
+      add(boyfriend);
+      add(crowd);
     }
 
     if (curStage == 'hexStageDetected')
