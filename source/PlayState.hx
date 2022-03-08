@@ -3769,7 +3769,7 @@ class PlayState extends MusicBeatState
           if (dark)
           boyfriendCoolingDark.playAnim('singDOWNmiss', true);
           if (remixBoyfriend != null)
-          remixBoyfriend.playAnim('singDOWNmiss', true)
+          remixBoyfriend.playAnim('singDOWNmiss', true);
 
 				case 2:
 					boyfriend.playAnim('singUPmiss', true);
@@ -3778,7 +3778,7 @@ class PlayState extends MusicBeatState
           if (dark)
           boyfriendCoolingDark.playAnim('singUPmiss', true);
           if (remixBoyfriend != null)
-          remixBoyfriend.playAnim('singUPmiss', true)
+          remixBoyfriend.playAnim('singUPmiss', true);
 
 				case 3:
 					boyfriend.playAnim('singRIGHTmiss', true);
@@ -3787,7 +3787,7 @@ class PlayState extends MusicBeatState
           if (dark)
           boyfriendCoolingDark.playAnim('singRIGHTmiss', true);
           if (remixBoyfriend != null)
-          remixBoyfriend.playAnim('singRIGHTmiss', true)
+          remixBoyfriend.playAnim('singRIGHTmiss', true);
 			}
 
 			#if windows
