@@ -193,6 +193,9 @@ class PlayState extends MusicBeatState
   var darkCrowd:FlxSprite;
   var darkSpotlight:FlxSprite;
   // var hexDarkSpotlights:FlxTypedGroup<FlxSprite>;
+// hola bebota *le roba su informacion genetica* //
+  var hexRemixBack:FlxSprite;
+  var hexRemixFront:FlxSprite;
 
 // Hex shit //
 // Week 1: //
@@ -989,6 +992,51 @@ class PlayState extends MusicBeatState
 
 				}
 
+			case 'hexStageWeekendGlitcher':
+				{
+					defaultCamZoom = 0.9;
+					curStage = 'hexStageWeekendGlitcher';
+          hexCurWeek == 'weekend';
+					hexBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('detected/hexBack', 'shared'));
+					hexBack.antialiasing = true;
+					hexBack.scrollFactor.set(0.9, 0.9);
+					hexBack.setGraphicSize(Std.int(hexBack.width * 1.5));
+          add(hexBack);
+
+					hexFront = new FlxSprite(-24, 24).loadGraphic(Paths.image('detected/hexFront', 'shared'));
+					hexFront.antialiasing = true;
+					hexFront.scrollFactor.set(0.9, 0.9);
+					hexFront.setGraphicSize(Std.int(hexFront.width * 1.5));
+          add(hexFront);
+
+					topOverlay = new FlxSprite(-24, 24).loadGraphic(Paths.image('detected/topOverlay', 'shared'));
+					topOverlay.antialiasing = true;
+					topOverlay.scrollFactor.set(0.9, 0.9);
+				 topOverlay.setGraphicSize(Std.int(topOverlay.width * 1.5));
+         add(topOverlay);
+
+					crowd = new FlxSprite(42, -14);
+					crowd.frames = Paths.getSparrowAtlas('glitcherRemix/remixCrowd', "shared");
+					crowd.animation.addByPrefix('bop', 'Symbol 1', 24, false);
+					crowd.antialiasing = true;
+					crowd.scrollFactor.set(0.9, 0.9);
+					crowd.setGraphicSize(Std.int(crowd.width * 1.5));
+
+					hexRemixBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('glitcherRemix/au_wire_back', 'shared'));
+					hexRemixBack.antialiasing = true;
+					hexRemixBack.scrollFactor.set(0.9, 0.9);
+					hexRemixBack.setGraphicSize(Std.int(hexRemixBack.width * 1.5));
+          hexRemixBack.alpha = 0;
+          add(hexRemixBack);
+
+					hexRemixFront = new FlxSprite(-24, 24).loadGraphic(Paths.image('glitcher/remix/au_wire_front', 'hex'));
+					hexRemixFront.antialiasing = true;
+					hexRemixFront.scrollFactor.set(0.9, 0.9);
+					hexRemixFront.setGraphicSize(Std.int(hexRemixFront.width * 1.5));
+          hexRemixFront.alpha = 0;
+          add(hexRemixFront);
+				}
+
 			default:
 			{
 					defaultCamZoom = 0.9;
@@ -1143,7 +1191,7 @@ class PlayState extends MusicBeatState
         dad.x = 69;
         dad.y = -58;
 
-        case 'hexStageDetected':
+        case 'hexStageDetected' | 'hexStageWeekendGlitcher':
         gf.x = 248;
         gf.y = -33;
         boyfriend.x = 753;
