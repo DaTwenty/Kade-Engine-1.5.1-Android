@@ -1001,6 +1001,7 @@ class PlayState extends MusicBeatState
 					defaultCamZoom = 0.9;
 					curStage = 'hexStageWeekendGlitcher';
           curMod = 'hex';
+          hexCurWeek = 'weekend';
 					hexBack = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/detected/hexBack', 'shared'));
 					hexBack.antialiasing = true;
 					hexBack.scrollFactor.set(0.9, 0.9);
@@ -4424,9 +4425,71 @@ class PlayState extends MusicBeatState
      {
       bopOn = 4;
      }
-   }
+    }
   
-      case "hexStageDetected" | "hexStageWeekendGlitcher" | "hexStageJava":
+     case "hexStageWeekendGlitcher":
+     {
+       switch (curBeat)
+        {
+        case 144:
+					FlxG.camera.flash(FlxColor.RED, 0.6);
+					hexRemixBack.alpha = 1;
+					hexRemixFront.alpha = 1;
+					topOverlay.alpha = 0;
+					crowd.alpha = 0;
+					hexFront.alpha = 0;
+					hexBack.alpha = 0;
+					remixHex.alpha = 1;
+					remixBoyfriend.alpha = 1;
+					dad.alpha = 0;
+					boyfriend.alpha = 0;
+					gf.alpha = 0;
+
+        case 208:
+					FlxG.camera.flash(FlxColor.RED, 0.6);
+					hexRemixBack.alpha = 0;
+					hexRemixFront.alpha = 0;
+					topOverlay.alpha = 1;
+					crowd.alpha = 1;
+					hexFront.alpha = 1;
+					hexBack.alpha = 1;
+					remixHex.alpha = 0;
+					remixBoyfriend.alpha = 0;
+					dad.alpha = 1;
+					boyfriend.alpha = 1;
+					gf.alpha = 1;
+
+        case 272:
+					FlxG.camera.flash(FlxColor.RED, 0.6);
+					hexRemixBack.alpha = 1;
+					hexRemixFront.alpha = 1;
+					topOverlay.alpha = 0;
+					crowd.alpha = 0;
+					hexFront.alpha = 0;
+					hexBack.alpha = 0;
+					remixHex.alpha = 1;
+					remixBoyfriend.alpha = 1;
+					dad.alpha = 0;
+					boyfriend.alpha = 0;
+					gf.alpha = 0;
+
+        case 336:
+					FlxG.camera.flash(FlxColor.RED, 0.6);
+					hexRemixBack.alpha = 0;
+					hexRemixFront.alpha = 0;
+					topOverlay.alpha = 1;
+					crowd.alpha = 1;
+					hexFront.alpha = 1;
+					hexBack.alpha = 1;
+					remixHex.alpha = 0;
+					remixBoyfriend.alpha = 0;
+					dad.alpha = 1;
+					boyfriend.alpha = 1;
+					gf.alpha = 1;
+        }
+     }
+  
+      case "hexStageDetected" | "hexStageJava":
       {
       crowd.animation.play('bop', true);
       }
