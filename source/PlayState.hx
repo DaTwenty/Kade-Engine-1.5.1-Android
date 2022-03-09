@@ -4429,6 +4429,9 @@ class PlayState extends MusicBeatState
   
      case "hexStageWeekendGlitcher":
      {
+        if (curBeat % bopOn == 0)
+        crowd.animation.play('bop', true);
+
        switch (curBeat)
         {
         case 144:
