@@ -1451,7 +1451,7 @@ class PlayState extends MusicBeatState
 
      gfLCD3.setGraphicSize(Std.int(gfLCD3.width * 0.75));
      hexLCD3.setGraphicSize(Std.int(hexLCD3.width * 0.75));
-     boyfriendLCD3.setGraphicSize(Std.int(boyfriendLCD3.width * 0.75)
+     boyfriendLCD3.setGraphicSize(Std.int(boyfriendLCD3.width * 0.75));
 
     add(crowd1);
     add(crowd2);
