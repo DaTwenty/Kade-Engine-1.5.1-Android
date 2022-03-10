@@ -47,6 +47,9 @@ class HealthIcon extends FlxSprite
 		animation.add('bf-cooling-dark', [0, 1], 0, false, isPlayer);
 		animation.add('bf-detected', [0, 1], 0, false, isPlayer);
 		animation.add('bf-glitched-remix', [0, 1], 0, false, isPlayer);
+		animation.add('lcdBF1', [0, 1], 0, false, isPlayer);
+		animation.add('lcdBF2', [0, 1], 0, false, isPlayer);
+		animation.add('lcdBF3', [0, 1], 0, false, isPlayer);
 // dads //
 		animation.add('hex', [24, 25], 0, false, isPlayer);
 		animation.add('hex-sunset', [24, 25], 0, false, isPlayer);
@@ -57,6 +60,9 @@ class HealthIcon extends FlxSprite
 		animation.add('hex-cooling-dark', [24, 25], 0, false, isPlayer);
     animation.add('hex-detected', [28, 29], 0, false, isPlayer);
     animation.add('hex-glitched-remix', [28, 29], 0, false, isPlayer);
+		animation.add('lcdHEX1', [24, 25], 0, false, isPlayer);
+		animation.add('lcdHEX2', [24, 25], 0, false, isPlayer);
+		animation.add('lcdHEX3', [24, 25], 0, false, isPlayer);
      animation.play(char);
 
 		switch(char)

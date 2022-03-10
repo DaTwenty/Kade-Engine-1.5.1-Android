@@ -39,6 +39,12 @@ class GameOverSubstate extends MusicBeatSubstate
 		      daBf = 'bf-detected';
 		  case 'bf-glitched-remix':
 		      daBf = 'bf-glitched-remix';
+		  case 'lcdBF1':
+		      daBf = 'lcdBF1';
+		  case 'lcdBF2':
+		      daBf = 'lcdBF2';
+		  case 'lcdBF3':
+		      daBf = 'lcdBF3';
 			default:
 				  daBf = 'bf';
 		}
