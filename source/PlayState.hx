@@ -1176,7 +1176,7 @@ class PlayState extends MusicBeatState
 					crowd2.scrollFactor.set(0.9, 0.9);
 					crowd2.setGraphicSize(Std.int(sprite.width * 1.5));
 
-					crowd3:FlxSprite = new FlxSprite(42, -14);
+					crowd3 = new FlxSprite(42, -14);
 					crowd3.frames = Paths.getSparrowAtlas('hex/lcd/au_lcd_audience_3', "hex");
 					crowd3.animation.addByPrefix('bop', 'Symbol 1', 24, false);
 					crowd3.antialiasing = true;
