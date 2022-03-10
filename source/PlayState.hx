@@ -3082,7 +3082,7 @@ class PlayState extends MusicBeatState
                 if (remixHex != null)
                 remixHex.playAnim('singUP' + altAnim, true);
 
-                if (hexLCD2 != null && hexLCD3)
+                if (hexLCD2 != null && hexLCD3 != null)
                 {
                 hexLCD2.playAnim('singUP' + altAnim, true);
                 hexLCD3.playAnim('singUP' + altAnim, true);
@@ -3098,7 +3098,7 @@ class PlayState extends MusicBeatState
                 if (remixHex != null)
                 remixHex.playAnim('singRIGHT' + altAnim, true);
 
-                if (hexLCD2 != null && hexLCD3)
+                if (hexLCD2 != null && hexLCD3 != null)
                 {
                 hexLCD2.playAnim('singRIGHT' + altAnim, true);
                 hexLCD3.playAnim('singRIGHT' + altAnim, true);
@@ -3113,7 +3113,7 @@ class PlayState extends MusicBeatState
                 if (remixHex != null)
                 remixHex.playAnim('singDOWN' + altAnim, true);
 
-                if (hexLCD2 != null && hexLCD3)
+                if (hexLCD2 != null && hexLCD3 != null)
                 {
                 hexLCD2.playAnim('singDOWN' + altAnim, true);
                 hexLCD3.playAnim('singDOWN' + altAnim, true);
@@ -3128,7 +3128,7 @@ class PlayState extends MusicBeatState
                 if (remixHex != null)
                 remixHex.playAnim('singLEFT' + altAnim, true);
 
-                if (hexLCD2 != null && hexLCD3)
+                if (hexLCD2 != null && hexLCD3 != null)
                 {
                 hexLCD2.playAnim('singLEFT' + altAnim, true);
                 hexLCD3.playAnim('singLEFT' + altAnim, true);
@@ -3186,7 +3186,7 @@ class PlayState extends MusicBeatState
             hexCoolingDark.holdTimer = 0;
             if (remixHex != null)
             remixHex.holdTimer = 0;
-            if (hexLCD2 != null && hexLCD3)
+            if (hexLCD2 != null && hexLCD3 != null)
             {
             hexLCD2.holdTimer = 0;
             hexLCD3.holdTimer = 0;
