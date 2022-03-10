@@ -1174,14 +1174,14 @@ class PlayState extends MusicBeatState
 					crowd2.animation.addByPrefix('bop', 'Symbol 1', 24, false);
 					crowd2.antialiasing = true;
 					crowd2.scrollFactor.set(0.9, 0.9);
-					crowd2.setGraphicSize(Std.int(sprite.width * 1.5));
+					crowd2.setGraphicSize(Std.int(crowd2.width * 1.5));
 
 					crowd3 = new FlxSprite(42, -14);
 					crowd3.frames = Paths.getSparrowAtlas('hex/lcd/au_lcd_audience_3', "hex");
 					crowd3.animation.addByPrefix('bop', 'Symbol 1', 24, false);
 					crowd3.antialiasing = true;
 					crowd3.scrollFactor.set(0.9, 0.9);
-					crowd3.setGraphicSize(Std.int(sprite.width * 1.5));
+					crowd3.setGraphicSize(Std.int(crowd3.width * 1.5));
         }
 
 			default:
