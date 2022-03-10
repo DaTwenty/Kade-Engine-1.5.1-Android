@@ -789,7 +789,7 @@ class PlayState extends MusicBeatState
             curStage = 'hexStage';
             curMod = 'hex';
             hexCurWeek = 'hextravanganza';
-            var bg:FlxSprite = new (-600, -200).loadGraphic(Paths.image('hex/stageback', 'shared'));
+            var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('hex/stageback', 'shared'));
             bg.antialiasing = true;
             bg.scrollFactor.set(0.9, 0.9);
             bg.active = false;
@@ -801,7 +801,7 @@ class PlayState extends MusicBeatState
             defaultCamZoom = 0.9;
             curStage = 'hexStageSunset';
             curMod = 'hex';
-            hexCurWeek = 'hextravanganza'
+            hexCurWeek = 'hextravanganza';
             var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('hex/sunset/stageback', 'shared'));
             bg.antialiasing = true;
             bg.scrollFactor.set(0.9, 0.9);
@@ -814,7 +814,7 @@ class PlayState extends MusicBeatState
             defaultCamZoom = 0.9;
             curStage = 'hexStageNight';
             curMod = 'hex';
-            hexCurWeek = 'hextravanganza'
+            hexCurWeek = 'hextravanganza';
             var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('hex/night/stageback', 'shared'));
             bg.antialiasing = true;
             bg.scrollFactor.set(0.9, 0.9);
@@ -827,7 +827,7 @@ class PlayState extends MusicBeatState
             defaultCamZoom = 0.9;
             curStage = 'hexStageGlitcher';
             curMod = 'hex';
-            hexCurWeek = 'hextravanganza'
+            hexCurWeek = 'hextravanganza';
             unGlitchedBG = new FlxSprite(-600, -200).loadGraphic(Paths.image('hex/glitcher/stageback', 'shared'));
             unGlitchedBG.antialiasing = true;
             unGlitchedBG.scrollFactor.set(0.9, 0.9);
