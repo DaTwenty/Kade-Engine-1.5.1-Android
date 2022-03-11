@@ -191,12 +191,12 @@ class PlayState extends MusicBeatState
   var hexDarkFront:FlxSprite;
   var topDarkOverlay:FlxSprite;
   var darkCrowd:FlxSprite;
-  var darkSpotlight:FlxSprite;
+    var darkSpotlight:FlxSprite;
   // var hexDarkSpotlights:FlxTypedGroup<FlxSprite>;
 // hola bebota *le roba su informacion genetica* //
   var hexRemixBack:FlxSprite;
   var hexRemixFront:FlxSprite;
-  // consumo lcd //
+  // falopa //
   var hexBack1:FlxSprite;
   var hexBack2:FlxSprite;
   var hexBack3:FlxSprite;
@@ -210,8 +210,8 @@ class PlayState extends MusicBeatState
   var crowd2:FlxSprite;
   var crowd3:FlxSprite;
 
-// Hex shit //
-// Week 1: //
+// Hex stuff //
+  // Week 1: //
 // (Glitcher)
   public static var glitchedBoyfriend:Boyfriend;
   public static var glitchedHex:Character;
@@ -1091,7 +1091,7 @@ class PlayState extends MusicBeatState
           add(hexBack1);
 
 					spotlight1 = new FlxSprite(42, 44);
-					spotlight1.frames = Paths.getSparrowAtlas('hex/lcd/au_lcd_lights_1', "shared");
+					spotlight1.frames = Paths.getSparrowAtlas('hex/lcd/au_lcd_lights_1', 'shared');
 					spotlight1.animation.addByPrefix('bop', 'Symbol 1', 24, false);
 					spotlight1.antialiasing = true;
 					spotlight1.scrollFactor.set(0.9, 0.9);
@@ -1102,6 +1102,7 @@ class PlayState extends MusicBeatState
 					hexBack2.antialiasing = true;
 					hexBack2.scrollFactor.set(0.9, 0.9);
 					hexBack2.setGraphicSize(Std.int(hexBack2.width * 1.5));
+          hexBack2.alpha = 0;
           add(hexBack2);
 
 					spotlight2 = new FlxSprite(42, 44);
@@ -1110,6 +1111,7 @@ class PlayState extends MusicBeatState
 					spotlight2.antialiasing = true;
 					spotlight2.scrollFactor.set(0.9, 0.9);
 					spotlight2.setGraphicSize(Std.int(spotlight2.width * 1.5));
+          spotlight2.alpha = 0;
           add(spotlight2);
 
 					hexLCD2 = new Character(69, -58, 'lcdHEX2');
@@ -1125,6 +1127,7 @@ class PlayState extends MusicBeatState
 					hexBack3.antialiasing = true;
 					hexBack3.scrollFactor.set(0.9, 0.9);
 					hexBack3.setGraphicSize(Std.int(hexBack3.width * 1.5));
+					hexBack3.alpha = 0;
           add(hexBack3);
 
 					spotlight3 = new FlxSprite(42, 44);
@@ -1133,6 +1136,7 @@ class PlayState extends MusicBeatState
 					spotlight3.antialiasing = true;
 					spotlight3.scrollFactor.set(0.9, 0.9);
 					spotlight3.setGraphicSize(Std.int(spotlight2.width * 1.5));
+          spotlight3.alpha = 0;
           add(spotlight3);
 
 					hexLCD3 = new Character(69, -58, 'lcdHEX3');
@@ -1154,34 +1158,38 @@ class PlayState extends MusicBeatState
 					hexFront2.antialiasing = true;
 					hexFront2.scrollFactor.set(0.9, 0.9);
 					hexFront2.setGraphicSize(Std.int(hexFront2.width * 1.5));
+          hexFront2.alpha = 0;
           add(hexFront2);
 
 					hexFront3 = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/lcd/au_lcd_front_3', 'shared'));
 					hexFront3.antialiasing = true;
 					hexFront3.scrollFactor.set(0.9, 0.9);
 					hexFront3.setGraphicSize(Std.int(hexFront3.width * 1.5));
+          hexFront3.alpha = 0;
           add(hexFront3);
 
 					crowd1 = new FlxSprite(42, -14);
-					crowd1.frames = Paths.getSparrowAtlas('hex/lcd/au_lcd_audience_1', "hex");
+					crowd1.frames = Paths.getSparrowAtlas('hex/lcd/au_lcd_audience_1', 'shared');
 					crowd1.animation.addByPrefix('bop', 'Symbol 1', 24, false);
 					crowd1.antialiasing = true;
 					crowd1.scrollFactor.set(0.9, 0.9);
 					crowd1.setGraphicSize(Std.int(crowd1.width * 1.5));
 
 					crowd2 = new FlxSprite(42, -14);
-					crowd2.frames = Paths.getSparrowAtlas('hex/lcd/au_lcd_audience_2', "hex");
+					crowd2.frames = Paths.getSparrowAtlas('hex/lcd/au_lcd_audience_2', 'shared');
 					crowd2.animation.addByPrefix('bop', 'Symbol 1', 24, false);
 					crowd2.antialiasing = true;
 					crowd2.scrollFactor.set(0.9, 0.9);
 					crowd2.setGraphicSize(Std.int(crowd2.width * 1.5));
+          crowd2.alpha = 0;
 
 					crowd3 = new FlxSprite(42, -14);
-					crowd3.frames = Paths.getSparrowAtlas('hex/lcd/au_lcd_audience_3', "hex");
+					crowd3.frames = Paths.getSparrowAtlas('hex/lcd/au_lcd_audience_3', 'shared');
 					crowd3.animation.addByPrefix('bop', 'Symbol 1', 24, false);
 					crowd3.antialiasing = true;
 					crowd3.scrollFactor.set(0.9, 0.9);
 					crowd3.setGraphicSize(Std.int(crowd3.width * 1.5));
+          crowd3.alpha = 0;
         }
 
 			default:
