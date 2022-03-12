@@ -372,7 +372,7 @@ class Character extends FlxSprite
 				addOffset('scared', -2, -17);
 
 				playAnim('danceRight');
-				flipX = true;
+				// flipX = true;
 
 			case 'lcdGF3':
 				tex = Paths.getSparrowAtlas('hex/characters/lcdGF3', 'shared');
@@ -405,7 +405,7 @@ class Character extends FlxSprite
 
 				playAnim('danceRight');
 
-				flipX = true;
+				// flipX = true;
 
 			case 'dad':
 				// DAD ANIMATION LOADING CODE
