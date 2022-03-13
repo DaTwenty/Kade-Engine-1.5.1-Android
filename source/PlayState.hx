@@ -1384,7 +1384,7 @@ class PlayState extends MusicBeatState
 
     if (curSong != 'lcd')
     {
-    boyfriendLCD2 = null:
+    boyfriendLCD2 = null;
     boyfriendLCD3 = null;
     hexLCD2 = null;
     hexLCD3 = null;
