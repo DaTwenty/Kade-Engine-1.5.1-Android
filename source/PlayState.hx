@@ -1382,7 +1382,7 @@ class PlayState extends MusicBeatState
     remixHex = null;
     }
 
-    if (curSong != 'lcd')
+    if (curSong != 'LCD')
     {
     boyfriendLCD2 = null;
     boyfriendLCD3 = null;
@@ -1597,7 +1597,7 @@ class PlayState extends MusicBeatState
 		healthBar.createFilledBar(0xFFFF0000, 0xFF66FF33);
     switch(dad.curCharacter)
     {
-    case 'hex' | 'hex-sunset' | 'hex-night' | 'hex-cooling':
+    case 'hex' | 'hex-sunset' | 'hex-night' | 'hex-cooling' | 'lcdHEX1':
     healthBar.createFilledBar(0xFF51FFFF, 0xFF3078FF);
     case 'hex-unglitched' | 'hex-glitched':
     healthBar.createFilledBar(0xFFFF1D19, 0xFF3078FF);
@@ -3974,6 +3974,11 @@ class PlayState extends MusicBeatState
 				gf.playAnim('sad');
         if (dark)
         gfCoolingDark.playAnim('sad');
+        if (gfLCD2 != null && gfLCD3 != null)
+        {
+        gfLCD2.playAnim('sad');
+        gfLCD3.playAnim('sad');
+        }
 			}
 			combo = 0;
 			misses++;
@@ -4606,6 +4611,17 @@ class PlayState extends MusicBeatState
 			// Dad doesnt interupt his own notes
 			if (SONG.notes[Math.floor(curStep / 16)].mustHitSection && dad.curCharacter != 'gf')
 				dad.dance();
+
+    if (dark && !hexCoolingDark.animation.curAnim.name.startsWith('sing') && hexCoolingDark.animation.finished)
+     hexCoolingDark.dance();
+
+    if (hexLCD2 != null && hexLCD3 != null)
+      {
+    if (!hexLCD2.animation.curAnim.name.startsWith('sing') && hexLCD2.animation.finished)
+      hexLCD2.dance();
+    if (!hexLCD3.animation.curAnim.name.startsWith('sing') && hexLCD3.animation.finished)
+      hexLCD3.dance();
+      }
 		}
 		// FlxG.log.add('change bpm' + SONG.notes[Std.int(curStep / 16)].changeBPM);
 		wiggleShit.update(Conductor.crochet);
