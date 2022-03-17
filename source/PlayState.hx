@@ -1376,22 +1376,6 @@ class PlayState extends MusicBeatState
      boyfriend.setGraphicSize(Std.int(boyfriend.width * 1.00));
    }
 
-    if (curSong != 'Glitcher-Remix')
-    {
-    remixBoyfriend = null;
-    remixHex = null;
-    }
-
-    if (curSong != 'LCD')
-    {
-    boyfriendLCD2 = null;
-    boyfriendLCD3 = null;
-    hexLCD2 = null;
-    hexLCD3 = null;
-    gfLCD2 = null;
-    gfLCD3 = null;
-    }
-
 		// Shitty layering but whatev it works LOL
 		if (curStage == 'limo')
 			add(limo);
