@@ -4396,6 +4396,12 @@ class PlayState extends MusicBeatState
 
 	var danced:Bool = false;
 
+  function spotlightBackToNormal(darkTween:FlxTween):Void
+  {
+    darkTween = tween(darkSpotlight, {alpha: 1}, 0.45);
+  }
+
+
 	function lcdSwap(type:Int = 0)
 	{
 		FlxG.camera.flash(FlxColor.WHITE, 0.6);
@@ -4769,15 +4775,23 @@ class PlayState extends MusicBeatState
        doMoveArrows = false;
        }
 
+// a partir de aqui se quedan sin luz hasta el beat 256
        if (curBeat == 196)
       {
         bopOn = 4;
         hexLightsOff();
       }
  
+       if (curBeat == 212)
+      FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45, {onComplete: spotlightBackToNormal});
+ 
        if (curBeat == 228)
         bopOn = 2;
+        FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45, {onComplete: spotlightBackToNormal});
  
+       if (curBeat == 244)
+       FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45, {onComplete: spotlightBackToNormal});
+
        if (curBeat == 256)
       {
        bopOn = 100;
