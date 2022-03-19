@@ -2791,12 +2791,18 @@ class PlayState extends MusicBeatState
 				offsetX = 0;
        }
 
+       	if (darkSpotlight.alpha != 0)
+       {
+        FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45);
+       }
+
        if (dark && curStage == 'hexStageWeekend')
        {
         darkSpotlight.x = dad.x - 25;
 				darkSpotlight.y = -dad.y - 160;
 				FlxTween.tween(darkSpotlight, {alpha: 1}, 0.45);
        }
+/*
        else if (curStage == 'hexStageWeekend')
        {
        	if (darkSpotlight.alpha != 0)
@@ -2804,7 +2810,7 @@ class PlayState extends MusicBeatState
         FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45);
        }
      }
-
+*/
 				camFollow.setPosition(dad.getMidpoint().x + 150 + offsetX, dad.getMidpoint().y - 100 + offsetY);
 				#if windows
 				if (luaModchart != null)
@@ -2846,12 +2852,18 @@ class PlayState extends MusicBeatState
 				offsetX = 68;
        }
 
+       	if (darkSpotlight.alpha != 0)
+       {
+        FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45);
+       }
+
        if (dark && curStage == 'hexStageWeekend')
        {
         darkSpotlight.x = boyfriend.x - 24;
 				darkSpotlight.y = -boyfriend.y + 140;
 				FlxTween.tween(darkSpotlight, {alpha: 1}, 0.45);
        }
+/*
        else if (curStage == 'hexStageWeekend')
        {
        	if (darkSpotlight.alpha != 0)
@@ -2859,7 +2871,7 @@ class PlayState extends MusicBeatState
         FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45);
        }
      }
-
+*/
 				camFollow.setPosition(boyfriend.getMidpoint().x - 100 + offsetX, boyfriend.getMidpoint().y - 100 + offsetY);
 
 				#if windows
@@ -4396,12 +4408,6 @@ class PlayState extends MusicBeatState
 
 	var danced:Bool = false;
 
-  function spotlightBackToNormal(darkTween:FlxTween)
-  {
-    darkTween = FlxTween.tween(darkSpotlight, {alpha: 1}, 0.45);
-  }
-
-
 	function lcdSwap(type:Int = 0)
 	{
 		FlxG.camera.flash(FlxColor.WHITE, 0.6);
@@ -4781,17 +4787,18 @@ class PlayState extends MusicBeatState
         bopOn = 4;
         hexLightsOff();
       }
- 
+ /*
        if (curBeat == 212)
-      FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45, {onComplete: spotlightBackToNormal});
- 
+      FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45);
+ */
        if (curBeat == 228)
         bopOn = 2;
-        FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45, {onComplete: spotlightBackToNormal});
+/*
+        FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45);
  
        if (curBeat == 244)
-       FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45, {onComplete: spotlightBackToNormal});
-
+       FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45);
+*/
        if (curBeat == 256)
       {
        bopOn = 100;
