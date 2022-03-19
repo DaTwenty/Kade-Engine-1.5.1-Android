@@ -4396,7 +4396,7 @@ class PlayState extends MusicBeatState
 
 	var danced:Bool = false;
 
-  function spotlightBackToNormal(darkTween:FlxTween):Void
+  function spotlightBackToNormal(darkTween:FlxTween)
   {
     darkTween = FlxTween.tween(darkSpotlight, {alpha: 1}, 0.45);
   }
