@@ -4787,7 +4787,7 @@ class PlayState extends MusicBeatState
  
        if (curBeat == 228)
         bopOn = 2;
-        FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45, onComplete: {spotlightBackToNormal});
+        FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45, {onComplete: {spotlightBackToNormal});
  
        if (curBeat == 244)
        FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45, {onComplete: spotlightBackToNormal});
