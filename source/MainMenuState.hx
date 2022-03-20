@@ -34,7 +34,7 @@ class MainMenuState extends MusicBeatState
 
 	var newGaming:FlxText;
 	var newGaming2:FlxText;
-	// public static var firstStart:Bool = true;
+	public static var firstStart:Bool = true;
 
 	public static var nightly:String = "";
 
@@ -107,7 +107,7 @@ class MainMenuState extends MusicBeatState
       menuItem.y = 60 + (i * 160);
 		}
 
-/*
+
 			if (firstStart)
 				FlxTween.tween(menuItem,{y: 60 + (i * 160)},1 + (i * 0.25) ,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween) 
 					{ 
@@ -115,9 +115,8 @@ class MainMenuState extends MusicBeatState
 						changeItem();
 					}});
 			else
-*/
 
-		// firstStart = false;
+		firstStart = false;
 
 		// FlxG.camera.follow(camFollow, null, 0.60 * (60 / FlxG.save.data.fpsCap));
 
