@@ -41,7 +41,7 @@ class MainMenuState extends MusicBeatState
 	public static var kadeEngineVer:String = "1.5.1" + nightly;
 	public static var gameVer:String = "0.2.7.1";
 
-	// var magenta:FlxSprite;
+	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 	public static var finishedFunnyMove:Bool = false;
 
@@ -108,7 +108,7 @@ class MainMenuState extends MusicBeatState
 			if (firstStart)
 				FlxTween.tween(menuItem,{y: 60 + (i * 160)},1 + (i * 0.25) ,{ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween) 
 					{ 
-						 = true; 
+						finishedFunnyMove = true; 
 						changeItem();
 					}});
 			else
