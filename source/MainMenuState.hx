@@ -83,7 +83,7 @@ class MainMenuState extends MusicBeatState
 		add(magenta);
 		// magenta.scrollFactor.set();
 
-    var hexBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('hexMenu'));
+    var hexBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('hexInDaMenu'));
     hexBG.x = 100;
     add(hexBG);
 
