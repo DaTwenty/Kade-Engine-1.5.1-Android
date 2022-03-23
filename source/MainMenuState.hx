@@ -70,6 +70,7 @@ class MainMenuState extends MusicBeatState
 
     var hexBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('hexInDaMenu'));
     hexBG.x = 200;
+    hexBG.y
     hexBG.antialiasing = true;
     add(hexBG);
 
