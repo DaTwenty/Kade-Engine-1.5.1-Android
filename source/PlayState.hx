@@ -191,7 +191,7 @@ class PlayState extends MusicBeatState
   var hexDarkFront:FlxSprite;
   var topDarkOverlay:FlxSprite;
   var darkCrowd:FlxSprite;
-    var darkSpotlight:FlxSprite;
+  var darkSpotlight:FlxSprite;
   // var hexDarkSpotlights:FlxTypedGroup<FlxSprite>;
 // hola bebota *le roba su informacion genetica* //
   var hexRemixBack:FlxSprite;
@@ -2791,18 +2791,17 @@ class PlayState extends MusicBeatState
 				offsetX = 0;
        }
 
-       	if (darkSpotlight.alpha != 0)
-       {
-        FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45);
-       }
-
        if (dark && curStage == 'hexStageWeekend')
        {
         darkSpotlight.x = dad.x - 25;
 				darkSpotlight.y = -dad.y - 160;
 				FlxTween.tween(darkSpotlight, {alpha: 1}, 0.45);
        }
-/*
+
+       	if (darkSpotlight.alpha != 0)
+       {
+        FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45);
+       }
        else if (curStage == 'hexStageWeekend')
        {
        	if (darkSpotlight.alpha != 0)
@@ -2810,7 +2809,7 @@ class PlayState extends MusicBeatState
         FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45);
        }
      }
-*/
+
 				camFollow.setPosition(dad.getMidpoint().x + 150 + offsetX, dad.getMidpoint().y - 100 + offsetY);
 				#if windows
 				if (luaModchart != null)
@@ -2852,18 +2851,17 @@ class PlayState extends MusicBeatState
 				offsetX = 68;
        }
 
-       	if (darkSpotlight.alpha != 0)
-       {
-        FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45);
-       }
-
        if (dark && curStage == 'hexStageWeekend')
        {
         darkSpotlight.x = boyfriend.x - 24;
 				darkSpotlight.y = -boyfriend.y + 140;
 				FlxTween.tween(darkSpotlight, {alpha: 1}, 0.45);
        }
-/*
+
+       	if (darkSpotlight.alpha != 0)
+       {
+        FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45);
+       }
        else if (curStage == 'hexStageWeekend')
        {
        	if (darkSpotlight.alpha != 0)
@@ -2871,7 +2869,7 @@ class PlayState extends MusicBeatState
         FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45);
        }
      }
-*/
+
 				camFollow.setPosition(boyfriend.getMidpoint().x - 100 + offsetX, boyfriend.getMidpoint().y - 100 + offsetY);
 
 				#if windows
