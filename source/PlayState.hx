@@ -1242,6 +1242,8 @@ class PlayState extends MusicBeatState
         gfVersion = 'gf-cooling-dark';
       case 'gf-detected':
         gfVersion = 'gf-detected';
+      case 'lcdGF1':
+        gfVersion = 'lcdGF1';
       default:
 				gfVersion = 'gf';
 		}
@@ -3066,7 +3068,7 @@ class PlayState extends MusicBeatState
 							if (SONG.notes[Math.floor(curStep / 16)].altAnim)
 								altAnim = '-alt';
 						}
-	
+
             	// sexo gay //
 						switch (Math.abs(daNote.noteData))
 						{
@@ -3079,6 +3081,12 @@ class PlayState extends MusicBeatState
                 if (remixHex != null)
                 remixHex.playAnim('singUP' + altAnim, true);
 
+                if (hexLCD2 != null && hexLCD3 != null)
+                {
+                hexLCD2.playAnim('singUP' + altAnim, true);
+                hexLCD3.playAnim('singUP' + altAnim, true);
+                }
+
 							case 3:
 								dad.playAnim('singRIGHT' + altAnim, true);
 								
@@ -3089,6 +3097,12 @@ class PlayState extends MusicBeatState
                 if (remixHex != null)
                 remixHex.playAnim('singRIGHT' + altAnim, true);
 
+                if (hexLCD2 != null && hexLCD3 != null)
+                {
+                hexLCD2.playAnim('singRIGHT' + altAnim, true);
+                hexLCD3.playAnim('singRIGHT' + altAnim, true);
+                }
+
 							case 1:
 								dad.playAnim('singDOWN' + altAnim, true);
                 if (glitched)
@@ -3098,6 +3112,12 @@ class PlayState extends MusicBeatState
                 if (remixHex != null)
                 remixHex.playAnim('singDOWN' + altAnim, true);
 
+                if (hexLCD2 != null && hexLCD3 != null)
+                {
+                hexLCD2.playAnim('singDOWN' + altAnim, true);
+                hexLCD3.playAnim('singDOWN' + altAnim, true);
+                }
+
 							case 0:
 								dad.playAnim('singLEFT' + altAnim, true);
                 if (glitched)
@@ -3106,6 +3126,12 @@ class PlayState extends MusicBeatState
                   hexCoolingDark.playAnim('singLEFT' + altAnim, true);
                 if (remixHex != null)
                 remixHex.playAnim('singLEFT' + altAnim, true);
+
+                if (hexLCD2 != null && hexLCD3 != null)
+                {
+                hexLCD2.playAnim('singLEFT' + altAnim, true);
+                hexLCD3.playAnim('singLEFT' + altAnim, true);
+                }
 						}
 
         if (curStage == 'hexStageWeekend' && doMoveArrows)
@@ -3881,6 +3907,14 @@ class PlayState extends MusicBeatState
 						remixBoyfriend.playAnim('idle');
           }
  
+  				if (boyfriendLCD2 != null && boyfriendLCD3 != null)
+  				{
+ 					if (boyfriendLCD2.animation.curAnim.name.startsWith('sing') && !boyfriendLCD2.animation.curAnim.name.endsWith('miss'))
+						boyfriendLCD2.playAnim('idle');
+
+ 					if (boyfriendLCD3.animation.curAnim.name.startsWith('sing') && !boyfriendLCD3.animation.curAnim.name.endsWith('miss'))
+						boyfriendLCD3.playAnim('idle');
+         }
        }
 
 				playerStrums.forEach(function(spr:FlxSprite)
@@ -3939,6 +3973,12 @@ class PlayState extends MusicBeatState
           if (remixBoyfriend != null)
           remixBoyfriend.playAnim('singLEFTmiss', true);
 
+          if (boyfriendLCD2 != null && boyfriendLCD3 != null)
+          {
+          boyfriendLCD2.playAnim('singLEFTmiss', true);
+          boyfriendLCD3.playAnim('singLEFTmiss', true);
+          }
+
 				case 1:
 					boyfriend.playAnim('singDOWNmiss', true);
           if (glitched)
@@ -3947,6 +3987,12 @@ class PlayState extends MusicBeatState
           boyfriendCoolingDark.playAnim('singDOWNmiss', true);
           if (remixBoyfriend != null)
           remixBoyfriend.playAnim('singDOWNmiss', true);
+
+          if (boyfriendLCD2 != null && boyfriendLCD3 != null)
+          {
+          boyfriendLCD2.playAnim('singDOWNmiss', true);
+          boyfriendLCD3.playAnim('singDOWNmiss', true);
+          }
 
 				case 2:
 					boyfriend.playAnim('singUPmiss', true);
@@ -3957,6 +4003,12 @@ class PlayState extends MusicBeatState
           if (remixBoyfriend != null)
           remixBoyfriend.playAnim('singUPmiss', true);
 
+          if (boyfriendLCD2 != null && boyfriendLCD3 != null)
+          {
+          boyfriendLCD2.playAnim('singUPmiss', true);
+          boyfriendLCD3.playAnim('singUPmiss', true);
+          }
+
 				case 3:
 					boyfriend.playAnim('singRIGHTmiss', true);
         if (glitched)
@@ -3965,6 +4017,12 @@ class PlayState extends MusicBeatState
           boyfriendCoolingDark.playAnim('singRIGHTmiss', true);
           if (remixBoyfriend != null)
           remixBoyfriend.playAnim('singRIGHTmiss', true);
+
+          if (boyfriendLCD2 != null && boyfriendLCD3 != null)
+          {
+          boyfriendLCD2.playAnim('singRIGHTmiss', true);
+          boyfriendLCD3.playAnim('singRIGHTmiss', true);
+          }
 			}
 
 			#if windows
@@ -4104,7 +4162,6 @@ class PlayState extends MusicBeatState
 					}
 					else
 						totalNotesHit += 1;
-	
 
 					switch (note.noteData)
 					{
@@ -4117,6 +4174,12 @@ class PlayState extends MusicBeatState
              if (remixBoyfriend != null)
              remixBoyfriend.playAnim('singUP', true);
 
+             if (boyfriendLCD2 != null && boyfriendLCD3 != null)
+             {
+              boyfriendLCD2.playAnim('singUP', true);
+              boyfriendLCD3.playAnim('singUP', true);
+             }
+
 						case 3:
 							boyfriend.playAnim('singRIGHT', true);
               if (glitched)
@@ -4125,6 +4188,12 @@ class PlayState extends MusicBeatState
              boyfriendCoolingDark.playAnim('singRIGHT', true);
              if (remixBoyfriend != null)
              remixBoyfriend.playAnim('singRIGHT', true);
+
+             if (boyfriendLCD2 != null && boyfriendLCD3 != null)
+             {
+              boyfriendLCD2.playAnim('singRIGHT', true);
+              boyfriendLCD3.playAnim('singRIGHT', true);
+             }
 
 						case 1:
 							boyfriend.playAnim('singDOWN', true);
@@ -4135,6 +4204,12 @@ class PlayState extends MusicBeatState
              if (remixBoyfriend != null)
              remixBoyfriend.playAnim('singDOWN', true);
 
+             if (boyfriendLCD2 != null && boyfriendLCD3 != null)
+             {
+              boyfriendLCD2.playAnim('singDOWN', true);
+              boyfriendLCD3.playAnim('singDOWN', true);
+             }
+
 						case 0:
 							boyfriend.playAnim('singLEFT', true);
               if (glitched)
@@ -4143,8 +4218,13 @@ class PlayState extends MusicBeatState
              boyfriendCoolingDark.playAnim('singLEFT', true);
              if (remixBoyfriend != null)
              remixBoyfriend.playAnim('singLEFT', true);
-					}
 
+             if (boyfriendLCD2 != null && boyfriendLCD3 != null)
+             {
+              boyfriendLCD2.playAnim('singLEFT', true);
+              boyfriendLCD3.playAnim('singLEFT', true);
+             }
+					}
 
         if (curStage == 'hexStageWeekend' && doMoveArrows)
      {
@@ -4546,6 +4626,15 @@ class PlayState extends MusicBeatState
    if (remixBoyfriend != null && !remixBoyfriend.animation.curAnim.name.startsWith("sing"))
    {
     remixBoyfriend.playAnim('idle');
+   }
+
+
+   if (boyfriendLCD2 != null && boyfriendLCD3 != null)
+   {
+    if (!boyfriendLCD2.animation.curAnim.name.startsWith("sing"))
+    boyfriendLCD2.playAnim('idle');
+    if (!boyfriendLCD3.animation.curAnim.name.startsWith("sing"))
+    boyfriendLCD3.playAnim('idle');
    }
 
 		if (curBeat % 8 == 7 && curSong == 'Bopeebo')
