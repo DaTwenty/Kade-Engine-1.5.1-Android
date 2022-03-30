@@ -173,7 +173,6 @@ class PlayState extends MusicBeatState
 	var bottomBoppers:FlxSprite;
 	var santa:FlxSprite;
 
-
 // Vs Hex: Weekend Update // 
 // Week 1: //
   var unGlitchedBG:FlxSprite;
@@ -196,24 +195,50 @@ class PlayState extends MusicBeatState
 // hola bebota *le roba su informacion genetica* //
   var hexRemixBack:FlxSprite;
   var hexRemixFront:FlxSprite;
+  // falopa //
+  var hexBack1:FlxSprite;
+  var hexBack2:FlxSprite;
+  var hexBack3:FlxSprite;
+  var hexFront1:FlxSprite;
+  var hexFront2:FlxSprite;
+  var hexFront3:FlxSprite;
+  var spotlight1:FlxSprite;
+  var spotlight2:FlxSprite;
+  var spotlight3:FlxSprite;
+  var crowd1:FlxSprite;
+  var crowd2:FlxSprite;
+  var crowd3:FlxSprite;
 
-// Hex shit //
-// Week 1: //
+// Hex stuff //
+  // Week 1: //
+// (Glitcher)
   public static var glitchedBoyfriend:Boyfriend;
   public static var glitchedHex:Character;
  public static var glitched:Bool = false;
+
 // Week 2: //
+// (Cooling)
   public static var boyfriendCoolingDark:Boyfriend;
   public static var hexCoolingDark:Character;
   public static var gfCoolingDark:Character;
 	public static var dark:Bool = false;
 
+// (Glitcher Remix)
   public static var remixHex:Character;
   public static var remixBoyfriend:Character;
+
+// (LCD)
+  public static var boyfriendLCD2:Boyfriend;
+  public static var boyfriendLCD3:Boyfriend;
+  public static var hexLCD2:Character;
+  public static var hexLCD3:Character;
+  public static var gfLCD2:Character;
+  public static var gfLCD3:Character;
 
   public static var hexCurWeek:String = '';
   public static var curMod:String = '';
 	public var doMoveArrows = false;
+
 	public var bopOn:Int = 2;
  
 
@@ -1052,6 +1077,121 @@ class PlayState extends MusicBeatState
           add(hexRemixFront);
 				}
 
+      case 'hexStageLCD':
+        {
+					defaultCamZoom = 0.9;
+					curStage = 'hexStageLCD';
+          curMod = 'hex';
+          hexCurWeek = 'weekend';
+
+					hexBack1 = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/lcd/au_lcd_back_1', 'shared'));
+					hexBack1.antialiasing = true;
+					hexBack1.scrollFactor.set(0.9, 0.9);
+					hexBack1.setGraphicSize(Std.int(hexBack1.width * 1.5));
+          add(hexBack1);
+
+					spotlight1 = new FlxSprite(42, 44);
+					spotlight1.frames = Paths.getSparrowAtlas('hex/lcd/au_lcd_lights_1', 'shared');
+					spotlight1.animation.addByPrefix('bop', 'Symbol 1', 24, false);
+					spotlight1.antialiasing = true;
+					spotlight1.scrollFactor.set(0.9, 0.9);
+					spotlight1.setGraphicSize(Std.int(spotlight1.width * 1.5));
+          add(spotlight1);
+
+					hexBack2 = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/lcd/au_lcd_back_2', 'shared'));
+					hexBack2.antialiasing = true;
+					hexBack2.scrollFactor.set(0.9, 0.9);
+					hexBack2.setGraphicSize(Std.int(hexBack2.width * 1.5));
+          hexBack2.alpha = 0;
+          add(hexBack2);
+
+					spotlight2 = new FlxSprite(42, 44);
+					spotlight2.frames = Paths.getSparrowAtlas('hex/lcd/au_lcd_lights_2', "shared");
+					spotlight2.animation.addByPrefix('bop', 'Symbol 1', 24, false);
+					spotlight2.antialiasing = true;
+					spotlight2.scrollFactor.set(0.9, 0.9);
+					spotlight2.setGraphicSize(Std.int(spotlight2.width * 1.5));
+          spotlight2.alpha = 0;
+          add(spotlight2);
+
+					hexLCD2 = new Character(69, -58, 'lcdHEX2');
+					hexLCD2.alpha = 0;
+
+					boyfriendLCD2 = new Boyfriend(753, 258, 'lcdBF2');
+					boyfriendLCD2.alpha = 0;
+
+					gfLCD2 = new Character(248, -33, 'lcdGF2');
+					gfLCD2.alpha = 0;
+
+					hexBack3 = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/lcd/au_lcd_back_3', 'shared'));
+					hexBack3.antialiasing = true;
+					hexBack3.scrollFactor.set(0.9, 0.9);
+					hexBack3.setGraphicSize(Std.int(hexBack3.width * 1.5));
+					hexBack3.alpha = 0;
+          add(hexBack3);
+
+					spotlight3 = new FlxSprite(42, 44);
+					spotlight3.frames = Paths.getSparrowAtlas('hex/lcd/au_lcd_lights_3', "shared");
+					spotlight3.animation.addByPrefix('bop', 'Symbol 1', 24, false);
+					spotlight3.antialiasing = true;
+					spotlight3.scrollFactor.set(0.9, 0.9);
+					spotlight3.setGraphicSize(Std.int(spotlight2.width * 1.5));
+          spotlight3.alpha = 0;
+          add(spotlight3);
+
+					hexLCD3 = new Character(69, -58, 'lcdHEX3');
+					hexLCD3.alpha = 0;
+
+					boyfriendLCD3 = new Boyfriend(753, 258, 'lcdBF3');
+					boyfriendLCD3.alpha = 0;
+
+					gfLCD3 = new Character(248, -33, 'lcdGF3');
+					gfLCD3.alpha = 0;
+
+					hexFront1 = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/lcd/au_lcd_front_1', 'shared'));
+					hexFront1.antialiasing = true;
+					hexFront1.scrollFactor.set(0.9, 0.9);
+					hexFront1.setGraphicSize(Std.int(hexFront1.width * 1.5));
+          add(hexFront1);
+
+					hexFront2 = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/lcd/au_lcd_front_2', 'shared'));
+					hexFront2.antialiasing = true;
+					hexFront2.scrollFactor.set(0.9, 0.9);
+					hexFront2.setGraphicSize(Std.int(hexFront2.width * 1.5));
+          hexFront2.alpha = 0;
+          add(hexFront2);
+
+					hexFront3 = new FlxSprite(-24, 24).loadGraphic(Paths.image('hex/lcd/au_lcd_front_3', 'shared'));
+					hexFront3.antialiasing = true;
+					hexFront3.scrollFactor.set(0.9, 0.9);
+					hexFront3.setGraphicSize(Std.int(hexFront3.width * 1.5));
+          hexFront3.alpha = 0;
+          add(hexFront3);
+
+					crowd1 = new FlxSprite(42, -14);
+					crowd1.frames = Paths.getSparrowAtlas('hex/lcd/au_lcd_audience_1', 'shared');
+					crowd1.animation.addByPrefix('bop', 'Symbol 1', 24, false);
+					crowd1.antialiasing = true;
+					crowd1.scrollFactor.set(0.9, 0.9);
+					crowd1.setGraphicSize(Std.int(crowd1.width * 1.5));
+
+					crowd2 = new FlxSprite(42, -14);
+					crowd2.frames = Paths.getSparrowAtlas('hex/lcd/au_lcd_audience_2', 'shared');
+					crowd2.animation.addByPrefix('bop', 'Symbol 1', 24, false);
+					crowd2.antialiasing = true;
+					crowd2.scrollFactor.set(0.9, 0.9);
+					crowd2.setGraphicSize(Std.int(crowd2.width * 1.5));
+          crowd2.alpha = 0;
+
+					crowd3 = new FlxSprite(42, -14);
+					crowd3.frames = Paths.getSparrowAtlas('hex/lcd/au_lcd_audience_3', 'shared');
+					crowd3.animation.addByPrefix('bop', 'Symbol 1', 24, false);
+					crowd3.antialiasing = true;
+					crowd3.scrollFactor.set(0.9, 0.9);
+					crowd3.setGraphicSize(Std.int(crowd3.width * 1.5));
+          crowd3.alpha = 0;
+        }
+
 			default:
 			{
 					defaultCamZoom = 0.9;
@@ -1198,7 +1338,7 @@ class PlayState extends MusicBeatState
 				gf.x += 180;
 				gf.y += 300;
 
-        case 'hexStageWeekend' | 'hexStageJava':
+        case 'hexStageWeekend' | 'hexStageJava' | 'hexStageLCD':
         gf.x = 248;
         gf.y = -33;
         boyfriend.x = 753;
@@ -1293,6 +1433,34 @@ class PlayState extends MusicBeatState
     }
 
 
+    if (curStage == 'hexStageLCD')
+    {
+     bopOn = 2;
+
+     add(gf);
+     add(dad);
+     add(boyfriend);
+
+     add(gfLCD2);
+     add(gfLCD3);
+     add(hexLCD2);
+     add(hexLCD3);
+     add(boyfriendLCD2);
+     add(boyfriendLCD3);
+
+     gfLCD2.setGraphicSize(Std.int(gfLCD2.width * 0.75));
+     hexLCD2.setGraphicSize(Std.int(hexLCD2.width * 0.75));
+     boyfriendLCD2.setGraphicSize(Std.int(boyfriendLCD2.width * 0.75));
+
+     gfLCD3.setGraphicSize(Std.int(gfLCD3.width * 0.75));
+     hexLCD3.setGraphicSize(Std.int(hexLCD3.width * 0.75));
+     boyfriendLCD3.setGraphicSize(Std.int(boyfriendLCD3.width * 0.75));
+
+    add(crowd1);
+    add(crowd2);
+    add(crowd3);
+    }
+
 		add(dad);
 		add(boyfriend);
 		if (loadRep)
@@ -1341,10 +1509,13 @@ class PlayState extends MusicBeatState
 
 		camFollow = new FlxObject(0, 0, 1, 1);
 
-		if (hexCurWeek == 'weekend')
+		if (hexCurWeek == 'weekend' && curStage != 'hexStageLCD')
       camFollow.setPosition(camPos.x, camPos.y + 160);
        else
       camFollow.setPosition(camPos.x, camPos.y);
+
+		if (curStage == "hexStageLCD")
+			camFollow.setPosition(camPos.x + 135, camPos.y + 15);
 
 		if (prevCamFollow != null)
 		{
@@ -1402,9 +1573,9 @@ class PlayState extends MusicBeatState
 			'health', 0, 2);
 		healthBar.scrollFactor.set();
 		healthBar.createFilledBar(0xFFFF0000, 0xFF66FF33);
-    switch(dad.curCharacter)
+     switch(dad.curCharacter)
     {
-    case 'hex' | 'hex-sunset' | 'hex-night' | 'hex-cooling':
+    case 'hex' | 'hex-sunset' | 'hex-night' | 'hex-cooling' | 'lcdHEX1':
     healthBar.createFilledBar(0xFF51FFFF, 0xFF3078FF);
     case 'hex-unglitched' | 'hex-glitched':
     healthBar.createFilledBar(0xFFFF1D19, 0xFF3078FF);
@@ -4125,6 +4296,87 @@ class PlayState extends MusicBeatState
 
 	var danced:Bool = false;
 
+
+	function lcdSwap(type:Int = 0)
+	{
+		FlxG.camera.flash(FlxColor.WHITE, 0.6);
+
+		switch (type)
+		{
+			case 0:
+				spotlight1.alpha = 1;
+				spotlight2.alpha = 0;
+				spotlight3.alpha = 0;
+				crowd1.alpha = 1;
+				crowd2.alpha = 0;
+				crowd3.alpha = 0;
+				hexBack1.alpha = 1;
+				hexBack2.alpha = 0;
+				hexBack3.alpha = 0;
+				hexFront1.alpha = 1;
+				hexFront2.alpha = 0;
+				hexFront3.alpha = 0;
+
+				hexLCD2.alpha = 0;
+				hexLCD3.alpha = 0;
+				boyfriendLCD2.alpha = 0;
+				boyfriendLCD3.alpha = 0;
+				gfLCD2.alpha = 0;
+				gfLCD3.alpha = 0;
+				dad.alpha = 1;
+				boyfriend.alpha = 1;
+				gf.alpha = 1;
+
+			case 1:
+				spotlight1.alpha = 0;
+				spotlight2.alpha = 1;
+				spotlight3.alpha = 0;
+				crowd1.alpha = 0;
+				crowd2.alpha = 1;
+				crowd3.alpha = 0;
+				hexBack1.alpha = 0;
+				hexBack2.alpha = 1;
+				hexBack3.alpha = 0;
+				hexFront1.alpha = 0;
+				hexFront2.alpha = 1;
+				hexFront3.alpha = 0;
+
+				hexLCD2.alpha = 1;
+				hexLCD3.alpha = 0;
+				boyfriendLCD2.alpha = 1;
+				boyfriendLCD3.alpha = 0;
+				gfLCD2.alpha = 1;
+				gfLCD3.alpha = 0;
+				dad.alpha = 0;
+				boyfriend.alpha = 0;
+				gf.alpha = 0;
+
+			case 2:
+				spotlight1.alpha = 0;
+				spotlight2.alpha = 0;
+				spotlight3.alpha = 1;
+				crowd1.alpha = 0;
+				crowd2.alpha = 0;
+				crowd3.alpha = 1;
+				hexBack1.alpha = 0;
+				hexBack2.alpha = 0;
+				hexBack3.alpha = 1;
+				hexFront1.alpha = 0;
+				hexFront2.alpha = 0;
+				hexFront3.alpha = 1;
+
+				hexLCD2.alpha = 0;
+				hexLCD3.alpha = 1;
+				boyfriendLCD2.alpha = 0;
+				boyfriendLCD3.alpha = 1;
+				gfLCD2.alpha = 0;
+				gfLCD3.alpha = 1;
+				dad.alpha = 0;
+				boyfriend.alpha = 0;
+				gf.alpha = 0;
+		}
+	}
+
 	function hexLightsOff(nigga:Bool = true)
 	{
     trace("FUCKING NIGGERS I HATE NIGGERS");
@@ -4500,6 +4752,39 @@ class PlayState extends MusicBeatState
       {
       crowd.animation.play('bop', true);
       }
+
+
+     case "hexStageLCD":
+    {
+		 if (curBeat % bopOn == 0)
+		  {
+			spotlight1.animation.play('bop', true);
+			spotlight2.animation.play('bop', true);
+			spotlight3.animation.play('bop', true);
+			crowd1.animation.play('bop', true);
+			crowd2.animation.play('bop', true);
+			crowd3.animation.play('bop', true);
+		  }
+
+			switch (curBeat)
+			{
+				case 128:
+					bopOn = 1;
+					lcdSwap(1);
+				case 196:
+					bopOn = 4;
+					lcdSwap(2);
+				case 260:
+					bopOn = 2;
+					lcdSwap(0);
+				case 388:
+					bopOn = 1;
+					lcdSwap(1);
+				case 456:
+					bopOn = 2;
+					lcdSwap(0);
+		  }
+    }
 
 			case "philly":
 				if(FlxG.save.data.distractions){
