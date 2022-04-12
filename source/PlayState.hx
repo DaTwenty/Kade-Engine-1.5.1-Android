@@ -1242,6 +1242,12 @@ class PlayState extends MusicBeatState
         gfVersion = 'gf-cooling-dark';
       case 'gf-detected':
         gfVersion = 'gf-detected';
+      case 'lcdGF1':
+        gfVersion = 'lcdGF1';
+      case 'lcdGF2':
+        gfVersion = 'lcdGF2';
+      case 'lcdGF3':
+        gfVersion = 'lcdGF3';
       default:
 				gfVersion = 'gf';
 		}
@@ -1870,6 +1876,11 @@ class PlayState extends MusicBeatState
 			boyfriend.playAnim('idle');
       if (dark)
       gfCoolingDark.dance();
+		  if (gfLCD2 != null && gfLCD3 != null)
+		{
+			gfLCD2.dance();
+			gfLCD3.dance();
+		}
 
 			var introAssets:Map<String, Array<String>> = new Map<String, Array<String>>();
 			introAssets.set('default', ['ready', "set", "go"]);
@@ -3184,6 +3195,11 @@ class PlayState extends MusicBeatState
             hexCoolingDark.holdTimer = 0;
             if (remixHex != null)
             remixHex.holdTimer = 0;
+            if (hexLCD2 != null && hexLCD3 != null)
+            {
+            hexLCD2.holdTimer = 0;
+            hexLCD3.holdTimer = 0;
+            }
 
 						if (SONG.needsVoices)
 							vocals.volume = 1;
@@ -4608,6 +4624,11 @@ class PlayState extends MusicBeatState
 
 		iconP1.updateHitbox();
 		iconP2.updateHitbox();
+
+		if (curBeat % gfSpeed == 0)
+		{
+			gf.dance();
+		}
 
    if (dark && curBeat % gfSpeed == 0)
    {
