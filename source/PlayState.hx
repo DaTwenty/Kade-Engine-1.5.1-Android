@@ -3905,6 +3905,14 @@ class PlayState extends MusicBeatState
 						remixBoyfriend.playAnim('idle');
           }
  
+  				if (boyfriendLCD2 != null && boyfriendLCD3 != null)
+  				{
+ 					if (boyfriendLCD2.animation.curAnim.name.startsWith('sing') && !boyfriendLCD2.animation.curAnim.name.endsWith('miss'))
+						boyfriendLCD2.playAnim('idle');
+
+ 					if (boyfriendLCD3.animation.curAnim.name.startsWith('sing') && !boyfriendLCD3.animation.curAnim.name.endsWith('miss'))
+						boyfriendLCD3.playAnim('idle');
+         }
        }
 
 				playerStrums.forEach(function(spr:FlxSprite)
@@ -3963,6 +3971,12 @@ class PlayState extends MusicBeatState
           if (remixBoyfriend != null)
           remixBoyfriend.playAnim('singLEFTmiss', true);
 
+          if (boyfriendLCD2 != null && boyfriendLCD3 != null)
+          {
+          boyfriendLCD2.playAnim('singLEFTmiss', true);
+          boyfriendLCD3.playAnim('singLEFTmiss', true);
+          }
+
 				case 1:
 					boyfriend.playAnim('singDOWNmiss', true);
           if (glitched)
@@ -3971,6 +3985,12 @@ class PlayState extends MusicBeatState
           boyfriendCoolingDark.playAnim('singDOWNmiss', true);
           if (remixBoyfriend != null)
           remixBoyfriend.playAnim('singDOWNmiss', true);
+
+          if (boyfriendLCD2 != null && boyfriendLCD3 != null)
+          {
+          boyfriendLCD2.playAnim('singDOWNmiss', true);
+          boyfriendLCD3.playAnim('singDOWNmiss', true);
+          }
 
 				case 2:
 					boyfriend.playAnim('singUPmiss', true);
@@ -3981,6 +4001,12 @@ class PlayState extends MusicBeatState
           if (remixBoyfriend != null)
           remixBoyfriend.playAnim('singUPmiss', true);
 
+          if (boyfriendLCD2 != null && boyfriendLCD3 != null)
+          {
+          boyfriendLCD2.playAnim('singUPmiss', true);
+          boyfriendLCD3.playAnim('singUPmiss', true);
+          }
+
 				case 3:
 					boyfriend.playAnim('singRIGHTmiss', true);
         if (glitched)
@@ -3989,6 +4015,12 @@ class PlayState extends MusicBeatState
           boyfriendCoolingDark.playAnim('singRIGHTmiss', true);
           if (remixBoyfriend != null)
           remixBoyfriend.playAnim('singRIGHTmiss', true);
+
+          if (boyfriendLCD2 != null && boyfriendLCD3 != null)
+          {
+          boyfriendLCD2.playAnim('singRIGHTmiss', true);
+          boyfriendLCD3.playAnim('singRIGHTmiss', true);
+          }
 			}
 
 			#if windows
@@ -4542,6 +4574,18 @@ class PlayState extends MusicBeatState
 			// Dad doesnt interupt his own notes
 			if (SONG.notes[Math.floor(curStep / 16)].mustHitSection && dad.curCharacter != 'gf')
 				dad.dance();
+
+
+    if (dark && !hexCoolingDark.animation.curAnim.name.startsWith('sing') && hexCoolingDark.animation.finished)
+     hexCoolingDark.dance();
+
+    if (hexLCD2 != null && hexLCD3 != null)
+      {
+    if (!hexLCD2.animation.curAnim.name.startsWith('sing') && hexLCD2.animation.finished)
+      hexLCD2.dance();
+    if (!hexLCD3.animation.curAnim.name.startsWith('sing') && hexLCD3.animation.finished)
+      hexLCD3.dance();
+      }
 		}
 		// FlxG.log.add('change bpm' + SONG.notes[Std.int(curStep / 16)].changeBPM);
 		wiggleShit.update(Conductor.crochet);
@@ -4565,14 +4609,18 @@ class PlayState extends MusicBeatState
 		iconP1.updateHitbox();
 		iconP2.updateHitbox();
 
-		if (curBeat % gfSpeed == 0)
-		{
-			gf.dance();
-		}
-
    if (dark && curBeat % gfSpeed == 0)
    {
       gfCoolingDark.dance();
+   }
+
+   if (gfLCD2 != null && gfLCD3 != null) 
+   {
+   if (curBeat % gfSpeed == 0)
+    {
+      gfLCD2.dance();
+      gfLCD3.dance();
+    }
    }
 
 		if (!boyfriend.animation.curAnim.name.startsWith("sing"))
@@ -4593,6 +4641,14 @@ class PlayState extends MusicBeatState
    if (remixBoyfriend != null && !remixBoyfriend.animation.curAnim.name.startsWith("sing"))
    {
     remixBoyfriend.playAnim('idle');
+   }
+
+   if (boyfriendLCD2 != null && boyfriendLCD3 != null)
+   {
+    if (!boyfriendLCD2.animation.curAnim.name.startsWith("sing"))
+    boyfriendLCD2.playAnim('idle');
+    if (!boyfriendLCD3.animation.curAnim.name.startsWith("sing"))
+    boyfriendLCD3.playAnim('idle');
    }
 
 		if (curBeat % 8 == 7 && curSong == 'Bopeebo')
