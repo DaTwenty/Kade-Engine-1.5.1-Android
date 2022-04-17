@@ -191,6 +191,7 @@ class PlayState extends MusicBeatState
   var topDarkOverlay:FlxSprite;
   var darkCrowd:FlxSprite;
   var darkSpotlight:FlxSprite;
+  var darkSpotlight2:FlxSprite;
   // var hexDarkSpotlights:FlxTypedGroup<FlxSprite>;
 // hola bebota *le roba su informacion genetica* //
   var hexRemixBack:FlxSprite;
@@ -942,6 +943,13 @@ class PlayState extends MusicBeatState
               darkSpotlight.alpha = 0;
 							darkSpotlight.blend = BlendMode.ADD;
 
+						darkSpotlight2 = new FlxSprite(0, 0).loadGraphic(Paths.image('hex/weekend/breakSpotlight1', 'shared'));
+							darkSpotlight2.antialiasing = true;
+							darkSpotlight2.scrollFactor.set(0.9, 0.9);
+							darkSpotlight2.setGraphicSize(Std.int(darkSpotlight2.width * 1.5));
+              darkSpotlight2.alpha = 0;
+							darkSpotlight2.blend = BlendMode.ADD;
+
 /*
           hexDarkSpotlights = new FlxTypedGroup<FlxSprite>();
          add(hexDarkSpotlights);
@@ -1395,6 +1403,7 @@ class PlayState extends MusicBeatState
 
      add(gfCoolingDark);
      add(darkSpotlight);
+     add(darkSpotlight2);
      add(hexCoolingDark);
      add(boyfriendCoolingDark);
 
@@ -2796,6 +2805,7 @@ class PlayState extends MusicBeatState
         darkSpotlight.x = dad.x - 25;
 				darkSpotlight.y = -dad.y - 160;
 				FlxTween.tween(darkSpotlight, {alpha: 1}, 0.45);
+ 				FlxTween.tween(darkSpotlight2, {alpha: 0}, 0.45);
        }
        else if (curStage == 'hexStageWeekend')
        {
@@ -2848,15 +2858,16 @@ class PlayState extends MusicBeatState
 
        if (dark && curStage == 'hexStageWeekend')
        {
-        darkSpotlight.x = boyfriend.x - 24;
-				darkSpotlight.y = -boyfriend.y + 140;
-				FlxTween.tween(darkSpotlight, {alpha: 1}, 0.45);
+        darkSpotlight2.x = boyfriend.x - 24;
+				darkSpotlight2.y = -boyfriend.y + 140;
+				FlxTween.tween(darkSpotlight2, {alpha: 1}, 0.45);
+				FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45);
        }
        else if (curStage == 'hexStageWeekend')
        {
-       	if (darkSpotlight.alpha != 0)
+       	if (darkSpotlight2.alpha != 0)
        {
-        FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45);
+        FlxTween.tween(darkSpotlight2, {alpha: 0}, 0.45);
        }
      }
 
@@ -4512,9 +4523,9 @@ class PlayState extends MusicBeatState
 			FlxTween.tween(gf, {alpha: 1});
 			FlxTween.tween(boyfriend, {alpha: 1});
 
-			if (darkSpotlight.alpha != 0)
+			if (darkSpotlight2.alpha != 0)
 			{
-				FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45);
+				FlxTween.tween(darkSpotlight2, {alpha: 0}, 0.45);
 			}
 		}
 	}
