@@ -24,39 +24,42 @@ class StoryMenuState extends MusicBeatState
 	var scoreText:FlxText;
 
 	var weekData:Array<Dynamic> = [
-		['Tutorial'],
-		['Bopeebo', 'Fresh', 'Dad Battle'],
+		//['Tutorial'],
+		/*['Bopeebo', 'Fresh', 'Dad Battle'],
 		['Spookeez', 'South', "Monster"],
 		['Pico', 'Philly Nice', "Blammed"],
 		['Satin Panties', "High", "Milf"],
 		['Cocoa', 'Eggnog', 'Winter Horrorland'],
-		['Senpai', 'Roses', 'Thorns'],
-		['Dunk', 'RAM', 'Hello-World', 'Glitcher']
+		['Senpai', 'Roses', 'Thorns'],*/
+		['Dunk', 'RAM', 'Hello-World', 'Glitcher'],
+		['Cooling', 'Detected']
 	];
 	var curDifficulty:Int = 1;
 
-	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true, true];
+	public static var weekUnlocked:Array<Bool> = [true, true /*true, true, true, true, true, true*/];
 
 	var weekCharacters:Array<Dynamic> = [
-		['', 'bf', 'gf'],
-		['dad', 'bf', 'gf'],
+		//['', 'bf', 'gf'],
+		/*['dad', 'bf', 'gf'],
 		['spooky', 'bf', 'gf'],
 		['pico', 'bf', 'gf'],
 		['mom', 'bf', 'gf'],
 		['parents-christmas', 'bf', 'gf'],
-		['senpai', 'bf', 'gf'],
+		['senpai', 'bf', 'gf'],*/
+		['', 'bf', 'gf'],
 		['', 'bf', 'gf']
 	];
 
 	var weekNames:Array<String> = [
-		"",
+		/*"",
 		"Daddy Dearest",
 		"Spooky Month",
 		"PICO",
 		"MOMMY MUST MURDER",
 		"RED SNOW",
-		"Hating Simulator ft. Moawling",
-		"HEXTRAVAGANZA"
+		"Hating Simulator ft. Moawling",*/
+		"HEXTRAVAGANZA",
+		"WEEKEND"
 	];
 
 	var txtWeekTitle:FlxText;
@@ -107,7 +110,7 @@ class StoryMenuState extends MusicBeatState
 		rankText.screenCenter(X);
 
 		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
-		var yellowBG:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 400, 0xFFF9CF51);
+		var yellowBG:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 400, 0xFF28B7FF);
 
 		grpWeekText = new FlxTypedGroup<MenuItem>();
 		add(grpWeekText);
