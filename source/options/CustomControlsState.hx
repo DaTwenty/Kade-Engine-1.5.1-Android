@@ -56,7 +56,7 @@ class CustomControlsState extends MusicBeatSubstate
 		config = new Config();
 		
 		// bg
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic('assets/images/menuBG.png');
+		var bg:FlxSprite = new FlxSprite(-80).loadGraphic('assets/images/hexControlsBG.png');
 		bg.scrollFactor.x = 0;
 		bg.scrollFactor.y = 0.18;
 		bg.setGraphicSize(Std.int(bg.width * 1.1));
@@ -166,7 +166,7 @@ class CustomControlsState extends MusicBeatSubstate
 		var androidback:Bool = false;
 		#end
 		if (exitbutton.justReleased || androidback){
-			FlxG.switchState(new options.OptionsMenu());
+			FlxG.switchState(new OptionsMenu());
 		}
 		
 		for (touch in FlxG.touches.list){
