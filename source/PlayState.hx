@@ -2807,12 +2807,14 @@ class PlayState extends MusicBeatState
 				FlxTween.tween(darkSpotlight, {alpha: 1}, 0.45);
  				FlxTween.tween(darkSpotlight2, {alpha: 0}, 0.45);
        }
+/* tried taking this off, if doesnt work try other thing
        else if (curStage == 'hexStageWeekend')
        {
        	if (darkSpotlight.alpha != 0)
        {
         FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45);
        }
+*/
      }
 
 				camFollow.setPosition(dad.getMidpoint().x + 150 + offsetX, dad.getMidpoint().y - 100 + offsetY);
@@ -2863,12 +2865,14 @@ class PlayState extends MusicBeatState
 				FlxTween.tween(darkSpotlight2, {alpha: 1}, 0.45);
 				FlxTween.tween(darkSpotlight, {alpha: 0}, 0.45);
        }
+/* tried taking this off
        else if (curStage == 'hexStageWeekend')
        {
        	if (darkSpotlight2.alpha != 0)
        {
         FlxTween.tween(darkSpotlight2, {alpha: 0}, 0.45);
        }
+*/
      }
 
 				camFollow.setPosition(boyfriend.getMidpoint().x - 100 + offsetX, boyfriend.getMidpoint().y - 100 + offsetY);
