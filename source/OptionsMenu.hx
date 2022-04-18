@@ -31,7 +31,7 @@ class OptionsMenu extends MusicBeatState
       ]),*/
 
 		new OptionCategory("Gameplay", [
-			new DFJKOption("controls"),
+			new DFJKOption(controls),
       new CustomControls("edit a control"),
 			new DownscrollOption("Change the layout of the strumline."),
 			new GhostTapOption("Ghost Tapping is when you tap a direction and it doesn't give you a miss."),
