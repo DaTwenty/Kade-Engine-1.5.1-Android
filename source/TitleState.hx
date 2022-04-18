@@ -176,11 +176,11 @@ class TitleState extends MusicBeatState
 		add(scrolled2);
 		scrolled2.velocity.set(0, 20);
 
-		logoBl = new FlxSprite(-150, -100);
+		logoBl = new FlxSprite(270, 350);
 		logoBl.frames = Paths.getSparrowAtlas('logoBumpinHex');
-		logoBl.antialiasing = true;
+		logoBl.setGraphicSize(Std.int(logoBl.width * 0.8));
+		logoBl.antialiasing = FlxG.save.data.antialiasing;
 		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, true);
-		logoBl.animation.play('bump');
 		logoBl.updateHitbox();
 		// logoBl.screenCenter();
 		// logoBl.color = FlxColor.BLACK;
@@ -193,11 +193,12 @@ class TitleState extends MusicBeatState
 		//add(gfDance);*/
 		add(logoBl);
 
-		titleText = new FlxSprite(100, FlxG.height * 0.8);
-		titleText.frames = Paths.getSparrowAtlas('titleEnter');
+		titleText = new FlxSprite(50, FlxG.height * 0.76);
+		titleText.frames = Paths.getSparrowAtlas('Title_EnterHex');
+		titleText.setGraphicSize(Std.int(titleText.width * 0.8));
 		titleText.animation.addByPrefix('idle', "Press Enter to Begin", 24);
 		titleText.animation.addByPrefix('press', "ENTER PRESSED", 24);
-		titleText.antialiasing = true;
+		titleText.antialiasing = FlxG.save.data.antialiasing;
 		titleText.animation.play('idle');
 		titleText.updateHitbox();
 		// titleText.screenCenter(X);
@@ -300,8 +301,6 @@ class TitleState extends MusicBeatState
 
 		if (pressedEnter && !transitioning && skippedIntro)
 		{
-
-
 			if (FlxG.save.data.flashing)
 				titleText.animation.play('press');
 
