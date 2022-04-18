@@ -10,6 +10,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
+import flixel.addons.display.FlxBackdrop;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.app.Application;
@@ -25,6 +26,7 @@ class MainMenuState extends MusicBeatState
 	var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
+  var yeah:FlxBackdrop;
 
 	#if !switch
 	var optionShit:Array<String> = ['story mode', 'freeplay', 'donate', 'options'];
@@ -58,7 +60,7 @@ class MainMenuState extends MusicBeatState
 		}
 
 		persistentUpdate = persistentDraw = true;
-
+/*
 		var bg:FlxSprite = new FlxSprite(-100).loadGraphic(Paths.image('hexMenuBG'));
 		bg.scrollFactor.x = 0;
 		bg.scrollFactor.y = 0.10;
@@ -67,7 +69,14 @@ class MainMenuState extends MusicBeatState
 		bg.screenCenter();
 		bg.antialiasing = true;
 		add(bg);
+*/
 
+		yeah = new FlxBackdrop(Paths.image('main/background', 'hexMenu'), 0, 0, true, true); // backgrounds are the only hardcoded thing sorry :(
+		yeah.setPosition(0, 0);
+		yeah.antialiasing = true;
+		yeah.scrollFactor.set();
+		add(yeah);
+		yeah.velocity.set(20, 0);
 
 		var naranja:FlxSprite = new FlxSprite().loadGraphic(Paths.image('backdrop_float'));
 		naranja.x -= 150;
@@ -184,7 +193,7 @@ class MainMenuState extends MusicBeatState
 			{
 				if (optionShit[curSelected] == 'donate')
 				{
-					fancyOpenURL("https://www.kickstarter.com/projects/funkin/friday-night-funkin-the-full-ass-game");
+					fancyOpenURL("https://gamebanana.com/mods/44225");
 				}
 				else
 				{
