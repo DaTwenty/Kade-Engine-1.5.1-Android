@@ -192,6 +192,7 @@ class TitleState extends MusicBeatState
 		gfDance.antialiasing = true;
 		add(gfDance);
 		add(logoBl);
+  	logoBl.animation.play('logo bumpin');
 
 		titleText = new FlxSprite(50, FlxG.height * 0.76);
 		titleText.frames = Paths.getSparrowAtlas('Title_EnterHex');
@@ -472,7 +473,7 @@ class TitleState extends MusicBeatState
 
 			// It always bugged me that it didn't do this before.
 			// Skip ahead in the song to the drop.
-			FlxG.sound.music.time = 9400; // 9.4 seconds
+			//FlxG.sound.music.time = 9400; // 9.4 seconds
   
 
 			skippedIntro = true;
