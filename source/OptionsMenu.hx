@@ -15,7 +15,6 @@ import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import lime.utils.Assets;
-import flixel.addons.display.FlxBackdrop;
 
 class OptionsMenu extends MusicBeatState
 {
@@ -25,14 +24,8 @@ class OptionsMenu extends MusicBeatState
 	var curSelected:Int = 0;
 
 	var options:Array<OptionCategory> = [
-/*    new optionCategory("Original Mod Credits" [
-     new KadePog("programmer, assistant artist"),
-     new YingYangPog("artist, composer, note charter, UI designer"
-      ]),*/
-
 		new OptionCategory("Gameplay", [
 			new DFJKOption(controls),
-      new CustomControls("edit a control"),
 			new DownscrollOption("Change the layout of the strumline."),
 			new GhostTapOption("Ghost Tapping is when you tap a direction and it doesn't give you a miss."),
 			new Judgement("Customize your Hit Timings (LEFT or RIGHT)"),
@@ -66,7 +59,13 @@ class OptionsMenu extends MusicBeatState
 			new FlashingLightsOption("Toggle flashing lights that can cause epileptic seizures and strain."),
 			new WatermarkOption("Enable and disable all watermarks from the engine."),
 			new BotPlay("Showcase your charts and mods with autoplay.")
+		]),
+
+		new OptionCategory("Mobile settings", [
+			new CustomControls("edit a control"),
+			new About("about android port")
 		])
+		
 	];
 
 	public var acceptInput:Bool = true;
@@ -80,22 +79,15 @@ class OptionsMenu extends MusicBeatState
 	override function create()
 	{
 		instance = this;
+		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image("menuDesat"));
 
-	var yeah = new FlxBackdrop(Paths.image('hexOptionsBG'), 0, 0, true, true); // backgrounds are the only hardcoded thing sorry :(
-		yeah.setPosition(0, 0);
-		yeah.antialiasing = true;
-		yeah.scrollFactor.set();
-		add(yeah);
-		yeah.velocity.set(20, 0);
-/*
-		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image("hexOptionsBG"));
-		//menuBG.color = 0xFFea71fd;
+		menuBG.color = 0xFFea71fd;
 		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
 		menuBG.updateHitbox();
 		menuBG.screenCenter();
 		menuBG.antialiasing = true;
 		add(menuBG);
-*/
+
 		grpControls = new FlxTypedGroup<Alphabet>();
 		add(grpControls);
 
