@@ -68,9 +68,18 @@ class MainMenuState extends MusicBeatState
 		bg.antialiasing = true;
 		add(bg);
 
+
+		var naranja:FlxSprite = new FlxSprite().loadGraphic(Paths.image('backdrop_float'));
+		naranja.x -= 150;
+		naranja.y -= 300;
+		FlxTween.tween(naranja,{"y":-250},4,{type:PINGPONG});
+		naranja.antialiasing = true;
+		add(naranja);
+
     var hexBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('hexInDaMenu'));
-    hexBG.x = 200;
-    hexBG.y
+    hexBG.x -= 40;
+    hexBG.y -= 274.5;
+    // hexBG.y = 270;
     hexBG.antialiasing = true;
     add(hexBG);
 
@@ -98,6 +107,7 @@ class MainMenuState extends MusicBeatState
 		{
 			var menuItem:FlxSprite = new FlxSprite(0, FlxG.height * 1.6);
 			menuItem.frames = tex;
+			menuItem.scale.set(0.7,0.7);
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " basic", 24);
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
 			menuItem.animation.play('idle');
