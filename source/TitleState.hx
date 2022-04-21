@@ -1,5 +1,6 @@
 package;
 
+import flixel.addons.display.FlxBackdrop;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
@@ -52,11 +53,8 @@ class TitleState extends MusicBeatState
 		#if android
 		FlxG.android.preventDefaultKeys = [BACK];
 		#end
-/*
-		#if polymod
-		polymod.Polymod.init({modRoot: "mods", dirs: ['introMod']});
-		#end
-		*/
+
+		
 
 
 		@:privateAccess
@@ -121,8 +119,8 @@ class TitleState extends MusicBeatState
 	}
 
 	var logoBl:FlxSprite;
-	var gfDance:FlxSprite;
-	var danceLeft:Bool = false;
+	// var gfDance:FlxSprite;
+	// var danceLeft:Bool = false;
 	var titleText:FlxSprite;
 
 	function startIntro()
@@ -157,31 +155,52 @@ class TitleState extends MusicBeatState
 		Conductor.changeBPM(102);
 		persistentUpdate = true;
 
-		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
-		// bg.antialiasing = true;
+		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.fromRGB(0, 222, 240));
+		// bg.antialiasing = FlxG.save.data.antialiasing;
 		// bg.setGraphicSize(Std.int(bg.width * 0.6));
 		// bg.updateHitbox();
 		add(bg);
 
-		logoBl = new FlxSprite(-150, -100);
-		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
+		var scrolled = new FlxBackdrop(Paths.image('move_now'), 0, 0, false, true);
+
+		scrolled.setPosition(0, 0);
+		scrolled.antialiasing = true;
+		scrolled.scrollFactor.set();
+		add(scrolled);
+		scrolled.velocity.set(0, 20);
+
+		var scrolled2 = new FlxBackdrop(Paths.image('move_now'), 0, 0, false, true);
+		scrolled2.setPosition(1280 - scrolled2.width, 0);
+		scrolled2.antialiasing = true;
+		scrolled2.scrollFactor.set();
+		add(scrolled2);
+		scrolled2.velocity.set(0, 20);
+
+		logoBl = new FlxSprite(270, 350);
+		logoBl.frames = Paths.getSparrowAtlas('logoBumpinHex');
+		logoBl.setGraphicSize(Std.int(logoBl.width * 0.8));
 		logoBl.antialiasing = true;
-		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
-		logoBl.animation.play('bump');
+		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, true);
+ 	  logoBl.animation.play('bump');
 		logoBl.updateHitbox();
+		add(logoBl);
+
 		// logoBl.screenCenter();
 		// logoBl.color = FlxColor.BLACK;
-
+/*
 		gfDance = new FlxSprite(FlxG.width * 0.4, FlxG.height * 0.07);
 		gfDance.frames = Paths.getSparrowAtlas('gfDanceTitle');
 		gfDance.animation.addByIndices('danceLeft', 'gfDance', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
 		gfDance.animation.addByIndices('danceRight', 'gfDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
 		gfDance.antialiasing = true;
 		add(gfDance);
-		add(logoBl);
+*/
 
-		titleText = new FlxSprite(100, FlxG.height * 0.8);
-		titleText.frames = Paths.getSparrowAtlas('titleEnter');
+
+
+		titleText = new FlxSprite(50, FlxG.height * 0.76);
+		titleText.frames = Paths.getSparrowAtlas('Title_EnterHex');
+		titleText.setGraphicSize(Std.int(titleText.width * 0.8));
 		titleText.animation.addByPrefix('idle', "Press Enter to Begin", 24);
 		titleText.animation.addByPrefix('press', "ENTER PRESSED", 24);
 		titleText.antialiasing = true;
@@ -287,8 +306,6 @@ class TitleState extends MusicBeatState
 
 		if (pressedEnter && !transitioning && skippedIntro)
 		{
-
-
 			if (FlxG.save.data.flashing)
 				titleText.animation.play('press');
 
@@ -377,12 +394,12 @@ class TitleState extends MusicBeatState
 		super.beatHit();
 
 		logoBl.animation.play('bump');
-		danceLeft = !danceLeft;
+		//danceLeft = !danceLeft;
 
-		if (danceLeft)
+		/* if (danceLeft)
 			gfDance.animation.play('danceRight');
 		else
-			gfDance.animation.play('danceLeft');
+			gfDance.animation.play('danceLeft'); */
 
 		FlxG.log.add(curBeat);
 
@@ -456,6 +473,19 @@ class TitleState extends MusicBeatState
 
 			FlxG.camera.flash(FlxColor.WHITE, 4);
 			remove(credGroup);
+
+			FlxTween.tween(logoBl, {y: 85}, 1.4, {ease: FlxEase.expoInOut});
+
+			logoBl.angle = -4;
+
+			new FlxTimer().start(0.01, function(tmr:FlxTimer)
+			{
+				if (logoBl.angle == -4)
+					FlxTween.angle(logoBl, logoBl.angle, 4, 4, {ease: FlxEase.quartInOut});
+				if (logoBl.angle == 4)
+					FlxTween.angle(logoBl, logoBl.angle, -4, 4, {ease: FlxEase.quartInOut});
+			}, 0);
+
 			skippedIntro = true;
 		}
 	}
