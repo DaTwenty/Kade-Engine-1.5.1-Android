@@ -1,6 +1,6 @@
 package;
 
-import flixel.addons.display.FlxBackdrop
+import flixel.addons.display.FlxBackdrop;
 import Controls.KeyboardScheme;
 import flixel.FlxG;
 import flixel.FlxObject;
