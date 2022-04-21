@@ -1,5 +1,6 @@
 package;
 
+import flixel.addons.display.FlxBackdrop;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import openfl.Lib;
@@ -22,6 +23,7 @@ class OptionsMenu extends MusicBeatState
 
 	var selector:FlxText;
 	var curSelected:Int = 0;
+	var yeah:FlxBackdrop;
 
 	var options:Array<OptionCategory> = [
 		new OptionCategory("Gameplay", [
@@ -74,13 +76,13 @@ class OptionsMenu extends MusicBeatState
 	override function create()
 	{
 		instance = this;
-		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image("hexOptionsBG"));
-		//menuBG.color = 0xFFea71fd;
-		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
-		menuBG.updateHitbox();
-		menuBG.screenCenter();
-		menuBG.antialiasing = true;
-		add(menuBG);
+
+		yeah = new FlxBackdrop(Paths.image('hexOptionsBG'), 0, 0, true, true);
+		yeah.setPosition(0, 0);
+		yeah.antialiasing = true;
+		yeah.scrollFactor.set();
+		add(yeah);
+		yeah.velocity.set(20, 0);
 
 		grpControls = new FlxTypedGroup<Alphabet>();
 		add(grpControls);
