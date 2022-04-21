@@ -1,5 +1,6 @@
 package;
 
+import flixel.addons.display.FlxBackdrop;
 import flash.text.TextField;
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -24,6 +25,8 @@ class FreeplayState extends MusicBeatState
 	var selector:FlxText;
 	var curSelected:Int = 0;
 	var curDifficulty:Int = 1;
+
+	var yeah:FlxBackdrop;
 
 	var scoreText:FlxText;
 	var diffText:FlxText;
@@ -65,12 +68,14 @@ class FreeplayState extends MusicBeatState
 		#end
 
 		// LOAD MUSIC
-
 		// LOAD CHARACTERS
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('hexFreeplayBG'));
-//    bg.color = 0xFF00D7DA;
-		add(bg);
+		yeah = new FlxBackdrop(Paths.image('hexFreeplayBG'), 0, 0, true, true);
+		yeah.setPosition(0, 0);
+		yeah.antialiasing = true;
+		yeah.scrollFactor.set();
+		add(yeah);
+		yeah.velocity.set(20, 0);
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
