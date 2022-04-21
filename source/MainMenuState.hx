@@ -1,5 +1,6 @@
 package;
 
+import flixel.addons.display.FlxBackdrop
 import Controls.KeyboardScheme;
 import flixel.FlxG;
 import flixel.FlxObject;
@@ -23,6 +24,8 @@ using StringTools;
 class MainMenuState extends MusicBeatState
 {
 	var curSelected:Int = 0;
+
+	var yeah:FlxBackdrop;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 
@@ -59,15 +62,12 @@ class MainMenuState extends MusicBeatState
 
 		persistentUpdate = persistentDraw = true;
 
-		var bg:FlxSprite = new FlxSprite(-100).loadGraphic(Paths.image('hexMenuBG'));
-		bg.scrollFactor.x = 0;
-		bg.scrollFactor.y = 0.10;
-		bg.setGraphicSize(Std.int(bg.width * 1.1));
-		bg.updateHitbox();
-		bg.screenCenter();
-		bg.antialiasing = true;
-		add(bg);
-
+		yeah = new FlxBackdrop(Paths.image('hexMenuBG'), 0, 0, true, true);
+		yeah.setPosition(0, 0);
+		yeah.antialiasing = true;
+		yeah.scrollFactor.set();
+		add(yeah);
+		yeah.velocity.set(20, 0);
 
 		var naranja:FlxSprite = new FlxSprite().loadGraphic(Paths.image('backdrop_float'));
 		naranja.x -= 150;
