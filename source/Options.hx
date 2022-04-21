@@ -154,6 +154,95 @@ class About extends Option
 	}
 
 }
+
+class TwentyEsclavo extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+	public override function press():Bool
+	{
+		#if linux
+		Sys.command('/usr/bin/xdg-open', ["https://youtube.com/channel/UCMmHu19wF-y25GP2yGImLzQ", "&"]);
+		#else
+		FlxG.openURL('https://youtube.com/channel/UCMmHu19wF-y25GP2yGImLzQ');
+		#end
+		return true;
+	}
+	private override function updateDisplay():String
+	{
+		return "Twenty";
+	}
+}
+
+
+class DanyNoob extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+	public override function press():Bool
+	{
+		#if linux
+		Sys.command('/usr/bin/xdg-open', ["https://youtube.com/channel/UCWLIOMMgujibN1RaRpWZqZQ", "&"]);
+		#else
+		FlxG.openURL('https://youtube.com/channel/UCWLIOMMgujibN1RaRpWZqZQ');
+		#end
+		return true;
+	}
+	private override function updateDisplay():String
+	{
+		return "danypro";
+	}
+}
+
+class Angel extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+	public override function press():Bool
+	{
+		#if linux
+		Sys.command('/usr/bin/xdg-open', ["hhttps://youtube.com/channel/UCubHMCfNmtO3xuqUclt3FmA", "&"]);
+		#else
+		FlxG.openURL('https://youtube.com/channel/UCubHMCfNmtO3xuqUclt3FmA');
+		#end
+		return true;
+	}
+	private override function updateDisplay():String
+	{
+		return "angel";
+	}
+}
+
+
+class MiddleScroll extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+	public override function press():Bool
+	{
+		FlxG.save.data.middle = !FlxG.save.data.middle;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "MiddleScroll " + (!FlxG.save.data.middle ? "off" : "on");
+	}
+}
+
 class DownscrollOption extends Option
 {
 	public function new(desc:String)
@@ -172,6 +261,47 @@ class DownscrollOption extends Option
 	private override function updateDisplay():String
 	{
 		return FlxG.save.data.downscroll ? "Downscroll" : "Upscroll";
+	}
+}
+
+
+class Hitsound extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+	public override function press():Bool
+	{
+		FlxG.save.data.hitsounds = !FlxG.save.data.hitsounds;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "hitsound " + (!FlxG.save.data.hitsounds ? "off" : "on");
+	}
+}
+
+class MissSounds extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+	public override function press():Bool
+	{
+		FlxG.save.data.missSounds = !FlxG.save.data.missSounds;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Miss Sounds " + (!FlxG.save.data.missSounds ? "off" : "on");
 	}
 }
 

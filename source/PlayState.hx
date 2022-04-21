@@ -239,9 +239,8 @@ class PlayState extends MusicBeatState
   public static var hexCurWeek:String = '';
   public static var curMod:String = '';
 	public var doMoveArrows = false;
-
 	public var bopOn:Int = 2;
- 
+  var hitsound:FlxSound;
 
 	var fc:Bool = true;
 
@@ -301,7 +300,9 @@ class PlayState extends MusicBeatState
 		
 		if (FlxG.save.data.fpsCap > 290)
 			(cast (Lib.current.getChildAt(0), Main)).setFPSCap(800);
-		
+
+    hitsound = FlxG.sound.load(Paths.sound('hitsound'));
+
 		if (FlxG.sound.music != null)
 			FlxG.sound.music.stop();
 
@@ -2358,7 +2359,16 @@ class PlayState extends MusicBeatState
 			babyArrow.animation.play('static');
 			babyArrow.x += 50;
 			babyArrow.x += ((FlxG.width / 2) * player);
-			
+
+			if (FlxG.save.data.middle)
+      {
+				babyArrow.x -= 275;
+				if (player != 1)
+        {
+          babyArrow.visible = false;
+        } 
+      }
+
 			cpuStrums.forEach(function(spr:FlxSprite)
 			{					
 				spr.centerOffsets(); //CPU arrows start out slightly off-center
@@ -3783,7 +3793,12 @@ class PlayState extends MusicBeatState
 				if (pressArray.contains(true) && /*!boyfriend.stunned && */ generatedMusic)
 				{
 					boyfriend.holdTimer = 0;
-		 
+
+          if (FlxG.save.data.hitsounds)
+          {
+          hitsound.play(true);
+          }
+
 					var possibleNotes:Array<Note> = []; // notes that can be hit
 					var directionList:Array<Int> = []; // directions that can be hit
 					var dumbNotes:Array<Note> = []; // notes to kill later
@@ -3983,9 +3998,10 @@ class PlayState extends MusicBeatState
 
 			songScore -= 10;
 
+			if(FlxG.save.data.missSounds)
+			{
 			FlxG.sound.play(Paths.soundRandom('missnote', 1, 3), FlxG.random.float(0.1, 0.2));
-			// FlxG.sound.play(Paths.sound('missnote1'), 1, false);
-			// FlxG.log.add('played imss note');
+			}
 
 //sexo 2
 			switch (direction)
