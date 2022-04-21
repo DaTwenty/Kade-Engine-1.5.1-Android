@@ -57,7 +57,7 @@ class MainMenuState extends MusicBeatState
 
 		if (!FlxG.sound.music.playing)
 		{
-			FlxG.sound.playMusic(Paths.music('freakyMenu'));
+			FlxG.sound.playMusic(Paths.music('freakyMenuHex'));
 		}
 
 		persistentUpdate = persistentDraw = true;
@@ -184,7 +184,7 @@ class MainMenuState extends MusicBeatState
 			{
 				if (optionShit[curSelected] == 'donate')
 				{
-					fancyOpenURL("https://www.kickstarter.com/projects/funkin/friday-night-funkin-the-full-ass-game");
+					fancyOpenURL("https://gamebanana.com/mods/44225");
 				}
 				else
 				{
