@@ -1611,6 +1611,11 @@ class PlayState extends MusicBeatState
 		if (FlxG.save.data.downscroll)
 			kadeEngineWatermark.y = FlxG.height * 0.9 + 45;
 
+		var creditTxt:FlxText = new FlxText(50, 50, ("KE-HEX v1 (PORT BY TWENTY AND DANYPRO08)"), 20);
+		creditTxt.scrollFactor.set();
+		creditTxt.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		add(creditTxt);
+
 		scoreTxt = new FlxText(FlxG.width / 2 - 235, healthBarBG.y + 50, 0, "", 20);
 		if (!FlxG.save.data.accuracyDisplay)
 			scoreTxt.x = healthBarBG.x + healthBarBG.width / 2;
@@ -1657,6 +1662,7 @@ class PlayState extends MusicBeatState
 			songPosBar.cameras = [camHUD];
 		}
 		kadeEngineWatermark.cameras = [camHUD];
+    creditTxt.cameras = [camHUD];
 		if (loadRep)
 			replayTxt.cameras = [camHUD];
 
