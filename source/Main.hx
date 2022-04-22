@@ -78,6 +78,7 @@ class Main extends Sprite
 		#end
 
 		#if mobile
+    framerate = 60;
 		gameWidth = 1280;
 		gameHeight = 720;
 		zoom = 1;
