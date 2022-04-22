@@ -11,6 +11,15 @@ class KadeEngineData
 		if (FlxG.save.data.downscroll == null)
 			FlxG.save.data.downscroll = false;
 
+		if (FlxG.save.data.middle == null)
+			FlxG.save.data.middle = false;
+
+		if (FlxG.save.data.hitsounds == null)
+			FlxG.save.data.hitsounds = false;
+
+		if (FlxG.save.data.missSounds == null)
+			FlxG.save.data.missSounds = true;
+
 		if (FlxG.save.data.dfjk == null)
 			FlxG.save.data.dfjk = false;
 			
