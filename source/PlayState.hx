@@ -1610,11 +1610,18 @@ class PlayState extends MusicBeatState
 
 		if (FlxG.save.data.downscroll)
 			kadeEngineWatermark.y = FlxG.height * 0.9 + 45;
-
+/*
 		var creditTxt:FlxText = new FlxText(50, 50, ("KE-HEX v1 (PORT BY TWENTY AND DANYPRO08)"), 20);
 		creditTxt.scrollFactor.set();
 		creditTxt.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(creditTxt);
+*/
+        var creditTxt:FlxText = new FlxText(10, 25, ("KE-HEX v2 \nPort by Twenty, Ang3l =) & DanyPro08 \nsexo"), 20);
+        creditTxt.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        creditTxt.scrollFactor.set();
+        creditTxt.borderSize = 2;
+        creditTxt.borderQuality = 2;
+        add(creditTxt);
 
 		scoreTxt = new FlxText(FlxG.width / 2 - 235, healthBarBG.y + 50, 0, "", 20);
 		if (!FlxG.save.data.accuracyDisplay)
