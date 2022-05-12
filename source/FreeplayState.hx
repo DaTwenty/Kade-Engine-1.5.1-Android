@@ -259,7 +259,38 @@ class FreeplayState extends MusicBeatState
 		
 		#if !switch
 		intendedScore = Highscore.getScore(songHighscore, curDifficulty);
+		//intendedRating = Highscore.getRating(songs[curSelected].songName, curDifficulty);
 		#end
+
+		if (songs[curSelected].songName.toLowerCase() == 'cooling') 
+		{
+			curDifficulty = 3;
+		}
+
+		if (songs[curSelected].songName.toLowerCase() == 'detected') 
+		{
+			curDifficulty = 3;
+		}
+
+		if (songs[curSelected].songName.toLowerCase() == 'glitcher-remix') 
+		{
+			curDifficulty = 3;
+		}
+
+		if (songs[curSelected].songName.toLowerCase() == 'java') 
+		{
+			curDifficulty = 3;
+		}
+
+		if (songs[curSelected].songName.toLowerCase() == 'lcd') 
+		{
+			curDifficulty = 3;
+		}
+
+		if (songs[curSelected].songName.toLowerCase() == 'test') 
+		{
+			curDifficulty = 4;
+		}
 
 		switch (curDifficulty)
 		{
@@ -269,16 +300,18 @@ class FreeplayState extends MusicBeatState
 				diffText.text = 'NORMAL';
 			case 2:
 				diffText.text = "HARD";
+			case 3:
+				diffText.text = "FUNKY";
+			case 4:
+				diffText.text = "TEST";	
 		}
+
+		PlayState.storyDifficulty = curDifficulty;
+		diffText.text = CoolUtil.difficultyFromInt(curDifficulty);
 	}
 
 	function changeSelection(change:Int = 0)
 	{
-		#if !switch
-		// NGio.logEvent('Fresh');
-		#end
-
-		// NGio.logEvent('Fresh');
 		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 
 		curSelected += change;
@@ -329,6 +362,7 @@ class FreeplayState extends MusicBeatState
 				item.alpha = 1;
 				// item.setGraphicSize(Std.int(item.width));
 			}
+			changeDiff();
 		}
 	}
 }

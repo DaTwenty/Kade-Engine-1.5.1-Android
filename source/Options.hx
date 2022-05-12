@@ -196,11 +196,11 @@ class DanyNoob extends Option
 	}
 	private override function updateDisplay():String
 	{
-		return "danypro";
+		return "DanyPro";
 	}
 }
 
-class Angel extends Option
+class Angelgay extends Option
 {
 	public function new(desc:String)
 	{
@@ -218,7 +218,7 @@ class Angel extends Option
 	}
 	private override function updateDisplay():String
 	{
-		return "angel";
+		return "Angel";
 	}
 }
 
@@ -240,6 +240,46 @@ class MiddleScroll extends Option
 	private override function updateDisplay():String
 	{
 		return "MiddleScroll " + (!FlxG.save.data.middle ? "off" : "on");
+	}
+}
+class LaneUnderlayXD extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.save.data.laneUnderlay = !FlxG.save.data.laneUnderlay;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return 'Lane Transparceny ' + (FlxG.save.data.laneUnderlay ? "on" : "off");
+	}
+}
+class JudgementCounter extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.save.data.judgementCounter = !FlxG.save.data.judgementCounter;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "Judgement Counter: < " + (FlxG.save.data.judgementCounter ? "Enabled" : "Disabled") + " >";
 	}
 }
 
@@ -521,37 +561,38 @@ class FPSCapOption extends Option
 
 	private override function updateDisplay():String
 	{
-		return "FPS Cap";
+		return "FPS Cap: < " + FlxG.save.data.fpsCap + " >";
 	}
-	
-	override function right():Bool {
-		if (FlxG.save.data.fpsCap >= 290)
+
+	override function right():Bool
+	{
+		if (FlxG.save.data.fpsCap >= 150)
 		{
-			FlxG.save.data.fpsCap = 290;
-			(cast (Lib.current.getChildAt(0), Main)).setFPSCap(290);
+			FlxG.save.data.fpsCap = 150;
+			(cast(Lib.current.getChildAt(0), Main)).setFPSCap(150);
 		}
 		else
 			FlxG.save.data.fpsCap = FlxG.save.data.fpsCap + 10;
-		(cast (Lib.current.getChildAt(0), Main)).setFPSCap(FlxG.save.data.fpsCap);
+		(cast(Lib.current.getChildAt(0), Main)).setFPSCap(FlxG.save.data.fpsCap);
 
 		return true;
 	}
 
-	override function left():Bool {
-		if (FlxG.save.data.fpsCap > 290)
-			FlxG.save.data.fpsCap = 290;
-		else if (FlxG.save.data.fpsCap < 60)
+	override function left():Bool
+	{
+		if (FlxG.save.data.fpsCap > 150)
+			FlxG.save.data.fpsCap = 150;
+		else if (FlxG.save.data.fpsCap < 150)
 			FlxG.save.data.fpsCap = Application.current.window.displayMode.refreshRate;
 		else
 			FlxG.save.data.fpsCap = FlxG.save.data.fpsCap - 10;
-		(cast (Lib.current.getChildAt(0), Main)).setFPSCap(FlxG.save.data.fpsCap);
+				(cast(Lib.current.getChildAt(0), Main)).setFPSCap(FlxG.save.data.fpsCap);
 		return true;
 	}
 
 	override function getValue():String
 	{
-		return "Current FPS Cap: " + FlxG.save.data.fpsCap + 
-		(FlxG.save.data.fpsCap == Application.current.window.displayMode.refreshRate ? "Hz (Refresh Rate)" : "");
+		return updateDisplay();
 	}
 }
 
