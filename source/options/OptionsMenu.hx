@@ -29,35 +29,40 @@ class OptionsMenu extends MusicBeatState
 		new OptionCategory("Port Credits", [
     new TwentyEsclavo("i literally did all the shit just credit me man im suffering i cant take it anymore"),
     new DanyNoob("why the fuck im crediting him"),
-    new Angel("tested stuff")
+    new Angelgay("tested stuff and added details and bugfix some things")
     ]), 
 
 		new OptionCategory("Gameplay", [
 			new DFJKOption(controls),
-      new CustomControls("edit a control"),
+            new CustomControls("edit a mobile controls"),
 			new DownscrollOption("Change the layout of the strumline."),
-      new MiddleScroll("Toggle the position of the strumline"),
-      new Hitsound("Toggle hitsounds when you press a note"),
-      new MissSounds("Toggle miss sounds when you miss a note"),
+			new AccuracyOption("Display accuracy information."),
 			new GhostTapOption("Ghost Tapping is when you tap a direction and it doesn't give you a miss."),
 			new Judgement("Customize your Hit Timings (LEFT or RIGHT)"),
+			new FPSCapOption("FPS"),
 			// new ScrollSpeedOption("Change your scroll speed (1 = Chart dependent)"),
 			new AccuracyDOption("Change how accuracy is calculated. (Accurate = Simple, Complex = Milisecond Based)"),
 			new ResetButtonOption("Toggle pressing R to gameover."),
-			 new BotPlay("Showcase your charts and mods with autoplay.")
+			new BotPlay("Showcase your charts and mods with autoplay.")
 			// new OffsetMenu("Get a note offset based off of your inputs!"),
 			// new CustomizeGameplay("Drag'n'Drop Gameplay Modules around to your preference")
 		]),
 		new OptionCategory("Appearance", [
-			new FPSOption("Toggle the FPS Counter"),
+			new JudgementCounter("Show your judgements that you've gotten in the song"),
+			new MiddleScroll("Toggle the position of the strumline"),
+			new LaneUnderlayXD("Draw a transparent black line around the arrows"),
+			new Hitsound("Toggle hitsounds when you press a note"),
 			new RainbowFPSOption("Make the FPS Counter Rainbow"),
-			new AccuracyOption("Display accuracy information."),
 			new NPSDisplayOption("Shows your current Notes Per Second."),
 			new SongPositionOption("Show the songs current position (as a bar)"),
-			new CpuStrums("CPU's strumline lights up when a note hits it."),
+			new DistractionsAndEffectsOption("Toggle stage distractions that can hinder your gameplay.")
+		]),
+		new OptionCategory("Misc", [
+			new FPSOption("Toggle the FPS Counter"),
 			new FlashingLightsOption("Toggle flashing lights that can cause epileptic seizures and strain."),
-			new DistractionsAndEffectsOption("Toggle stage distractions that can hinder your gameplay."),
-			new WatermarkOption("Enable and disable all watermarks from the engine.")
+			new WatermarkOption("Enable and disable all watermarks from the engine."),
+			//new ScoreScreen("Show the score screen after the end of a song"),
+			new MissSounds("Toggle miss sounds when you miss a note")
 		])
 		
 	];
