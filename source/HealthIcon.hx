@@ -101,6 +101,18 @@ class HealthIcon extends FlxSprite
 				loadGraphic(Paths.image('icons/icon-hexGlicherV2','preload'), true, 150, 150);
 				animation.add('hex-glitched-remix', [0, 1], 0, false, isPlayer);	
 
+			case 'lcdHEX1':
+				loadGraphic(Paths.image('icons/icon-hex','preload'), true, 150, 150);
+				animation.add('lcdHEX1', [0, 1], 0, false, isPlayer);
+
+			case 'lcdHEX2':
+				loadGraphic(Paths.image('icons/icon-hex','preload'), true, 150, 150);
+				animation.add('lcdHEX2', [0, 1], 0, false, isPlayer);
+
+			case 'lcdHEX3':
+				loadGraphic(Paths.image('icons/icon-hex','preload'), true, 150, 150);
+				animation.add('lcdHEX3', [0, 1], 0, false, isPlayer);
+
 			default:
 				loadGraphic(Paths.image('iconGrid'), true, 150, 150);
 
