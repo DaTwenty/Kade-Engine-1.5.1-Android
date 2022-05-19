@@ -314,7 +314,6 @@ class TitleState extends MusicBeatState
 
 			MainMenuState.firstStart = true;
 			// FlxG.sound.play(Paths.music('titleShoot'), 0.7);
-		}
 
 			new FlxTimer().start(2, function(tmr:FlxTimer)
 			{
